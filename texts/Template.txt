@@ -1,0 +1,10 @@
+Template:
+
+Title and category (Vorspeise / Hauptgericht / Dessert / Beilage / Suppe / etc.)
+Short Stimmungstext (mood / inspirational intro)
+Basket photo (ingredients laid out)
+Ingredient list with quantities — and a rough idea of where each item sits in the basket photo (top-left, center, etc.), or I can ask after I see the photo
+Cooking steps, each with: short description, time and tools needed, photo, any warnings
+Finished dish photo
+Sources (books, URLs, chef names)
+Notes, tricks, trivia

@@ -1,0 +1,141 @@
+{
+  "id": "recipe-003",
+  "category": "main",
+  "servings": { "de": "für 2 Personen", "en": "", "fr": "", "it": "" },
+
+  "title": {
+    "de": "Non-Steak non-Frites",
+    "en": "", "fr": "", "it": ""
+  },
+
+  "subtitle": {
+    "de": "Blumenkohl-Steak mit Béarnaise, Bratkartoffeln und Kräuterkrümel",
+    "en": "", "fr": "", "it": ""
+  },
+
+  "mood": {
+    "de": [
+      "Der Name dieses Gerichtes ist aus Erinnerungen an meine Zeit als Pendler zwischen Zürich und der Pariser Industrie-Banlieue entstanden.",
+      "Oft, auf der Suche nach einem Café, wo man rasch irgendetwas — zum Beispiel Steak-Frites „pour pas cher“ — verzehren konnte, packte mich damals ab und zu ein wenig Heimweh und Sehnsucht nach meiner Familie. Vor allem dann, wenn preisgünstig und rasch auch entsprechende Qualität mit sich brachte: das Fleisch halb verkohlt und halb roh, die Pommes schwer, salzig und in dubiosem Öl frittiert, die Hollandaise vermutlich aus einem Chemieunternehmen — aber schnell und günstig wars.",
+      "Jahre später bin ich immer noch für „rapide et pas cher“, aber ich will Non-Steak aus Blumenkohl und Non-Frites aus nicht frittierten Kartoffeln. Sogar die Sosse ist eine Non-Hollandaise: es ist eine Béarnaise — und die mache ich natürlich frisch."
+    ],
+    "en": [], "fr": [], "it": []
+  },
+
+  "basket": {
+    "image": "../assets/photos/recipe-003/basket.jpeg",
+    "alt": {
+      "de": "Zutaten für Blumenkohlsteak, Béarnaise, Bratkartoffeln und Kräuterkrümel: Sauvignon Blanc, Apfelessig, Kressi, Olivenöl, Blumenkohl, Butter, Ei, Schalotte, Kartoffeln, Panko, Za'atar, frische Kräuter (Estragon, Thymian, Petersilie), Salz, Pfeffer",
+      "en": "", "fr": "", "it": ""
+    },
+    "_note": "TODO: Connector-Koordinaten eintragen.",
+    "connectors": {}
+  },
+
+  "ingredients": {
+    "groups": [
+      {
+        "name": { "de": "Für das Non-Steak", "en": "", "fr": "", "it": "" },
+        "items": [
+          { "id": "blumenkohl", "ref": "blumenkohl", "qty": "1 klein", "name": { "de": "Blumenkohl", "en": "", "fr": "", "it": "" } },
+          { "id": "olivenoel-steak", "ref": "olivenoel", "qty": "1 EL", "name": { "de": "Olivenöl (zum Braten)", "en": "", "fr": "", "it": "" } }
+        ]
+      },
+      {
+        "name": { "de": "Für die Kräuterkrümel", "en": "", "fr": "", "it": "" },
+        "items": [
+          { "id": "butter-kruemel", "ref": "butter", "qty": "1 EL", "name": { "de": "Butter", "en": "", "fr": "", "it": "" } },
+          { "id": "panko", "ref": "panko", "qty": "15 g", "name": { "de": "Panko (Semmelbrösel)", "en": "", "fr": "", "it": "" } },
+          { "id": "kraeuter-kruemel", "ref": "kraeuter", "qty": "10 g", "name": { "de": "Kräuter (Thymian, Petersilie)", "en": "", "fr": "", "it": "" } }
+        ]
+      },
+      {
+        "name": { "de": "Für die Non-Frites", "en": "", "fr": "", "it": "" },
+        "items": [
+          { "id": "kartoffeln", "ref": "kartoffeln", "qty": "3 mittel (≈ 300 g)", "name": { "de": "festkochende Kartoffeln", "en": "", "fr": "", "it": "" } },
+          { "id": "zaatar", "ref": "zaatar", "qty": "1 Prise", "name": { "de": "Za'atar", "en": "", "fr": "", "it": "" } },
+          { "id": "butter-kartoffeln", "ref": "butter", "qty": "1 EL", "name": { "de": "Butter oder Ghee (zum Braten)", "en": "", "fr": "", "it": "" } }
+        ]
+      },
+      {
+        "name": { "de": "Für die Béarnaise", "en": "", "fr": "", "it": "" },
+        "items": [
+          { "id": "eigelb", "ref": "ei", "qty": "1", "name": { "de": "Eigelb", "en": "", "fr": "", "it": "" } },
+          { "id": "butter-bearnaise", "ref": "butter", "qty": "30 g", "name": { "de": "Butter", "en": "", "fr": "", "it": "" } },
+          { "id": "schalotte", "ref": "schalotte", "qty": "1 klein", "name": { "de": "Schalotte", "en": "", "fr": "", "it": "" } },
+          { "id": "estragon", "ref": "estragon", "qty": "ein paar Blätter", "name": { "de": "Estragon", "en": "", "fr": "", "it": "" } },
+          { "id": "essig", "ref": "kressi", "qty": "1 EL", "name": { "de": "Kräuteressig (z. B. Kressi)", "en": "", "fr": "", "it": "" } },
+          { "id": "weisswein", "ref": "weisswein", "qty": "2 EL", "name": { "de": "Weisswein", "en": "", "fr": "", "it": "" } }
+        ]
+      }
+    ]
+  },
+
+  "methods": [
+    {
+      "name": { "de": "Non-Steak", "en": "", "fr": "", "it": "" },
+      "steps": [
+        { "id": "ns1", "time": null, "tools": ["scharfes Messer"], "text": { "de": "Aus dem Blumenkohl zwei Scheiben (1–2 cm dick) durch den Strunk schneiden, leicht einölen und mit Salz und Pfeffer würzen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Durch den Strunk schneiden — sonst zerfallen die Scheiben.", "en": "", "fr": "", "it": "" } },
+        { "id": "ns2", "time": null, "tools": ["Bratpfanne"], "text": { "de": "Mit etwas Olivenöl in einer Bratpfanne goldig braten.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } }
+      ]
+    },
+    {
+      "name": { "de": "Kräuterkrümel", "en": "", "fr": "", "it": "" },
+      "steps": [
+        { "id": "kk1", "time": null, "tools": ["Wiegemesser oder Messer"], "text": { "de": "Die Kräuter waschen, trocknen und fein hacken.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "kk2", "time": "ein paar Min.", "tools": ["kleine Pfanne"], "text": { "de": "Etwas Butter in einem Pfännchen schmelzen, das Panko dazugeben und auf kleiner Flamme ein paar Minuten anrösten.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Das Panko verbrennt schnell — nicht aus den Augen lassen.", "en": "", "fr": "", "it": "" } },
+        { "id": "kk3", "time": "1–2 min", "tools": [], "text": { "de": "Die Kräuter einrühren und 1–2 Minuten weiterbraten.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } }
+      ]
+    },
+    {
+      "name": { "de": "Bratkartoffeln", "en": "", "fr": "", "it": "" },
+      "steps": [
+        { "id": "bk1", "time": null, "tools": ["Sparschäler", "Messer"], "text": { "de": "Die Kartoffeln schälen und in Würfel schneiden.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "bk2", "time": "10 min", "tools": ["Topf", "Sieb"], "text": { "de": "10 Minuten in Salzwasser kochen, dann abgiessen. Ein paar Minuten stehen lassen, damit sie abtropfen und etwas trocknen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Das Trocknen ist wichtig — sonst werden sie in der Pfanne nicht knusprig.", "en": "", "fr": "", "it": "" } },
+        { "id": "bk3", "time": "5–10 min", "tools": ["Bratpfanne"], "text": { "de": "Die Butter (oder Ghee) in einer Bratpfanne erhitzen und die Kartoffelwürfel bei mittlerer Hitze goldbraun anbraten.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "bk4", "time": "1 min", "tools": [], "text": { "de": "Zum Schluss Za'atar, Salz und Pfeffer darüberstreuen und eine Minute weiterbraten.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } }
+      ]
+    },
+    {
+      "name": { "de": "Béarnaise", "en": "", "fr": "", "it": "" },
+      "steps": [
+        { "id": "be1", "time": null, "tools": ["kleiner Topf"], "text": { "de": "Die Butter schmelzen, den Schaum an der Oberfläche entfernen und die klare Butter vorsichtig umgiessen — die weisse Flüssigkeit am Boden bleibt zurück (geklärte Butter).", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "be2", "time": null, "tools": ["Messer"], "text": { "de": "Schalotte und Estragon fein hacken.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "be3", "time": null, "tools": ["kleine Pfanne"], "text": { "de": "Weisswein und Essig mit Schalotte und Estragon in eine kleine Pfanne geben.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "be4", "time": "≈ 5 min", "tools": [], "text": { "de": "Auf die Hälfte reduzieren (etwa 5 Minuten).", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "be5", "time": null, "tools": ["feines Sieb"], "text": { "de": "Die Reduktion durch ein feines Sieb filtern.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "be6", "time": null, "tools": ["Schüssel"], "text": { "de": "Die Reduktion und das Eigelb in eine Schüssel geben.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "be7", "time": null, "tools": ["Schwingbesen"], "text": { "de": "Mit dem Schwingbesen schaumig schlagen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "be8", "time": null, "tools": ["Bain-Marie"], "text": { "de": "Die Schüssel über kochendes Wasser halten und unter ständigem Rühren die geschmolzene Butter langsam einarbeiten. Temperaturkontrolle ist hier essentiell — vielleicht musst du die Schüssel zeitweise von der Hitze nehmen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Zu heiss → das Eigelb stockt und die Sosse gerinnt. Im Zweifel lieber kurz vom Feuer.", "en": "", "fr": "", "it": "" } },
+        { "id": "be9", "time": null, "tools": [], "text": { "de": "Wie immer: mit Salz und Pfeffer abschmecken.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } }
+      ]
+    }
+  ],
+
+  "finished": {
+    "image": "../assets/photos/recipe-003/finished.jpeg",
+    "alt": {
+      "de": "Goldbraun gebratenes Blumenkohlsteak mit Kräuterkrümel, daneben Bratkartoffeln und ein Saucière mit hellgelber Béarnaise",
+      "en": "", "fr": "", "it": ""
+    }
+  },
+
+  "sources": [
+    {
+      "type": "url",
+      "label": { "de": "Yotam Ottolenghi — die Bratkartoffeln mit Za'atar sind sein unverkennbarer Einfluss; Za'atar ist bekanntlich eine seiner Lieblingszutaten", "en": "", "fr": "", "it": "" },
+      "url": "https://ottolenghi.co.uk/"
+    }
+  ],
+
+  "notes": {
+    "de": [
+      "Damit es Steaks aus Blumenkohl gibt, muss man durch den Strunk schneiden — sonst halten die Scheiben nicht zusammen. Das bedeutet, dass nur wenige Steaks aus einem Blumenkohl möglich sind. Wenn du nicht unbedingt auf das Aussehen abzielst, ist es völlig egal, ob mehrere Stücke eher wie ein Steak sind.",
+      "Wenn du beide Seiten des Blumenkohls mit einem Messer kreuzweise ganz leicht einritzt, gart er deutlich schneller.",
+      "Béarnaise ist im Grunde eine Hollandaise mit einer Estragon-Schalotten-Essig-Reduktion — der einzige aromatische Unterschied, aber er ist gross. Klassisch nimmt man Weissweinessig; Kressi gibt der Sauce einen ehrlich-schweizerischen Akzent.",
+      "Mein Lieblingsweisswein für die Reduktion ist ein neuseeländischer Sauvignon Blanc — frisch und kräutrig, das passt zum Estragon. Ein Cabernet Sauvignon (rot und tanninreich) wäre hier nicht der richtige Wein.",
+      "Za'atar ist eine Kräuter-Gewürz-Mischung aus der Levante (typisch Thymian oder Oregano, Sumach, Sesam, Salz). Die thymige Note ist es, die die Brücke vom Estragon der Béarnaise zu den Kräuterkrümeln auf dem Steak schlägt — das Gericht ist französisch-levantinisch, ohne dass es so heisst."
+    ],
+    "en": [], "fr": [], "it": []
+  }
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dinner für zwei</title>
+  <link rel="stylesheet" href="css/cookbook.css">
+</head>
+<body>
+  <header class="topnav">
+    <div class="brand"><a href="index.html">Dinner für zwei</a></div>
+    <nav>
+      <a href="recipes.html">Rezepte</a>
+    </nav>
+    <div id="lang-switch" class="langswitch"></div>
+  </header>
+
+  <section class="title-block">
+    <h1>Dinner für zwei</h1>
+    <p class="tagline">Rezepte, gesammelt und mit Liebe weitergegeben.</p>
+  </section>
+
+  <div class="cat-filter" id="cat-filter"></div>
+
+  <div class="index-grid" id="grid"></div>
+
+  <script src="js/cookbook.js"></script>
+  <script>
+    const CATS = ['all', 'entree', 'main', 'dessert', 'side', 'soup', 'breakfast'];
+    const CAT_LABEL_DE = { all:'Alle', entree:'Vorspeise', main:'Hauptgericht', dessert:'Dessert', side:'Beilage', soup:'Suppe', breakfast:'Frühstück' };
+
+    let activeCat = 'all';
+    let lang = localStorage.getItem('cookbook-lang') || 'de';
+    let registry = null;
+
+    async function load() {
+      const res = await fetch('data/recipes.json');
+      registry = await res.json();
+      renderFilter();
+      renderGrid();
+      renderLangSwitch();
+    }
+
+    function renderFilter() {
+      const el = document.getElementById('cat-filter');
+      el.innerHTML = CATS.map(c => `
+        <button class="${c === activeCat ? 'active' : ''}" data-cat="${c}">${CAT_LABEL_DE[c]}</button>
+      `).join('');
+      el.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+        activeCat = b.dataset.cat;
+        renderFilter();
+        renderGrid();
+      }));
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('grid');
+      const items = registry.recipes.filter(r => activeCat === 'all' || r.category === activeCat);
+      grid.innerHTML = items.map(r => {
+        const t = r.title[lang] || r.title.de || '';
+        const cat = CAT_LABEL_DE[r.category] || r.category;
+        return `
+          <a class="recipe-card" href="${r.href}">
+            <div class="thumb"><img src="${r.thumb}" alt=""></div>
+            <div class="cat">${cat}</div>
+            <h2 class="name">${t}</h2>
+          </a>
+        `;
+      }).join('') || '<p style="grid-column:1/-1;text-align:center;color:var(--ink-faint)">Keine Rezepte in dieser Kategorie.</p>';
+    }
+
+    function renderLangSwitch() {
+      const el = document.getElementById('lang-switch');
+      el.innerHTML = ['de','en','fr','it'].map(l => `
+        <button class="${l===lang?'active':''}" data-lang="${l}">${l.toUpperCase()}</button>
+      `).join('');
+      el.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+        lang = b.dataset.lang;
+        localStorage.setItem('cookbook-lang', lang);
+        renderGrid();
+        renderLangSwitch();
+      }));
+    }
+
+    load();
+  </script>
+</body>
+</html>

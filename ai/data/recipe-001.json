@@ -1,0 +1,146 @@
+{
+  "id": "recipe-001",
+  "category": "dessert",
+  "servings": { "de": "für 2 Personen", "en": "serves 2", "fr": "pour 2 personnes", "it": "per 2 persone" },
+
+  "title": {
+    "de": "Mousse au Chocolat, Beeren mit Rosmarin und Filo-Crinkle Cake",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+
+  "subtitle": {
+    "de": "Eine Dessert-Trilogie",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+
+  "mood": {
+    "de": [
+      "Diese Version der Mousse ist ein Klassiker. Mit meinem besten Willen kann ich mich nicht erinnern, wo und wann ich dieses Rezept aufgeschnappt habe. Auf jeden Fall habe ich es schon beweisbar mindestens dreissig Jahre lang zubereitet, und seltenst gab es Reklamationen.",
+      "Die Idee mit dem Rosmarin ist einfach nachvollziehbar: Mach die Augen zu und stelle dir vor, du wärst am Rande eines Waldes irgendwo in den Bergen, vielleicht hörst du ein Bächlein talwärts fliessen … und du riechst die Tannenbäume, Waldbeeren und die Alpen.",
+      "Zur kühlen Mousse und den süss-sauren Beeren braucht es Kontrast. Das Crinkle Cake ist da perfekt kontrastreich in mehreren Hinsichten: zuerst einmal ist es warm und südländisch — es ist nämlich von einer griechischen Süssigkeit namens Galaktoboureko inspiriert. Andererseits ist es eine neuartige Interpretation davon, die vor nicht sehr langer Zeit eine TikTok-Mode ausgelöst hat. Ich finde meine Variation mit der Tonkabohne zu diesem Dessert passend."
+    ],
+    "en": [],
+    "fr": [],
+    "it": []
+  },
+
+  "basket": {
+    "image": "../assets/photos/recipe-001/basket.jpeg",
+    "alt": {
+      "de": "Zutaten für das Dessert: Cognac, Filoteig, dunkle Schokolade (Crémant), Tonkabohnen, Rahm, Milch, Butter, Ei, gemischte Beeren, Rosmarin, Salz, Zucker",
+      "en": "",
+      "fr": "",
+      "it": ""
+    },
+    "_note": "TODO: Connector-Koordinaten (x/y in Prozent) für die SVG-Linien zur Zutatenliste eintragen.",
+    "connectors": {}
+  },
+
+  "ingredients": {
+    "groups": [
+      {
+        "name": { "de": "Für die Mousse", "en": "", "fr": "", "it": "" },
+        "items": [
+          { "id": "ei-mousse", "ref": "ei", "qty": "1", "name": { "de": "Ei", "en": "", "fr": "", "it": "" } },
+          { "id": "schokolade", "ref": "dunkle-schokolade", "qty": "50 g", "name": { "de": "dunkle Schokolade (Crémant)", "en": "", "fr": "", "it": "" } },
+          { "id": "zucker-mousse", "ref": "zucker", "qty": "20 g", "name": { "de": "Zucker (1½ Löffel)", "en": "", "fr": "", "it": "" } },
+          { "id": "salz", "ref": "salz", "qty": "1 Prise (≈1 g)", "name": { "de": "Salz", "en": "", "fr": "", "it": "" } },
+          { "id": "rahm", "ref": "vollrahm", "qty": "1 dl", "name": { "de": "Vollrahm", "en": "", "fr": "", "it": "" } },
+          { "id": "cognac", "ref": "cognac", "qty": "4 cl", "name": { "de": "Cognac (1 Shotgläschen)", "en": "", "fr": "", "it": "" } }
+        ]
+      },
+      {
+        "name": { "de": "Für die Beeren", "en": "", "fr": "", "it": "" },
+        "items": [
+          { "id": "beeren", "ref": "beeren-mix", "qty": "100 g", "name": { "de": "gemischte Beeren (Erdbeeren, Himbeeren, Brombeeren, Heidelbeeren)", "en": "", "fr": "", "it": "" } },
+          { "id": "rosmarin", "ref": "rosmarin", "qty": "1 Zweig", "name": { "de": "Rosmarin", "en": "", "fr": "", "it": "" } },
+          { "id": "zucker-beeren", "ref": "zucker", "qty": "10 g", "name": { "de": "Zucker", "en": "", "fr": "", "it": "" } }
+        ]
+      },
+      {
+        "name": { "de": "Für das Crinkle Cake (ca. 8 Portionen)", "en": "", "fr": "", "it": "" },
+        "items": [
+          { "id": "filo", "ref": "filoteig", "qty": "ca. 200 g (6 Blätter)", "name": { "de": "Filoteig", "en": "", "fr": "", "it": "" } },
+          { "id": "ei-cake", "ref": "ei", "qty": "1", "name": { "de": "Ei", "en": "", "fr": "", "it": "" } },
+          { "id": "milch", "ref": "milch", "qty": "1.5 dl", "name": { "de": "Milch", "en": "", "fr": "", "it": "" } },
+          { "id": "butter", "ref": "butter", "qty": "70 g", "name": { "de": "Butter", "en": "", "fr": "", "it": "" } },
+          { "id": "zucker-cake", "ref": "zucker", "qty": "120 g", "name": { "de": "Zucker", "en": "", "fr": "", "it": "" } },
+          { "id": "tonka", "ref": "tonkabohne", "qty": "¼", "name": { "de": "Tonkabohne", "en": "", "fr": "", "it": "" } }
+        ]
+      }
+    ]
+  },
+
+  "methods": [
+    {
+      "name": { "de": "Mousse au Chocolat", "en": "", "fr": "", "it": "" },
+      "steps": [
+        { "id": "m1", "time": null, "tools": [], "text": { "de": "Trenne Eiweiss und Eigelb.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "m2", "time": "2 min", "tools": ["Schwingbesen"], "text": { "de": "Schlage den Rahm.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "m3", "time": null, "tools": ["Schwingbesen"], "text": { "de": "Gib den Zucker zum Eigelb und mische, bis es zu einem hellen Sabayon wird.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "m4", "time": null, "tools": ["Schwingbesen"], "text": { "de": "Gib das Salz zum Eiweiss und schlage es zu Schnee.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "m5", "time": null, "tools": ["Bain-Marie"], "text": { "de": "Schmelze die Schokolade im Bain-Marie (oder in einem Gefäss über köchelndem Wasser).", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Beim Umgiessen ein Tuch verwenden, damit der Dampf dich nicht verbrennt.", "en": "", "fr": "", "it": "" } },
+        { "id": "m6", "time": null, "tools": [], "text": { "de": "Giesse die geschmolzene Schokolade ins Eigelb und mische. Die Masse kann schnell fest werden — keine Angst, das ist normal.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Achtung, dass du dich nicht verbrennst!", "en": "", "fr": "", "it": "" } },
+        { "id": "m7", "time": null, "tools": [], "text": { "de": "Gib so viel Cognac dazu und mische, bis die Masse wieder zähflüssig wird.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "m8", "time": null, "tools": [], "text": { "de": "Hebe den Rahm vorsichtig unter die Schoko-Eigelb-Masse. Vergiss nicht, etwas Rahm zum Dekorieren zurückzuhalten.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "m9", "time": null, "tools": [], "text": { "de": "Hebe zuletzt das geschlagene Eiweiss sorgfältig unter die Mousse — delikat falten, sonst fällt sie zu einer klebrigen Sosse zusammen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Nicht rühren — falten.", "en": "", "fr": "", "it": "" } },
+        { "id": "m10", "time": "≥ 2 h", "tools": ["Kühlschrank"], "text": { "de": "Je nach Präsentation in Gläschen giessen oder in der Schüssel lassen (löffelweise als Quenelles auf den Teller). Mindestens 2 Stunden im Kühlschrank ruhen lassen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } }
+      ]
+    },
+    {
+      "name": { "de": "Beeren mit Rosmarin", "en": "", "fr": "", "it": "" },
+      "steps": [
+        { "id": "b1", "time": "5 min", "tools": ["kleine Pfanne"], "text": { "de": "Gleiche Mengen Zucker und Wasser mit dem Rosmarinzweig in einer kleinen Pfanne köcheln, bis ca. zwei Drittel reduziert sind.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "b2", "time": null, "tools": ["Sieb"], "text": { "de": "Rosmarin entfernen und den Sirup filtern.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "b3", "time": "10 sec", "tools": ["Bratpfanne"], "text": { "de": "Etwas Sirup in einer Bratpfanne auf mittlerer Flamme erhitzen und die gewaschenen Beeren ca. 10 Sekunden darin schocken.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Nur kurz — die Beeren sollen ihre Form behalten.", "en": "", "fr": "", "it": "" } }
+      ]
+    },
+    {
+      "name": { "de": "Filo-Crinkle Cake", "en": "", "fr": "", "it": "" },
+      "steps": [
+        { "id": "c1", "time": null, "tools": ["Pyrex-Form"], "text": { "de": "Mit dem Filoteig die Knitter (oder Wellen) in einem Blech oder einer Pyrex-Form formen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "c2", "time": "10 min", "tools": ["Ofen, 180 °C"], "text": { "de": "Im 180 °C heissen Ofen 10 Minuten backen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "c3", "time": null, "tools": ["Topf"], "text": { "de": "In der Zwischenzeit die Butter schmelzen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "c4", "time": "10 min", "tools": ["Ofen, 180 °C"], "text": { "de": "Die Filoknitter aus dem Ofen nehmen, die geschmolzene Butter darübergiessen und für weitere 10 Minuten zurück in den Ofen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "c5", "time": null, "tools": ["Schüssel", "Schwingbesen"], "text": { "de": "Währenddessen Milch, Ei und ein Drittel des Zuckers zu einem Guss verrühren.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "c6", "time": "25 min", "tools": ["Ofen, 180 °C"], "text": { "de": "Den Filokuchen aus dem Ofen nehmen, den Ei-Milch-Guss darübergiessen und für 25 Minuten zurück in den Ofen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "c7", "time": null, "tools": ["kleine Pfanne"], "text": { "de": "In dieser Zeit aus dem restlichen Zucker und gleicher Menge Wasser ein einfaches Sirup kochen — diesmal ohne Rosmarin, um die Geschmacksrichtungen klar zu trennen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "c8", "time": null, "tools": ["Reibe"], "text": { "de": "Wenn der Knitterkuchen fertig ist, den Sirup darübergiessen, eine Spur Tonkabohne darüberreiben und etwas abkühlen lassen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Tonkabohne nur sparsam verwenden — sie ist intensiv.", "en": "", "fr": "", "it": "" } }
+      ]
+    }
+  ],
+
+  "finished": {
+    "image": "../assets/photos/recipe-001/finished.jpeg",
+    "alt": {
+      "de": "Das fertige Dessert: Mousse au Chocolat im Glas, Beeren mit Rosmarin und Filo-Crinkle Cake auf weissem Teller",
+      "en": "", "fr": "", "it": ""
+    }
+  },
+
+  "sources": [
+    {
+      "type": "url",
+      "label": { "de": "Ramena (TikTok) — die Auslöserin der Crinkle-Cake-Welle", "en": "", "fr": "", "it": "" },
+      "url": "https://www.youtube.com/watch?v=Kd8KvjigF00"
+    },
+    {
+      "type": "tradition",
+      "label": { "de": "Inspiriert von Galaktoboureko, einer griechischen Süssigkeit", "en": "", "fr": "", "it": "" }
+    }
+  ],
+
+  "notes": {
+    "de": [
+      "Falls du die Schokolade über köchelndem Wasser schmilzt: beim Umgiessen ein Tuch verwenden, damit der Dampf dich nicht verbrennt.",
+      "Wenn du das geschlagene Eiweiss kurz vor dem Unterheben nochmals mit dem Schwingbesen aufschlägst, fällt es sicher nicht zusammen.",
+      "Mit einer Glasschüssel siehst du genau, ob alles gut gemischt ist :)",
+      "Die vegane Variante gelingt 100 % mit Aquafaba (Wasser aus einer Büchse Kichererbsen): ein Teil davon anstelle Eigelb, der Rest anstatt Eiweiss. Achtung: vegane Schokolade ist nicht einfach zu finden!"
+    ],
+    "en": [], "fr": [], "it": []
+  }
+}

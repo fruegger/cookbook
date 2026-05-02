@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dinner für zwei</title>
+  <link rel="stylesheet" href="../css/cookbook.css">
+</head>
+<body>
+  <header class="topnav print-hide">
+    <div class="brand"><a href="../index.html">Dinner für zwei</a></div>
+    <nav>
+      <a href="../recipes.html">Rezepte</a>
+      <a href="#" onclick="window.print();return false;">Drucken</a>
+    </nav>
+    <div id="lang-switch" class="langswitch"></div>
+  </header>
+
+  <main id="recipe-root"></main>
+
+  <script src="../js/cookbook.js"></script>
+  <script>bootRecipe('../data/recipe-003.json');</script>
+</body>
+</html>
