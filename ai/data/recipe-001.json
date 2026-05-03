@@ -29,7 +29,7 @@
   },
 
   "basket": {
-    "image": "../assets/photos/recipe-001/basket.jpeg",
+    "image": "assets/photos/recipe-001/basket001.jpeg",
     "alt": {
       "de": "Zutaten für das Dessert: Cognac, Filoteig, dunkle Schokolade (Crémant), Tonkabohnen, Rahm, Milch, Butter, Ei, gemischte Beeren, Rosmarin, Salz, Zucker",
       "en": "",
@@ -115,8 +115,7 @@
   ],
 
   "finished": {
-    "image": "../assets/photos/recipe-001/finished.jpeg",
-    "focal": "center 25%",
+    "image": "assets/photos/recipe-001/finished001.jpeg",
     "alt": {
       "de": "Das fertige Dessert: Mousse au Chocolat im Glas, Beeren mit Rosmarin und Filo-Crinkle Cake auf weissem Teller",
       "en": "", "fr": "", "it": ""

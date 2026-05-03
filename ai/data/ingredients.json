@@ -1,0 +1,402 @@
+{
+  "ingredients": [
+    {
+      "id": "beeren-mix",
+      "name": {
+        "de": "Beerenmischung",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=beeren-mix",
+      "usedIn": [
+        "recipe-001"
+      ]
+    },
+    {
+      "id": "blumenkohl",
+      "name": {
+        "de": "Blumenkohl",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=blumenkohl",
+      "usedIn": [
+        "recipe-003"
+      ]
+    },
+    {
+      "id": "butter",
+      "name": {
+        "de": "Butter",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=butter",
+      "usedIn": [
+        "recipe-001",
+        "recipe-002",
+        "recipe-003"
+      ]
+    },
+    {
+      "id": "cognac",
+      "name": {
+        "de": "Cognac",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=cognac",
+      "usedIn": [
+        "recipe-001"
+      ]
+    },
+    {
+      "id": "creme-fraiche",
+      "name": {
+        "de": "Crème fraîche",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=creme-fraiche",
+      "usedIn": [
+        "recipe-002"
+      ]
+    },
+    {
+      "id": "dunkle-schokolade",
+      "name": {
+        "de": "Dunkle Schokolade",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=dunkle-schokolade",
+      "usedIn": [
+        "recipe-001"
+      ]
+    },
+    {
+      "id": "ei",
+      "name": {
+        "de": "Ei",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=ei",
+      "usedIn": [
+        "recipe-001",
+        "recipe-003"
+      ]
+    },
+    {
+      "id": "estragon",
+      "name": {
+        "de": "Estragon",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=estragon",
+      "usedIn": [
+        "recipe-003"
+      ]
+    },
+    {
+      "id": "filoteig",
+      "name": {
+        "de": "Filoteig",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=filoteig",
+      "usedIn": [
+        "recipe-001"
+      ]
+    },
+    {
+      "id": "kartoffeln",
+      "name": {
+        "de": "Kartoffeln",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=kartoffeln",
+      "usedIn": [
+        "recipe-003"
+      ]
+    },
+    {
+      "id": "kraeuter",
+      "name": {
+        "de": "Kräuter",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=kraeuter",
+      "usedIn": [
+        "recipe-003"
+      ]
+    },
+    {
+      "id": "kressi",
+      "name": {
+        "de": "Kresse",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=kressi",
+      "usedIn": [
+        "recipe-003"
+      ]
+    },
+    {
+      "id": "mehl",
+      "name": {
+        "de": "Mehl",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=mehl",
+      "usedIn": [
+        "recipe-002"
+      ]
+    },
+    {
+      "id": "milch",
+      "name": {
+        "de": "Milch",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=milch",
+      "usedIn": [
+        "recipe-001",
+        "recipe-002"
+      ]
+    },
+    {
+      "id": "miso",
+      "name": {
+        "de": "Miso",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=miso",
+      "usedIn": [
+        "recipe-002"
+      ]
+    },
+    {
+      "id": "olivenoel",
+      "name": {
+        "de": "Olivenöl",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=olivenoel",
+      "usedIn": [
+        "recipe-002",
+        "recipe-003"
+      ]
+    },
+    {
+      "id": "panko",
+      "name": {
+        "de": "Panko",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=panko",
+      "usedIn": [
+        "recipe-003"
+      ]
+    },
+    {
+      "id": "rosmarin",
+      "name": {
+        "de": "Rosmarin",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=rosmarin",
+      "usedIn": [
+        "recipe-001"
+      ]
+    },
+    {
+      "id": "rote-bete",
+      "name": {
+        "de": "Rote Bete (Randen)",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=rote-bete",
+      "usedIn": [
+        "recipe-002"
+      ]
+    },
+    {
+      "id": "salz",
+      "name": {
+        "de": "Salz",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=salz",
+      "usedIn": [
+        "recipe-001",
+        "recipe-002"
+      ]
+    },
+    {
+      "id": "schalotte",
+      "name": {
+        "de": "Schalotte",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=schalotte",
+      "usedIn": [
+        "recipe-003"
+      ]
+    },
+    {
+      "id": "shiitake",
+      "name": {
+        "de": "Shiitake",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=shiitake",
+      "usedIn": [
+        "recipe-002"
+      ]
+    },
+    {
+      "id": "thymian",
+      "name": {
+        "de": "Thymian",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=thymian",
+      "usedIn": [
+        "recipe-002"
+      ]
+    },
+    {
+      "id": "tonburi",
+      "name": {
+        "de": "Tonburi",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=tonburi",
+      "usedIn": [
+        "recipe-002"
+      ]
+    },
+    {
+      "id": "tonkabohne",
+      "name": {
+        "de": "Tonkabohne",
+        "en": "Tonka bean",
+        "fr": "Fève tonka",
+        "it": "Fava tonka"
+      },
+      "href": "ingredient.html?id=tonkabohne",
+      "usedIn": [
+        "recipe-001"
+      ]
+    },
+    {
+      "id": "trockenhefe",
+      "name": {
+        "de": "Trockenhefe",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=trockenhefe",
+      "usedIn": [
+        "recipe-002"
+      ]
+    },
+    {
+      "id": "vollrahm",
+      "name": {
+        "de": "Vollrahm",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=vollrahm",
+      "usedIn": [
+        "recipe-001",
+        "recipe-002"
+      ]
+    },
+    {
+      "id": "weisswein",
+      "name": {
+        "de": "Weisswein",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=weisswein",
+      "usedIn": [
+        "recipe-003"
+      ]
+    },
+    {
+      "id": "zaatar",
+      "name": {
+        "de": "Za'atar",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=zaatar",
+      "usedIn": [
+        "recipe-003"
+      ]
+    },
+    {
+      "id": "zucker",
+      "name": {
+        "de": "Zucker",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "href": "ingredient.html?id=zucker",
+      "usedIn": [
+        "recipe-001",
+        "recipe-002"
+      ]
+    }
+  ]
+}

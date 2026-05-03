@@ -27,7 +27,7 @@
     {
       "id": "savoury",
       "title": { "de": "Suppe & Butter", "en": "", "fr": "", "it": "" },
-      "image": "../assets/photos/recipe-002/basket-soup.jpeg",
+      "image": "assets/photos/recipe-002/basket-soup.jpeg",
       "alt": {
         "de": "Zutaten für Randensuppe und Miso-Shiitake-Butter: Milch, getrocknete Shiitake, Miso, Crème fraîche, Rote Bete, Thymian, Salz, Pfeffer",
         "en": "", "fr": "", "it": ""
@@ -38,7 +38,7 @@
     {
       "id": "bread",
       "title": { "de": "Toastbrot", "en": "", "fr": "", "it": "" },
-      "image": "../assets/photos/recipe-002/basket-bread.jpeg",
+      "image": "assets/photos/recipe-002/basket-bread.jpeg",
       "alt": {
         "de": "Zutaten für das Milch-Toastbrot: Mehl, Milch, Butter, Zucker, Salz",
         "en": "", "fr": "", "it": ""
@@ -90,7 +90,7 @@
       "name": { "de": "Suppe", "en": "", "fr": "", "it": "" },
       "steps": [
         { "id": "s1", "time": null, "tools": ["Backblech", "Alufolie"], "text": { "de": "Halbiere die Rote Bete und stelle sie mit der flachen Seite nach unten auf ein leicht eingeöltes Blech. Eine Lage Alufolie darunter hilft, dass nicht alles eingefärbt wird.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "s2", "time": "≈ 45 min", "tools": ["Ofen, 210 °C"], "text": { "de": "Etwa 45 Minuten backen — die Knolle soll weich werden.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "s2", "time": "≈ 45 min", "tools": ["Ofen, 180 °C"], "text": { "de": "Etwa 45 Minuten backen — die Knolle soll weich werden.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
         { "id": "s3", "time": null, "tools": ["Mixer"], "text": { "de": "Das Fleisch aus der Rande löffeln und mit etwas Wasser (oder Gemüsebouillon, Shiro Dashi …) im Mixer pürieren. Konsistenz wie Rahm: nicht ganz flüssig.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
         { "id": "s4", "time": null, "tools": ["Pfanne"], "text": { "de": "Die pürierte Rande in eine Pfanne geben, mit Rahm und Thymian. Ein Zweigchen zur Seite stellen — die Blätter dienen später zur Dekoration.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
         { "id": "s5", "time": null, "tools": [], "text": { "de": "Auf kleiner Flamme erwärmen (sie muss nicht mehr kochen) und mit Salz und Pfeffer abschmecken.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
@@ -128,8 +128,7 @@
   ],
 
   "finished": {
-    "image": "../assets/photos/recipe-002/finished.jpeg",
-    "focal": "center 35%",
+    "image": "assets/photos/recipe-002/finished002.jpeg",
     "alt": {
       "de": "Tiefrote Randensuppe mit Tonburi und Crème fraîche, daneben zwei Scheiben Toastbrot und ein kleines Töpfchen Miso-Butter",
       "en": "", "fr": "", "it": ""
@@ -153,8 +152,7 @@
     "de": [
       "Tonburi ist eine seltene Delikatesse: getrocknete Samen der Sommerzypresse (Bassia / Kochia scoparia), eine Spezialität der Präfektur Akita im Norden Honshus. Die Samen sind geschmacksneutral und funktionieren als „Geschmacksschwamm“ — sie nehmen alles auf, womit man sie kombiniert. Um sich dem Geschmack von Kaviar anzunähern, würde man vielleicht Kombu, Katsuobushi oder gar Seetang verwenden. Hier geht es mir um den Pop auf der Zunge, nicht um den Kaviargeschmack.",
       "Die zweite japanische Alchemie dieses Rezeptes ist das Tangzhong. Es funktioniert wirklich: das Brot wird fluffiger und (etwas) länger haltbar.",
-      "Das Gericht braucht sehr viel Wartezeit. Definitiv etwas für einen ruhigen Tag. Klar, Brot und Butter kann man auf Vorrat vorbereiten — aber trotzdem: nichts für Ungeduldige.",
-      "Die vegane Variante ist identisch (Miso ist grundsätzlich vegan), es genügt, Butter, Rahm und Crème fraiche durch die entsprechende vegane Produkte zu ersetzen."
+      "Das Gericht braucht sehr viel Wartezeit. Definitiv etwas für einen ruhigen Tag. Klar, Brot und Butter kann man auf Vorrat vorbereiten — aber trotzdem: nichts für Ungeduldige."
     ],
     "en": [], "fr": [], "it": []
   }

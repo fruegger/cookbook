@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zutaten — Dinner für zwei</title>
+  <link rel="stylesheet" href="css/cookbook.css">
+</head>
+<body>
+  <header class="topnav">
+    <div class="brand"><a href="index.html">Dinner für zwei</a></div>
+    <nav>
+      <a href="recipes.html">Rezepte</a>
+      <a href="ingredients.html">Zutaten</a>
+      <a href="editor.html">Editor</a>
+    </nav>
+    <div id="lang-switch" class="langswitch"></div>
+  </header>
+
+  <section class="title-block">
+    <h1>Zutaten</h1>
+    <p class="tagline">Steckbriefe der Zutaten — Herkunft, Saison, Tricks.</p>
+  </section>
+
+  <div class="index-grid" id="grid"></div>
+
+  <script src="js/cookbook.js"></script>
+  <script>
+    let lang = localStorage.getItem('cookbook-lang') || 'de';
+    let registry = null;
+    let recipeRegistry = null;
+
+    async function load() {
+      [registry, recipeRegistry] = await Promise.all([
+        fetch('data/ingredients.json').then(r => r.json()),
+        fetch('data/recipes.json').then(r => r.json())
+      ]);
+      renderGrid();
+      renderLangSwitch();
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('grid');
+      const items = (registry.ingredients || []).slice().sort((a, b) =>
+        (a.name[lang] || a.name.de || a.id).localeCompare(b.name[lang] || b.name.de || b.id, lang)
+      );
+      grid.innerHTML = items.map(i => {
+        const n = i.name[lang] || i.name.de || i.id;
+        const used = (i.usedIn || []).length;
+        return `
+          <a class="recipe-card" href="${i.href}">
+            <div class="thumb" style="background:var(--paper-deep);display:flex;align-items:center;justify-content:center;color:var(--ink-faint);font-size:.75rem;letter-spacing:.15em;text-transform:uppercase">Foto folgt</div>
+            <div class="cat">${used ? `${used} Rezept${used === 1 ? '' : 'e'}` : '—'}</div>
+            <h2 class="name">${n}</h2>
+          </a>
+        `;
+      }).join('') || '<p style="grid-column:1/-1;text-align:center;color:var(--ink-faint)">Noch keine Zutaten erfasst.</p>';
+    }
+
+    function renderLangSwitch() {
+      const el = document.getElementById('lang-switch');
+      el.innerHTML = ['de','en','fr','it'].map(l => `
+        <button class="${l===lang?'active':''}" data-lang="${l}">${l.toUpperCase()}</button>
+      `).join('');
+      el.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+        lang = b.dataset.lang;
+        localStorage.setItem('cookbook-lang', lang);
+        renderGrid();
+        renderLangSwitch();
+      }));
+    }
+
+    load();
+  </script>
+</body>
+</html>

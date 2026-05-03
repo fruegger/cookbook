@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editor — Dinner für zwei</title>
+  <link rel="stylesheet" href="css/cookbook.css">
+  <link rel="stylesheet" href="css/editor.css">
+</head>
+<body class="editor-body">
+  <header class="topnav print-hide">
+    <div class="brand"><a href="index.html">Dinner für zwei</a></div>
+    <nav>
+      <a href="recipes.html">Rezepte</a>
+      <a href="ingredients.html">Zutaten</a>
+      <a href="editor.html">Editor</a>
+    </nav>
+    <div class="editor-actions">
+      <span id="save-status" class="save-status"></span>
+      <button id="btn-save" type="button">Speichern</button>
+      <button id="btn-download" type="button" title="Als JSON herunterladen">⬇ JSON</button>
+    </div>
+  </header>
+
+  <div class="editor-shell">
+    <aside class="editor-side print-hide">
+      <div class="editor-mode-tabs">
+        <button class="active" data-type="recipe">Rezept</button>
+        <button data-type="ingredient">Zutat</button>
+      </div>
+
+      <div class="editor-pick">
+        <label>Bestehendes laden</label>
+        <select id="picker"><option value="">— neu —</option></select>
+      </div>
+
+      <div class="editor-lang-tabs" id="lang-tabs"></div>
+
+      <form id="form" class="editor-form" autocomplete="off"></form>
+    </aside>
+
+    <main class="editor-preview">
+      <div class="preview-frame">
+        <div id="recipe-root"></div>
+        <div id="ingredient-root"></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/cookbook.js"></script>
+  <script src="js/editor.js"></script>
+</body>
+</html>

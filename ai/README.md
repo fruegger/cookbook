@@ -1,152 +1,160 @@
-# Dinner für zwei — wie du weitermachst
+# Dinner für zwei
 
-Ein zweisprachig (mehrsprachig) angelegtes, druckfähiges digitales Dinner für zwei.
-Eine HTML-Datei pro Rezept dient gleichzeitig als digitale Seite **und** als
-druckbare Einzelseite (Cmd/Ctrl-P → "Als PDF speichern").
+Ein zweisprachig (mehrsprachig) angelegtes, druckfähiges digitales Kochbuch.
+Eine Render-Engine, eine HTML-Hülle pro Seitentyp — der Inhalt liegt komplett
+in JSON-Dateien.
+
+## Was hat sich geändert (Refactor)
+
+Die Architektur ist von **„eine HTML-Datei pro Rezept"** auf **„eine HTML-Datei
+pro Seitentyp"** umgestellt:
+
+| Alt                                  | Neu                                   |
+| ------------------------------------ | ------------------------------------- |
+| `recipes/recipe-001.html` (× N)      | `recipe.html?id=recipe-001`           |
+| `ingredients/tonkabohne.html` (× N)  | `ingredient.html?id=tonkabohne`       |
+| Zutaten als HTML-Stubs               | `data/ingredients/<slug>.json`        |
+| (kein Editor)                        | `editor.html` mit Live-Vorschau       |
+| (kein Backend)                       | `server.py` (optional)                |
+
+Vorteile: ein neues Rezept = eine JSON-Datei, sonst nichts. Eine neue Zutat =
+ein Eintrag im Editor. Kein Copy-Paste von HTML mehr.
 
 ## Projektstruktur
 
 ```
 cookbook/
-├── index.html                   ← Widmungsseite (Eingang ins Buch)
-├── recipes.html                 ← Übersichtsseite mit Kategorienfilter
-├── css/cookbook.css             ← Eine zentrale Stilvorlage (Bildschirm + Druck)
-├── js/cookbook.js               ← Render-Engine
+├── index.html                   ← Widmungsseite
+├── recipes.html                 ← Rezeptübersicht (mit Kategoriefilter)
+├── ingredients.html             ← Zutatenübersicht
+├── recipe.html                  ← EINE Rezeptseite (liest ?id=… aus URL)
+├── ingredient.html              ← EINE Zutatenseite (liest ?id=… aus URL)
+├── editor.html                  ← Editor mit Live-Vorschau
+│
+├── css/cookbook.css             ← Stilvorlage (Bildschirm + Druck)
+├── css/editor.css               ← Editor-spezifische Stile
+├── js/cookbook.js               ← Render-Engine (Rezept + Zutat)
+├── js/editor.js                 ← Editor (Form + Vorschau + Save)
+│
 ├── data/
-│   ├── dedication.json          ← Inhalt der Widmungsseite (auswechselbar)
-│   ├── recipes.json             ← Register aller Rezepte (für Index)
-│   └── recipe-001.json          ← Ein JSON pro Rezept (Inhalt)
-├── recipes/
-│   └── recipe-001.html          ← Eine schlanke HTML-Hülle pro Rezept
-├── ingredients/
-│   └── tonkabohne.html          ← Eine HTML-Seite pro Zutat
-└── assets/photos/recipe-001/
-    ├── basket.jpeg              ← Korbfoto (alle Zutaten)
-    └── finished.jpeg            ← Hero-Foto des fertigen Gerichts
+│   ├── dedication.json          ← Inhalt der Widmungsseite
+│   ├── recipes.json             ← Index aller Rezepte (auto-generiert)
+│   ├── ingredients.json         ← Index aller Zutaten (auto-generiert)
+│   ├── recipe-001.json          ← Ein JSON pro Rezept
+│   ├── recipe-002.json
+│   ├── recipe-003.json
+│   └── ingredients/
+│       ├── tonkabohne.json      ← Ein JSON pro Zutat
+│       └── …
+│
+├── assets/photos/recipe-001/    ← Fotos pro Rezept
+│   ├── basket.jpeg
+│   └── finished.jpeg
+│
+├── server.py                    ← Optionales Backend (siehe unten)
+└── scripts/
+    └── scaffold_ingredients.py  ← Einmaliges Erzeugen leerer Zutaten-JSONs
 ```
-
-## Widmungsseite ändern
-
-Der Inhalt der Widmungsseite liegt in `data/dedication.json`. Du kannst
-Titel, Untertitel, Anrede, Brief-/Widmungstext und Unterschrift frei
-bearbeiten — die HTML-Struktur muss nicht angefasst werden.
-
-```json
-{
-  "title":      { "de": "Dinner für zwei", … },
-  "tagline":    { "de": "Rezepte, gesammelt …", … },
-  "salutation": { "de": "Liebe Steffi, Lieber Martin", … },
-  "body":       { "de": ["Erster Absatz.", "Zweiter Absatz."], … },
-  "signoff":    { "de": "— Dein Koch", … }
-}
-```
-
-Leere Felder werden automatisch weggelassen.
 
 ## Lokale Vorschau
 
-Wegen `fetch()` muss ein lokaler Webserver laufen. Im Ordner `cookbook/`:
+**Mit Backend (empfohlen, ermöglicht Speichern aus dem Editor):**
 
 ```bash
+cd cookbook
+python3 server.py
+```
+
+→ http://localhost:8000/
+
+**Ohne Backend (nur Lesen, Editor speichert per JSON-Download):**
+
+```bash
+cd cookbook
 python3 -m http.server 8000
 ```
 
-Dann im Browser: `http://localhost:8000/`
+Beide Varianten funktionieren — der Editor erkennt automatisch, ob das Backend
+verfügbar ist, und fällt sonst auf "Download" zurück.
 
 ## Ein neues Rezept hinzufügen
 
-1. **Fotos** in `assets/photos/recipe-NNN/` ablegen
-   (mindestens `basket.jpeg` und `finished.jpeg`).
-2. **Datendatei** `data/recipe-NNN.json` erstellen — am einfachsten
-   `recipe-001.json` kopieren und Inhalte ersetzen.
-3. **Rezept-HTML** `recipes/recipe-NNN.html` erstellen — Kopie von
-   `recipe-001.html`, nur die letzte Zeile anpassen:
-   ```html
-   <script>bootRecipe('../data/recipe-NNN.json');</script>
-   ```
-4. **Eintrag im Register** `data/recipes.json` ergänzen.
+Drei Wege, je nach Vorliebe:
+
+**a) Über den Editor (empfohlen, läuft mit oder ohne Backend):**
+
+1. http://localhost:8000/editor.html öffnen
+2. Modus „Rezept", Picker auf „— neu —"
+3. Felder ausfüllen, Live-Vorschau rechts beobachten
+4. „Speichern" klickt → mit Backend: schreibt direkt nach `data/`.
+   Ohne Backend: Download-Dialog, Datei manuell nach `data/` verschieben.
+
+**b) JSON-Datei direkt anlegen:**
+
+1. Fotos in `assets/photos/recipe-NNN/` ablegen
+2. `data/recipe-NNN.json` erstellen (am einfachsten: Kopie von
+   `data/recipe-001.json`, Inhalte ersetzen)
+3. Mit Backend: `data/recipes.json` wird beim nächsten Start automatisch
+   neu generiert. Ohne Backend: per Hand ergänzen.
+
+**c) Aus einem bestehenden Rezept abzweigen:**
+
+`editor.html?type=recipe&id=recipe-001` → öffnet das Rezept im Editor,
+ID ändern, „Speichern" → neues Rezept.
+
+## Eine neue Zutat hinzufügen
+
+Genauso, nur Modus „Zutat". URL z. B.
+`editor.html?type=ingredient&id=tonkabohne` zum Editieren einer bestehenden.
+
+Falls neue Zutaten-Refs in einem Rezept auftauchen, läuft einmal:
+
+```bash
+python3 scripts/scaffold_ingredients.py
+```
+
+Das erzeugt leere Zutaten-JSONs, damit `ingredient.html?id=…` für jeden Ref
+auflösbar wird.
 
 ## Sprachen
 
-Jedes Textfeld in `recipe-NNN.json` hat ein Objekt `{de, en, fr, it}`.
-Leere Sprachen (z. B. `"en": ""`) werden im Sprachschalter automatisch
-ausgegraut. Du brauchst zum Start nur Deutsch zu füllen.
+Jedes Textfeld hat ein Objekt `{de, en, fr, it}`. Leere Sprachen werden im
+Sprachschalter ausgegraut. Du brauchst zum Start nur Deutsch zu füllen.
+
+Der Editor zeigt immer nur die aktive Sprache an — über die Sprach-Tabs links
+wechseln, um Übersetzungen einzugeben.
 
 ## Verbinder vom Korbfoto zur Zutatenliste (SVG-Linien)
 
-Im Datenfeld `basket.connectors` (oder `baskets[i].connectors`) setzt du pro
-Zutaten-ID einen Punkt im Korbfoto (in Prozent der Bildbreite/-höhe):
+Wie zuvor: in `basket.connectors` (oder `baskets[i].connectors`) pro Zutaten-ID
+ein {x, y} in Prozent setzen. Die `id` muss mit der `id` im Zutaten-Item
+übereinstimmen.
 
 ```json
 "connectors": {
-"schokolade": { "x": 28, "y": 35 },
-"rosmarin":   { "x": 60, "y": 50 }
+  "schokolade": { "x": 28, "y": 35 },
+  "rosmarin":   { "x": 60, "y": 50 }
 }
 ```
-
-Die `id` (z. B. `"schokolade"`) muss mit der `id` im Zutaten-Item
-übereinstimmen.
-
-> **TODO für Rezept #1:** Korbfoto neu fotografieren mit Sahnekännchen
-> statt rotem Karton, plus Butter und Milch ergänzen — danach die
-> Verbinder-Koordinaten eintragen.
-
-## Heldenfoto: Bildausschnitt steuern
-
-Das Hero-Foto (`finished.image`) wird sowohl auf dem Bildschirm (4:3) als
-auch im Druck (16:9) auf eine feste Form zugeschnitten. Damit wichtige
-Bildteile nicht abgeschnitten werden, kann pro Rezept ein Fokuspunkt
-gesetzt werden:
-
-```json
-"finished": {
-  "image": "../assets/photos/recipe-NNN/finished.jpeg",
-  "focal": "center 35%",
-  "alt": { … }
-}
-```
-
-`focal` akzeptiert jeden gültigen `object-position`-Wert, z. B.
-`"center top"`, `"30% center"`, `"center 60%"`. Ohne Angabe zentriert
-das Bild (`center center`). Faustregel: zuerst horizontal (links/rechts),
-dann vertikal (oben/unten) — kleinere Prozentwerte = weiter links bzw.
-weiter oben.
-
-## Mehrere Körbe pro Rezept
-
-Manche Rezepte (z. B. eine Suppe mit eigenem Brot) brauchen zwei oder mehr
-Körbe. Statt `"basket": { … }` verwendest du dann:
-
-```json
-"baskets": [
-  { "id": "savoury", "title": { "de": "Suppe & Butter", … }, "image": "…", … },
-  { "id": "bread",   "title": { "de": "Toastbrot",      … }, "image": "…", … }
-]
-```
-
-Jede Zutaten-Gruppe in `ingredients.groups` bekommt dann ein
-`"basket": "savoury"` bzw. `"basket": "bread"`, das den Korb identifiziert.
-Auf der Seite wird jedes Korbfoto mit den passenden Zutaten daneben
-gerendert.
 
 ## Drucken
 
-Im Browser auf einer Rezeptseite Cmd/Ctrl-P. Das Druck-Stylesheet
-versteckt Navigation, packt den Inhalt auf eine A4-Seite und ersetzt
-Schritt-Fotos durch reinen Text (für eine echte Einseiten-Wirkung).
-Ziel "Als PDF speichern" wählen.
+Auf einer Rezept- oder Zutatenseite Cmd/Ctrl-P. Das Druck-Stylesheet
+versteckt Navigation und packt den Inhalt auf eine A4-Seite.
 
-## Zutaten-Detailseiten
+## Backend (server.py)
 
-Aus der Zutatenliste sind die Namen (wenn `ref` gesetzt ist) bereits
-auf `ingredients/<ref>.html` verlinkt. Diese Seiten erstellst du nach
-und nach — `ingredients/tonkabohne.html` dient als Vorlage.
+Ein winziger lokaler Server (~80 Zeilen Python, keine Abhängigkeiten):
 
-## Nächste Schritte / Ausbau
+- Statisch-Hosting wie `python3 -m http.server`
+- Plus eine kleine JSON-API:
+  - `GET  /api/recipes/<id>` → liest `data/<id>.json`
+  - `PUT  /api/recipes/<id>` → schreibt `data/<id>.json`
+  - `GET  /api/ingredients/<id>` → liest `data/ingredients/<id>.json`
+  - `PUT  /api/ingredients/<id>` → schreibt `data/ingredients/<id>.json`
+- Bei jedem PUT werden `recipes.json` und `ingredients.json` automatisch neu
+  gebaut, plus `usedIn`-Backlinks auf Zutaten.
 
-- Schritt-Fotos: pro Schritt-Eintrag in der JSON-Datei den `photo`-Pfad
-  setzen (z. B. `assets/photos/recipe-001/step-m1.jpeg`).
-- Videos: Engine kann später erweitert werden, das Schema um ein
-  `video`-Feld zu ergänzen — der Druck zeigt automatisch nur das Foto.
-- Englisch / Französisch / Italienisch: einfach die leeren `""` Felder
-  in den JSON-Dateien füllen.
+Nur an `127.0.0.1` gebunden, keine Authentifizierung — bewusst. Für lokale
+Editierarbeit gedacht; die generierten JSON-Dateien können danach genauso wie
+zuvor versioniert/verschickt/auf statisches Hosting gelegt werden.

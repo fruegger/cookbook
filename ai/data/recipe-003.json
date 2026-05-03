@@ -23,7 +23,7 @@
   },
 
   "basket": {
-    "image": "../assets/photos/recipe-003/basket.jpeg",
+    "image": "assets/photos/recipe-003/basket003.jpeg",
     "alt": {
       "de": "Zutaten für Blumenkohlsteak, Béarnaise, Bratkartoffeln und Kräuterkrümel: Sauvignon Blanc, Apfelessig, Kressi, Olivenöl, Blumenkohl, Butter, Ei, Schalotte, Kartoffeln, Panko, Za'atar, frische Kräuter (Estragon, Thymian, Petersilie), Salz, Pfeffer",
       "en": "", "fr": "", "it": ""
@@ -113,8 +113,7 @@
   ],
 
   "finished": {
-    "image": "../assets/photos/recipe-003/finished.jpeg",
-    "focal": "center 20%",
+    "image": "assets/photos/recipe-003/finished003.jpeg",
     "alt": {
       "de": "Goldbraun gebratenes Blumenkohlsteak mit Kräuterkrümel, daneben Bratkartoffeln und ein Saucière mit hellgelber Béarnaise",
       "en": "", "fr": "", "it": ""
@@ -133,10 +132,9 @@
     "de": [
       "Damit es Steaks aus Blumenkohl gibt, muss man durch den Strunk schneiden — sonst halten die Scheiben nicht zusammen. Das bedeutet, dass nur wenige Steaks aus einem Blumenkohl möglich sind. Wenn du nicht unbedingt auf das Aussehen abzielst, ist es völlig egal, ob mehrere Stücke eher wie ein Steak sind.",
       "Wenn du beide Seiten des Blumenkohls mit einem Messer kreuzweise ganz leicht einritzt, gart er deutlich schneller.",
-      "Béarnaise ist im Grunde eine Hollandaise mit einer Estragon-Schalotten-Essig-Reduktion — der einzige aromatische Unterschied, aber er ist gross. Klassisch nimmt man Weissweinessig; Je nach Essigwahl wannst du ein anderes Akzent setzen.",
-      "Mein Lieblingsweisswein für die Reduktion ist ein Sauvignon Blanc — frisch und fruchtig, das passt zum Estragon.",
-      "Za'atar ist eine Kräuter-Gewürz-Mischung aus der Levante (typisch Thymian oder Oregano, Sumach, Sesam, Salz). Die thymige Note ist es, die die Brücke vom Estragon der Béarnaise zu den Kräuterkrümeln auf dem Steak schlägt — das Gericht ist französisch-levantinisch, ohne dass es so heisst.",
-      "Für die vegane Variante würde ich die Sosse weglassen (eine spannende Variante wäre eine Tomaten, Harissa und Kapern Sosse!) und Olivenöll anstatt Butter verwenden."
+      "Béarnaise ist im Grunde eine Hollandaise mit einer Estragon-Schalotten-Essig-Reduktion — der einzige aromatische Unterschied, aber er ist gross. Klassisch nimmt man Weissweinessig; Kressi gibt der Sauce einen ehrlich-schweizerischen Akzent.",
+      "Mein Lieblingsweisswein für die Reduktion ist ein neuseeländischer Sauvignon Blanc — frisch und kräutrig, das passt zum Estragon. Ein Cabernet Sauvignon (rot und tanninreich) wäre hier nicht der richtige Wein.",
+      "Za'atar ist eine Kräuter-Gewürz-Mischung aus der Levante (typisch Thymian oder Oregano, Sumach, Sesam, Salz). Die thymige Note ist es, die die Brücke vom Estragon der Béarnaise zu den Kräuterkrümeln auf dem Steak schlägt — das Gericht ist französisch-levantinisch, ohne dass es so heisst."
     ],
     "en": [], "fr": [], "it": []
   }

@@ -1,0 +1,51 @@
+{
+  "id": "shiitake",
+  "name": {
+    "de": "Shiitake",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+  "latin": "",
+  "image": "",
+  "image_alt": {
+    "de": "",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+  "description": {
+    "de": "",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+  "nutrition": {
+    "energy": "",
+    "carbs": "",
+    "fat": "",
+    "protein": "",
+    "_per": "100 g"
+  },
+  "origin": {
+    "de": "",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+  "seasonality": {
+    "de": "",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+  "tips": {
+    "de": "",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+  "usedIn": [
+    "recipe-002"
+  ]
+}

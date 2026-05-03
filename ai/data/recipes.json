@@ -5,36 +5,36 @@
       "category": "dessert",
       "title": {
         "de": "Mousse au Chocolat, Beeren mit Rosmarin und Filo-Crinkle Cake",
-        "en": "",
+      "en": "",
         "fr": "",
         "it": ""
       },
-      "thumb": "assets/photos/recipe-001/finished.jpeg",
-      "href": "recipes/recipe-001.html"
+      "thumb": "assets/photos/recipe-001/finished001.jpeg",
+      "href": "recipe.html?id=recipe-001"
     },
     {
       "id": "recipe-002",
       "category": "soup",
       "title": {
-        "de": "Kaviar vom Feld — Randensuppe mit Tonburi und Miso-Butter-Toast",
+        "de": "Kaviar vom Feld",
         "en": "",
         "fr": "",
         "it": ""
       },
-      "thumb": "assets/photos/recipe-002/finished.jpeg",
-      "href": "recipes/recipe-002.html"
+      "thumb": "assets/photos/recipe-002/finished002.jpeg",
+      "href": "recipe.html?id=recipe-002"
     },
     {
       "id": "recipe-003",
       "category": "main",
       "title": {
-        "de": "Non-Steak non-Frites — Blumenkohl-Steak mit Béarnaise",
+        "de": "Non-Steak non-Frites",
         "en": "",
         "fr": "",
         "it": ""
       },
-      "thumb": "assets/photos/recipe-003/finished.jpeg",
-      "href": "recipes/recipe-003.html"
+      "thumb": "assets/photos/recipe-003/finished003.jpeg",
+      "href": "recipe.html?id=recipe-003"
     }
   ]
 }

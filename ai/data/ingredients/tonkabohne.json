@@ -1,0 +1,51 @@
+{
+  "id": "tonkabohne",
+  "name": {
+    "de": "Tonkabohne",
+    "en": "Tonka bean",
+    "fr": "Fève tonka",
+    "it": "Fava tonka"
+  },
+  "latin": "Dipteryx odorata",
+  "image": "",
+  "image_alt": {
+    "de": "",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+  "description": {
+    "de": "Eine getrocknete schwarze Bohne mit intensivem Aroma — eine Mischung aus Vanille, Mandel, Zimt und Heu. Wird gerieben wie Muskatnuss verwendet.",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+  "nutrition": {
+    "energy": "",
+    "carbs": "",
+    "fat": "",
+    "protein": "",
+    "_per": "100 g"
+  },
+  "origin": {
+    "de": "Südamerika (vor allem Brasilien, Venezuela)",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+  "seasonality": {
+    "de": "ganzjährig erhältlich (getrocknet)",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+  "tips": {
+    "de": "Sehr sparsam reiben — die Bohne ist intensiv und enthält Cumarin (in grossen Mengen schädlich; kulinarische Mengen sind unbedenklich).",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+  "usedIn": [
+    "recipe-001"
+  ]
+}
