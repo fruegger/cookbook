@@ -203,6 +203,7 @@ h1.recipe-title {
   gap: 2.5rem;
   align-items: start;
   margin: 1rem 0 3rem;
+  position: relative; /* anchor for the connectors SVG overlay */
 }
 .basket-figure {
   position: relative;
@@ -216,21 +217,26 @@ h1.recipe-title {
   aspect-ratio: 3 / 4;
   object-fit: cover;
 }
-.basket-figure svg.connectors {
+/* Connector SVG overlays the whole basket-pair so lines can reach from
+   the figure to the ingredient list on the right. */
+.basket-pair > svg.connectors {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
+  overflow: visible;
+  z-index: 2;
 }
-.basket-figure svg.connectors line {
+.basket-pair > svg.connectors line {
   stroke: var(--ink);
   stroke-width: 1;
-  opacity: .55;
+  opacity: .45;
+  vector-effect: non-scaling-stroke;
 }
-.basket-figure svg.connectors circle {
+.basket-pair > svg.connectors circle {
   fill: var(--accent);
-  opacity: .85;
+  opacity: .9;
 }
 
 .ingredient-list h3 {
@@ -520,6 +526,7 @@ h1.recipe-title {
    ========================================================= */
 @media (max-width: 760px) {
   .basket-pair { grid-template-columns: 1fr; }
+  .basket-pair > svg.connectors { display: none; } /* lines make no sense when stacked */
   .step { grid-template-columns: 2rem 1fr; }
   .step .photo { grid-column: 2; max-width: 12rem; }
   .colophon { grid-template-columns: 1fr; }
@@ -578,6 +585,20 @@ h1.recipe-title {
   .ingredient-list li { font-size: 8.5pt; padding: .5mm 0; grid-template-columns: 5.5em 1fr; gap: 3mm; }
   .ingredient-list .basket-label { font-size: 7pt; margin-bottom: 1.5mm; padding-bottom: 1mm; color: black; }
   .basket-pair + .basket-pair { margin-top: 3mm; padding-top: 2mm; border-top: 1px solid var(--rule); }
+
+  /* Connector lines: print darker and thicker than screen. Override the
+     attributes set by the JS so faint screen lines become solid in print.
+     `!important` is needed because SVG presentation attributes set inline
+     by JS would otherwise win the cascade. */
+  .basket-pair > svg.connectors line {
+    stroke: #000 !important;
+    stroke-opacity: 1 !important;
+    stroke-width: 0.75pt !important;
+  }
+  .basket-pair > svg.connectors circle {
+    fill: #000 !important;
+    fill-opacity: 1 !important;
+  }
 
   /* Methods: tighter, three columns of steps if room allows */
   .methods { margin: 0; }

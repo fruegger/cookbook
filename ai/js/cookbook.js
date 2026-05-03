@@ -129,12 +129,12 @@ function renderRecipe(recipe, lang, registry) {
           ${b.image
             ? `<img src="${escapeHtml(b.image)}" alt="${escapeHtml(bAlt)}">`
             : '<div class="basket-placeholder">Foto folgt</div>'}
-          ${renderConnectors(b.connectors || {})}
         </figure>
         <div class="ingredient-list">
           ${bTitle ? `<div class="basket-label">${escapeHtml(bTitle)}</div>` : ''}
           ${groupsForBasket.map(renderGroup).join('')}
         </div>
+        ${renderConnectors(b.connectors || {})}
       </div>
     `;
   }).join('');
@@ -223,18 +223,170 @@ function renderRecipe(recipe, lang, registry) {
   `;
 
   document.title = title + ' — Dinner für zwei';
+
+  // Draw connector lines once the new DOM is in place. A second pass runs
+  // when images load (handled inside wireConnectors). Also start observing
+  // size changes so the lines stay in sync with the print transition.
+  requestAnimationFrame(() => {
+    wireConnectors(root);
+    observeBasketPairs();
+  });
 }
 
-/* ---------- SVG connectors between list items and basket photo ---------- */
+/* ---------- SVG connectors between list items and basket photo ----------
+   Two-stage rendering:
+     1. renderConnectors(map) emits an empty <svg class="connectors"> sibling
+        to the figure (inside .basket-pair) carrying the connector data as a
+        JSON attribute. No geometry is computed at HTML-render time because
+        we don't yet know where the <li> elements will land.
+     2. wireConnectors() runs after the recipe is in the DOM, measures each
+        <li data-ing-id="…"> and the basket figure, and writes <circle>+<line>
+        elements into the SVG using pixel coordinates relative to .basket-pair.
+   The pass is re-run on resize, on basket-image load, and on language switch.
+*/
 function renderConnectors(map) {
-  const points = Object.entries(map).map(([id, p]) => `
-    <circle cx="${p.x}" cy="${p.y}" r="0.8" data-target="${id}"/>
-  `).join('');
-  return `
-    <svg class="connectors" viewBox="0 0 100 100" preserveAspectRatio="none">
-      ${points}
-    </svg>
-  `;
+  const data = encodeURIComponent(JSON.stringify(map || {}));
+  return `<svg class="connectors" data-connectors="${data}" aria-hidden="true"></svg>`;
+}
+
+function wireConnectors(root) {
+  const scope = root || document;
+  const svgNS = 'http://www.w3.org/2000/svg';
+
+  scope.querySelectorAll('.basket-pair').forEach(pair => {
+    const svg = pair.querySelector('svg.connectors');
+    const figure = pair.querySelector('.basket-figure');
+    const img = figure && figure.querySelector('img');
+    const list = pair.querySelector('.ingredient-list');
+    if (!svg || !figure || !list) return;
+
+    let map = {};
+    try {
+      map = JSON.parse(decodeURIComponent(svg.dataset.connectors || '%7B%7D'));
+    } catch { map = {}; }
+
+    // Defer until the image has dimensions; otherwise the figure rect can be 0.
+    if (img && !img.complete) {
+      img.addEventListener('load', () => wireConnectors(scope), { once: true });
+      img.addEventListener('error', () => wireConnectors(scope), { once: true });
+    }
+
+    const pairRect = pair.getBoundingClientRect();
+    const figRect = figure.getBoundingClientRect();
+    if (pairRect.width === 0 || figRect.width === 0) return;
+
+    // Use a normalized 0-100 viewBox with preserveAspectRatio="none" so the
+    // SVG stretches to whatever size the basket-pair takes — including the
+    // very different print layout. This avoids needing to recompute pixel
+    // coordinates for print (where getBoundingClientRect can't see the
+    // print-specific layout).
+    svg.setAttribute('viewBox', '0 0 100 100');
+    svg.setAttribute('preserveAspectRatio', 'none');
+    svg.style.position = 'absolute';
+    svg.style.inset = '0';
+    svg.style.width = '100%';
+    svg.style.height = '100%';
+    svg.style.pointerEvents = 'none';
+    pair.style.position = pair.style.position || 'relative';
+    svg.innerHTML = '';
+
+    // Figure offset/size as percentages of the pair.
+    const figXpct = ((figRect.left - pairRect.left) / pairRect.width) * 100;
+    const figYpct = ((figRect.top - pairRect.top) / pairRect.height) * 100;
+    const figWpct = (figRect.width / pairRect.width) * 100;
+    const figHpct = (figRect.height / pairRect.height) * 100;
+
+    Object.entries(map).forEach(([id, p]) => {
+      const li = list.querySelector(`li[data-ing-id="${CSS.escape(id)}"]`);
+      if (!li) return;
+      const liRect = li.getBoundingClientRect();
+
+      // Image-side endpoint, in percentages of the pair.
+      const x1 = figXpct + (p.x / 100) * figWpct;
+      const y1 = figYpct + (p.y / 100) * figHpct;
+
+      // List-side endpoint: middle-left of the <li>, in percentages of the pair.
+      const x2 = ((liRect.left - pairRect.left) / pairRect.width) * 100;
+      const y2 = (((liRect.top - pairRect.top) + liRect.height / 2) / pairRect.height) * 100;
+
+      // Line first (so circles sit on top). Stroke is set as attributes so
+      // the line renders even if CSS doesn't apply (default <line> stroke
+      // is 'none' — invisible). non-scaling-stroke keeps the line visually
+      // ~1.25px regardless of the SVG's stretched aspect ratio.
+      const line = document.createElementNS(svgNS, 'line');
+      line.setAttribute('x1', x1);
+      line.setAttribute('y1', y1);
+      line.setAttribute('x2', x2);
+      line.setAttribute('y2', y2);
+      line.setAttribute('stroke', '#2a2520');
+      line.setAttribute('stroke-width', '1.25');
+      line.setAttribute('stroke-opacity', '0.7');
+      line.setAttribute('vector-effect', 'non-scaling-stroke');
+      svg.appendChild(line);
+
+      const dot = document.createElementNS(svgNS, 'circle');
+      // Circle in a stretched viewBox would become an ellipse, so place it
+      // and size it in viewBox units — small enough that the distortion
+      // is invisible.
+      dot.setAttribute('cx', x1);
+      dot.setAttribute('cy', y1);
+      dot.setAttribute('r', 0.6);
+      dot.setAttribute('fill', '#8b1e3f');
+      dot.setAttribute('fill-opacity', '0.9');
+      dot.setAttribute('data-target', id);
+      svg.appendChild(dot);
+    });
+  });
+}
+
+// Re-wire on resize (debounced) and after fonts settle.
+let _connectorRaf = null;
+function scheduleConnectorRewire() {
+  if (_connectorRaf) cancelAnimationFrame(_connectorRaf);
+  _connectorRaf = requestAnimationFrame(() => {
+    _connectorRaf = null;
+    wireConnectors();
+  });
+}
+window.addEventListener('resize', scheduleConnectorRewire);
+
+// ResizeObserver catches every layout change to a basket-pair — including
+// when the print stylesheet kicks in and resizes the columns. This is the
+// most reliable trigger across browsers because it doesn't depend on the
+// browser firing beforeprint or matchMedia('print') reliably.
+let _resizeObserver = null;
+function observeBasketPairs() {
+  if (typeof ResizeObserver === 'undefined') return;
+  if (_resizeObserver) _resizeObserver.disconnect();
+  _resizeObserver = new ResizeObserver(scheduleConnectorRewire);
+  document.querySelectorAll('.basket-pair').forEach(p => _resizeObserver.observe(p));
+}
+
+// Print handling: the screen and print layouts have different column ratios
+// (1.1fr 1fr vs 0.85fr 1fr) and different image dimensions, so the lines must
+// be recomputed when entering print and restored when leaving.
+//
+// `matchMedia('print').onchange` fires reliably with the print layout already
+// applied, which beforeprint does not. We use both for browser coverage.
+function rewireForPrint() {
+  // Two passes: one immediate, one after a frame, because some browsers
+  // apply print CSS in stages.
+  wireConnectors();
+  requestAnimationFrame(() => wireConnectors());
+}
+window.addEventListener('beforeprint', rewireForPrint);
+window.addEventListener('afterprint', scheduleConnectorRewire);
+if (window.matchMedia) {
+  const mql = window.matchMedia('print');
+  const onChange = () => {
+    if (mql.matches) rewireForPrint();
+    else scheduleConnectorRewire();
+  };
+  if (mql.addEventListener) mql.addEventListener('change', onChange);
+  else if (mql.addListener) mql.addListener(onChange); // older Safari
+}
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(() => wireConnectors());
 }
 
 /* ---------- Language switcher ---------- */

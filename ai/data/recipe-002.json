@@ -1,18 +1,24 @@
 {
   "id": "recipe-002",
   "category": "soup",
-  "servings": { "de": "für 2 Personen", "en": "", "fr": "", "it": "" },
-
+  "servings": {
+    "de": "für 2 Personen",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
   "title": {
     "de": "Kaviar vom Feld",
-    "en": "", "fr": "", "it": ""
+    "en": "",
+    "fr": "",
+    "it": ""
   },
-
   "subtitle": {
     "de": "Randensuppe mit Tonburi und Miso-Butter-Toast",
-    "en": "", "fr": "", "it": ""
+    "en": "",
+    "fr": "",
+    "it": ""
   },
-
   "mood": {
     "de": [
       "Was meiner Meinung nach Kaviar besonders macht, ist das Erlebnis, wenn die Körner auf der Zunge zerplatzen. Leider ist die Kehrseite der Medaille eher abschreckend: Abgesehen vom deftigen Preis macht mir das schlechte Gewissen zu schaffen — den armen Stör­fischen erwartet doch ein schreckliches Ende, um den Kaviar zu gewinnen.",
@@ -20,141 +26,812 @@
       "Weil ich zum ausserordentlichen Tonburi etwas genauso Aussergewöhnliches machen will, habe ich an eine Suppe gedacht … eine rote Suppe. Speziell daran ist … naja, alles: sie ist rot, erdig, warm, süsslich — nichts von dem scheint zu Kaviar zu passen, tut es aber doch. Insbesondere zu Feldkaviar.",
       "Suppe ohne Brot ist wie eine Violine ohne Bogen — deshalb muss es das Japan-inspirierte Milch-Toastbrot mit Umami-Butter dazu geben."
     ],
-    "en": [], "fr": [], "it": []
+    "en": [],
+    "fr": [],
+    "it": []
   },
-
   "baskets": [
     {
       "id": "savoury",
-      "title": { "de": "Suppe & Butter", "en": "", "fr": "", "it": "" },
+      "title": {
+        "de": "Suppe & Butter",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
       "image": "assets/photos/recipe-002/basket-soup.jpeg",
       "alt": {
         "de": "Zutaten für Randensuppe und Miso-Shiitake-Butter: Milch, getrocknete Shiitake, Miso, Crème fraîche, Rote Bete, Thymian, Salz, Pfeffer",
-        "en": "", "fr": "", "it": ""
+        "en": "",
+        "fr": "",
+        "it": ""
       },
       "_note": "TODO: connector coordinates after final basket photo is settled",
       "connectors": {}
     },
     {
       "id": "bread",
-      "title": { "de": "Toastbrot", "en": "", "fr": "", "it": "" },
+      "title": {
+        "de": "Toastbrot",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
       "image": "assets/photos/recipe-002/basket-bread.jpeg",
       "alt": {
         "de": "Zutaten für das Milch-Toastbrot: Mehl, Milch, Butter, Zucker, Salz",
-        "en": "", "fr": "", "it": ""
+        "en": "",
+        "fr": "",
+        "it": ""
       },
-      "connectors": {}
+      "connectors": {
+        "milch-brot": {
+          "x": 55,
+          "y": 22
+        },
+        "mehl": {
+          "x": 24,
+          "y": 45
+        },
+        "hefe": {
+          "x": 79,
+          "y": 70
+        },
+        "zucker-brot": {
+          "x": 60,
+          "y": 83
+        },
+        "salz-brot": {
+          "x": 80,
+          "y": 50
+        },
+        "butter-brot": {
+          "x": 48,
+          "y": 57
+        }
+      }
     }
   ],
-
   "ingredients": {
     "groups": [
       {
         "basket": "savoury",
-        "name": { "de": "Für die Suppe", "en": "", "fr": "", "it": "" },
+        "name": {
+          "de": "Für die Suppe",
+          "en": "",
+          "fr": "",
+          "it": ""
+        },
         "items": [
-          { "id": "rote-bete", "ref": "rote-bete", "qty": "1 mittelgross", "name": { "de": "Rote Bete", "en": "", "fr": "", "it": "" } },
-          { "id": "thymian", "ref": "thymian", "qty": "1 Zweig", "name": { "de": "Thymian", "en": "", "fr": "", "it": "" } },
-          { "id": "rahm-suppe", "ref": "vollrahm", "qty": "1 dl", "name": { "de": "Rahm", "en": "", "fr": "", "it": "" } },
-          { "id": "creme-fraiche", "ref": "creme-fraiche", "qty": "2 TL", "name": { "de": "Crème fraîche", "en": "", "fr": "", "it": "" } },
-          { "id": "tonburi", "ref": "tonburi", "qty": "2 TL", "name": { "de": "Tonburi", "en": "", "fr": "", "it": "" } },
-          { "id": "olivenoel", "ref": "olivenoel", "qty": "1 TL", "name": { "de": "Olivenöl", "en": "", "fr": "", "it": "" } }
+          {
+            "id": "rote-bete",
+            "ref": "rote-bete",
+            "qty": "1 mittelgross",
+            "name": {
+              "de": "Rote Bete",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "thymian",
+            "ref": "thymian",
+            "qty": "1 Zweig",
+            "name": {
+              "de": "Thymian",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "rahm-suppe",
+            "ref": "vollrahm",
+            "qty": "1 dl",
+            "name": {
+              "de": "Rahm",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "creme-fraiche",
+            "ref": "creme-fraiche",
+            "qty": "2 TL",
+            "name": {
+              "de": "Crème fraîche",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "tonburi",
+            "ref": "tonburi",
+            "qty": "2 TL",
+            "name": {
+              "de": "Tonburi",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "olivenoel",
+            "ref": "olivenoel",
+            "qty": "1 TL",
+            "name": {
+              "de": "Olivenöl",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          }
         ]
       },
       {
         "basket": "savoury",
-        "name": { "de": "Für die Miso-Shiitake-Butter", "en": "", "fr": "", "it": "" },
+        "name": {
+          "de": "Für die Miso-Shiitake-Butter",
+          "en": "",
+          "fr": "",
+          "it": ""
+        },
         "items": [
-          { "id": "shiitake", "ref": "shiitake", "qty": "2–3 getrocknet (oder 3–4 frisch)", "name": { "de": "Shiitake-Pilze", "en": "", "fr": "", "it": "" } },
-          { "id": "miso", "ref": "miso", "qty": "1 TL", "name": { "de": "Miso-Paste", "en": "", "fr": "", "it": "" } },
-          { "id": "butter-miso", "ref": "butter", "qty": "30 g", "name": { "de": "Butter", "en": "", "fr": "", "it": "" } }
+          {
+            "id": "shiitake",
+            "ref": "shiitake",
+            "qty": "2–3 getrocknet (oder 3–4 frisch)",
+            "name": {
+              "de": "Shiitake-Pilze",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "miso",
+            "ref": "miso",
+            "qty": "1 TL",
+            "name": {
+              "de": "Miso-Paste",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "butter-miso",
+            "ref": "butter",
+            "qty": "30 g",
+            "name": {
+              "de": "Butter",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          }
         ]
       },
       {
         "basket": "bread",
-        "name": { "de": "Für das Toastbrot", "en": "", "fr": "", "it": "" },
+        "name": {
+          "de": "Für das Toastbrot",
+          "en": "",
+          "fr": "",
+          "it": ""
+        },
         "items": [
-          { "id": "milch-brot", "ref": "milch", "qty": "1 dl", "name": { "de": "Milch", "en": "", "fr": "", "it": "" } },
-          { "id": "mehl", "ref": "mehl", "qty": "170 g", "name": { "de": "Mehl", "en": "", "fr": "", "it": "" } },
-          { "id": "hefe", "ref": "trockenhefe", "qty": "½ Päckchen", "name": { "de": "Trockenhefe", "en": "", "fr": "", "it": "" } },
-          { "id": "zucker-brot", "ref": "zucker", "qty": "16 g", "name": { "de": "Zucker", "en": "", "fr": "", "it": "" } },
-          { "id": "salz-brot", "ref": "salz", "qty": "3 g", "name": { "de": "Salz", "en": "", "fr": "", "it": "" } },
-          { "id": "butter-brot", "ref": "butter", "qty": "20 g", "name": { "de": "Butter", "en": "", "fr": "", "it": "" } }
+          {
+            "id": "milch-brot",
+            "ref": "milch",
+            "qty": "1 dl",
+            "name": {
+              "de": "Milch",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "mehl",
+            "ref": "mehl",
+            "qty": "170 g",
+            "name": {
+              "de": "Mehl",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "butter-brot",
+            "ref": "butter",
+            "qty": "20 g",
+            "name": {
+              "de": "Butter",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "salz-brot",
+            "ref": "salz",
+            "qty": "3 g",
+            "name": {
+              "de": "Salz",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "hefe",
+            "ref": "trockenhefe",
+            "qty": "½ Päckchen",
+            "name": {
+              "de": "Trockenhefe",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "zucker-brot",
+            "ref": "zucker",
+            "qty": "16 g",
+            "name": {
+              "de": "Zucker",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          }
         ]
       }
     ]
   },
-
   "methods": [
     {
-      "name": { "de": "Suppe", "en": "", "fr": "", "it": "" },
+      "name": {
+        "de": "Suppe",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
       "steps": [
-        { "id": "s1", "time": null, "tools": ["Backblech", "Alufolie"], "text": { "de": "Halbiere die Rote Bete und stelle sie mit der flachen Seite nach unten auf ein leicht eingeöltes Blech. Eine Lage Alufolie darunter hilft, dass nicht alles eingefärbt wird.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "s2", "time": "≈ 45 min", "tools": ["Ofen, 180 °C"], "text": { "de": "Etwa 45 Minuten backen — die Knolle soll weich werden.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "s3", "time": null, "tools": ["Mixer"], "text": { "de": "Das Fleisch aus der Rande löffeln und mit etwas Wasser (oder Gemüsebouillon, Shiro Dashi …) im Mixer pürieren. Konsistenz wie Rahm: nicht ganz flüssig.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "s4", "time": null, "tools": ["Pfanne"], "text": { "de": "Die pürierte Rande in eine Pfanne geben, mit Rahm und Thymian. Ein Zweigchen zur Seite stellen — die Blätter dienen später zur Dekoration.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "s5", "time": null, "tools": [], "text": { "de": "Auf kleiner Flamme erwärmen (sie muss nicht mehr kochen) und mit Salz und Pfeffer abschmecken.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "s6", "time": null, "tools": [], "text": { "de": "Währenddessen Tonburi mit Olivenöl, Salz und Pfeffer vermischen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Tonburi erst kurz vor dem Servieren würzen — das Geheimnis seiner Frische.", "en": "", "fr": "", "it": "" } },
-        { "id": "s7", "time": null, "tools": [], "text": { "de": "Suppe in Teller oder Schüsseln giessen, etwas Sauerrahm in die Mitte setzen und ein Quenelle Tonburi darüberlegen. Du kannst den Teller auch umgekehrt aufbauen: zuerst ein Sockel aus Crème fraîche, dann das Tonburi darauf, und am Schluss die Suppe drumherum giessen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } }
+        {
+          "id": "s1",
+          "time": null,
+          "tools": [
+            "Backblech",
+            "Alufolie"
+          ],
+          "text": {
+            "de": "Halbiere die Rote Bete und stelle sie mit der flachen Seite nach unten auf ein leicht eingeöltes Blech. Eine Lage Alufolie darunter hilft, dass nicht alles eingefärbt wird.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "s2",
+          "time": "≈ 45 min",
+          "tools": [
+            "Ofen, 180 °C"
+          ],
+          "text": {
+            "de": "Etwa 45 Minuten backen — die Knolle soll weich werden.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "s3",
+          "time": null,
+          "tools": [
+            "Mixer"
+          ],
+          "text": {
+            "de": "Das Fleisch aus der Rande löffeln und mit etwas Wasser (oder Gemüsebouillon, Shiro Dashi …) im Mixer pürieren. Konsistenz wie Rahm: nicht ganz flüssig.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "s4",
+          "time": null,
+          "tools": [
+            "Pfanne"
+          ],
+          "text": {
+            "de": "Die pürierte Rande in eine Pfanne geben, mit Rahm und Thymian. Ein Zweigchen zur Seite stellen — die Blätter dienen später zur Dekoration.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "s5",
+          "time": null,
+          "tools": [],
+          "text": {
+            "de": "Auf kleiner Flamme erwärmen (sie muss nicht mehr kochen) und mit Salz und Pfeffer abschmecken.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "s6",
+          "time": null,
+          "tools": [],
+          "text": {
+            "de": "Währenddessen Tonburi mit Olivenöl, Salz und Pfeffer vermischen.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "Tonburi erst kurz vor dem Servieren würzen — das Geheimnis seiner Frische.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "s7",
+          "time": null,
+          "tools": [],
+          "text": {
+            "de": "Suppe in Teller oder Schüsseln giessen, etwas Sauerrahm in die Mitte setzen und ein Quenelle Tonburi darüberlegen. Du kannst den Teller auch umgekehrt aufbauen: zuerst ein Sockel aus Crème fraîche, dann das Tonburi darauf, und am Schluss die Suppe drumherum giessen.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        }
       ]
     },
     {
-      "name": { "de": "Miso-Shiitake-Butter", "en": "", "fr": "", "it": "" },
+      "name": {
+        "de": "Miso-Shiitake-Butter",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
       "steps": [
-        { "id": "b1", "time": "≈ 1 h (oder schneller, siehe Notiz)", "tools": ["kleine Schüssel"], "text": { "de": "Zuerst die Umami-Schicht: getrocknete Shiitake in kleine Stücke schneiden und in ½ dl warmem Wasser einweichen. Dauert eine Weile (ca. 1 Std.); alternativ kannst du die Pilze aufkochen — das geht schneller.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "b2", "time": null, "tools": ["Sieb", "Saucenpfännchen"], "text": { "de": "Den Pilzsud filtern und mit der Miso-Paste in ein Saucenpfännchen geben.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "b3", "time": null, "tools": [], "text": { "de": "Reduzieren, bis es dickflüssig wird.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "b4", "time": null, "tools": [], "text": { "de": "Die Würze-Schicht dazu: Salz und Pfeffer (ich nehme gerne ein wenig MSG stattdessen). Du kannst auch etwas Sojasosse im Sud mit reduzieren, wenn dir das besser gefällt.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "b5", "time": null, "tools": [], "text": { "de": "Den Sirup etwas abkühlen lassen, dann mit der weichen Butter vermischen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Bitte wirklich abkühlen — sonst schmilzt die Butter.", "en": "", "fr": "", "it": "" } },
-        { "id": "b6", "time": "≥ 30 min", "tools": ["Kühlschrank"], "text": { "de": "Die Butter formen, wie es dir gefällt (Taler, Mödeli, in einer Kaffeetasse …) und mindestens 30 Minuten im Kühlschrank wieder fest werden lassen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } }
+        {
+          "id": "b1",
+          "time": "≈ 1 h (oder schneller, siehe Notiz)",
+          "tools": [
+            "kleine Schüssel"
+          ],
+          "text": {
+            "de": "Zuerst die Umami-Schicht: getrocknete Shiitake in kleine Stücke schneiden und in ½ dl warmem Wasser einweichen. Dauert eine Weile (ca. 1 Std.); alternativ kannst du die Pilze aufkochen — das geht schneller.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "b2",
+          "time": null,
+          "tools": [
+            "Sieb",
+            "Saucenpfännchen"
+          ],
+          "text": {
+            "de": "Den Pilzsud filtern und mit der Miso-Paste in ein Saucenpfännchen geben.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "b3",
+          "time": null,
+          "tools": [],
+          "text": {
+            "de": "Reduzieren, bis es dickflüssig wird.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "b4",
+          "time": null,
+          "tools": [],
+          "text": {
+            "de": "Die Würze-Schicht dazu: Salz und Pfeffer (ich nehme gerne ein wenig MSG stattdessen). Du kannst auch etwas Sojasosse im Sud mit reduzieren, wenn dir das besser gefällt.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "b5",
+          "time": null,
+          "tools": [],
+          "text": {
+            "de": "Den Sirup etwas abkühlen lassen, dann mit der weichen Butter vermischen.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "Bitte wirklich abkühlen — sonst schmilzt die Butter.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "b6",
+          "time": "≥ 30 min",
+          "tools": [
+            "Kühlschrank"
+          ],
+          "text": {
+            "de": "Die Butter formen, wie es dir gefällt (Taler, Mödeli, in einer Kaffeetasse …) und mindestens 30 Minuten im Kühlschrank wieder fest werden lassen.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        }
       ]
     },
     {
-      "name": { "de": "Toastbrot", "en": "", "fr": "", "it": "" },
+      "name": {
+        "de": "Toastbrot",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
       "steps": [
-        { "id": "t1", "time": null, "tools": ["kleine Pfanne", "Schwingbesen"], "text": { "de": "Zuerst Tangzhong machen: 10 g Mehl, 30 g Milch und 15 g Wasser in einer kleinen Pfanne — auf mittlerer Hitze unter ständigem Rühren mit dem Schwingbesen aufkochen, bis ein Gel entsteht. Eine Weile passiert nichts, dann ziemlich plötzlich doch.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Nicht aufhören zu rühren, sonst klumpt es.", "en": "", "fr": "", "it": "" } },
-        { "id": "t2", "time": "7–8 min", "tools": ["Schüssel"], "text": { "de": "Die restlichen 70 g Milch lauwarm machen, mit dem Zucker und der Trockenhefe verrühren. 7–8 Minuten warten, bis die Hefe aktiviert ist (am Schaum erkennbar).", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Wirklich nur lauwarm — heisse Milch tötet die Hefe.", "en": "", "fr": "", "it": "" } },
-        { "id": "t3", "time": null, "tools": [], "text": { "de": "Die Milch-Hefe-Zucker-Mischung mit dem Tangzhong-Gel verrühren.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "t4", "time": "≈ 10 min", "tools": ["Schüssel"], "text": { "de": "In einer anderen Schüssel Mehl und Salz vermischen. Die Gel-Flüssigkeit dazugeben und etwa 10 Minuten zu einem geschmeidigen Teig kneten.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "t5", "time": null, "tools": [], "text": { "de": "Stückchenweise die Butter in den Teig einarbeiten — ähnlich wie beim Brioche-Teig.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "t6", "time": "1–2 h", "tools": ["Tuch"], "text": { "de": "Wenn der Teig geschmeidig und elastisch ist, abgedeckt 1–2 Stunden ruhen lassen (oder bis sich das Volumen verdoppelt hat).", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "t7", "time": null, "tools": ["Wallholz"], "text": { "de": "Vier gleich grosse Würste formen. Ich mache zuerst Bällchen, walle sie flach und rolle sie dann zu Würstchen auf.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "t8", "time": "1–2 h", "tools": ["kleine Form", "Tuch"], "text": { "de": "Die Teigröllchen in eine kleine, gebutterte Form legen — sie müssen sich berühren, kein Raum dazwischen — und nochmals abgedeckt 1–2 Stunden ruhen lassen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "t9", "time": null, "tools": ["Pinsel"], "text": { "de": "Inzwischen sollten die Röllchen zu einem Brot zusammengewachsen sein. Mit Eiguss bestreichen (ich mag etwas Sahne lieber).", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "t10", "time": "16–20 min", "tools": ["Ofen, 190 °C"], "text": { "de": "Bei 190 °C 16–20 Minuten goldbraun backen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "t11", "time": null, "tools": [], "text": { "de": "Ob du das Brot in Scheiben schneidest und toastest oder so aufträgst, ist Geschmacksache.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } }
+        {
+          "id": "t1",
+          "time": null,
+          "tools": [
+            "kleine Pfanne",
+            "Schwingbesen"
+          ],
+          "text": {
+            "de": "Zuerst Tangzhong machen: 10 g Mehl, 30 g Milch und 15 g Wasser in einer kleinen Pfanne — auf mittlerer Hitze unter ständigem Rühren mit dem Schwingbesen aufkochen, bis ein Gel entsteht. Eine Weile passiert nichts, dann ziemlich plötzlich doch.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "Nicht aufhören zu rühren, sonst klumpt es.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "t2",
+          "time": "7–8 min",
+          "tools": [
+            "Schüssel"
+          ],
+          "text": {
+            "de": "Die restlichen 70 g Milch lauwarm machen, mit dem Zucker und der Trockenhefe verrühren. 7–8 Minuten warten, bis die Hefe aktiviert ist (am Schaum erkennbar).",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "Wirklich nur lauwarm — heisse Milch tötet die Hefe.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "t3",
+          "time": null,
+          "tools": [],
+          "text": {
+            "de": "Die Milch-Hefe-Zucker-Mischung mit dem Tangzhong-Gel verrühren.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "t4",
+          "time": "≈ 10 min",
+          "tools": [
+            "Schüssel"
+          ],
+          "text": {
+            "de": "In einer anderen Schüssel Mehl und Salz vermischen. Die Gel-Flüssigkeit dazugeben und etwa 10 Minuten zu einem geschmeidigen Teig kneten.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "t5",
+          "time": null,
+          "tools": [],
+          "text": {
+            "de": "Stückchenweise die Butter in den Teig einarbeiten — ähnlich wie beim Brioche-Teig.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "t6",
+          "time": "1–2 h",
+          "tools": [
+            "Tuch"
+          ],
+          "text": {
+            "de": "Wenn der Teig geschmeidig und elastisch ist, abgedeckt 1–2 Stunden ruhen lassen (oder bis sich das Volumen verdoppelt hat).",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "t7",
+          "time": null,
+          "tools": [
+            "Wallholz"
+          ],
+          "text": {
+            "de": "Vier gleich grosse Würste formen. Ich mache zuerst Bällchen, walle sie flach und rolle sie dann zu Würstchen auf.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "t8",
+          "time": "1–2 h",
+          "tools": [
+            "kleine Form",
+            "Tuch"
+          ],
+          "text": {
+            "de": "Die Teigröllchen in eine kleine, gebutterte Form legen — sie müssen sich berühren, kein Raum dazwischen — und nochmals abgedeckt 1–2 Stunden ruhen lassen.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "t9",
+          "time": null,
+          "tools": [
+            "Pinsel"
+          ],
+          "text": {
+            "de": "Inzwischen sollten die Röllchen zu einem Brot zusammengewachsen sein. Mit Eiguss bestreichen (ich mag etwas Sahne lieber).",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "t10",
+          "time": "16–20 min",
+          "tools": [
+            "Ofen, 190 °C"
+          ],
+          "text": {
+            "de": "Bei 190 °C 16–20 Minuten goldbraun backen.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "t11",
+          "time": null,
+          "tools": [],
+          "text": {
+            "de": "Ob du das Brot in Scheiben schneidest und toastest oder so aufträgst, ist Geschmacksache.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        }
       ]
     }
   ],
-
   "finished": {
     "image": "assets/photos/recipe-002/finished002.jpeg",
     "focal": "center 15%",
     "alt": {
       "de": "Tiefrote Randensuppe mit Tonburi und Crème fraîche, daneben zwei Scheiben Toastbrot und ein kleines Töpfchen Miso-Butter",
-      "en": "", "fr": "", "it": ""
+      "en": "",
+      "fr": "",
+      "it": ""
     }
   },
-
   "sources": [
     {
       "type": "url",
-      "label": { "de": "Eleven Madison Park (New York) — auf deren Online-Menükarte ich Tonburi zum ersten Mal entdeckt habe", "en": "", "fr": "", "it": "" },
+      "label": {
+        "de": "Eleven Madison Park (New York) — auf deren Online-Menükarte ich Tonburi zum ersten Mal entdeckt habe",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
       "url": "https://www.elevenmadisonpark.com/"
     },
     {
       "type": "url",
-      "label": { "de": "Joshua Weissman — die Idee zum Tangzhong (und ein YouTube-Kanal mit Mengenangaben in Gramm und Liter, nicht in Pfund, Steinen, Tassen oder Parsec pro Ampère/Melone)", "en": "", "fr": "", "it": "" },
+      "label": {
+        "de": "Joshua Weissman — die Idee zum Tangzhong (und ein YouTube-Kanal mit Mengenangaben in Gramm und Liter, nicht in Pfund, Steinen, Tassen oder Parsec pro Ampère/Melone)",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
       "url": "https://www.joshuaweissman.com/"
     }
   ],
-
   "notes": {
     "de": [
       "Tonburi ist eine seltene Delikatesse: getrocknete Samen der Sommerzypresse (Bassia / Kochia scoparia), eine Spezialität der Präfektur Akita im Norden Honshus. Die Samen sind geschmacksneutral und funktionieren als „Geschmacksschwamm“ — sie nehmen alles auf, womit man sie kombiniert. Um sich dem Geschmack von Kaviar anzunähern, würde man vielleicht Kombu, Katsuobushi oder gar Seetang verwenden. Hier geht es mir um den Pop auf der Zunge, nicht um den Kaviargeschmack.",
       "Die zweite japanische Alchemie dieses Rezeptes ist das Tangzhong. Es funktioniert wirklich: das Brot wird fluffiger und (etwas) länger haltbar.",
       "Das Gericht braucht sehr viel Wartezeit. Definitiv etwas für einen ruhigen Tag. Klar, Brot und Butter kann man auf Vorrat vorbereiten — aber trotzdem: nichts für Ungeduldige."
     ],
-    "en": [], "fr": [], "it": []
+    "en": [],
+    "fr": [],
+    "it": []
   }
 }
