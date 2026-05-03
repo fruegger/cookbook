@@ -129,6 +129,7 @@
 
   "finished": {
     "image": "assets/photos/recipe-002/finished002.jpeg",
+    "focal": "center 15%",
     "alt": {
       "de": "Tiefrote Randensuppe mit Tonburi und Crème fraîche, daneben zwei Scheiben Toastbrot und ein kleines Töpfchen Miso-Butter",
       "en": "", "fr": "", "it": ""

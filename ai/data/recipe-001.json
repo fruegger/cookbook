@@ -116,6 +116,7 @@
 
   "finished": {
     "image": "assets/photos/recipe-001/finished001.jpeg",
+    "focal": "center 30%",
     "alt": {
       "de": "Das fertige Dessert: Mousse au Chocolat im Glas, Beeren mit Rosmarin und Filo-Crinkle Cake auf weissem Teller",
       "en": "", "fr": "", "it": ""

@@ -191,10 +191,11 @@ function renderRecipe(recipe, lang, registry) {
         <h1 class="recipe-title">${escapeHtml(title)}</h1>
         ${subtitle ? `<p class="recipe-subtitle">${escapeHtml(subtitle)}</p>` : ''}
       </header>
-
       <figure class="hero">
         ${recipe.finished?.image
-          ? `<img src="${escapeHtml(recipe.finished.image)}" alt="${escapeHtml(finishedAlt)}">`
+          ? `<img src="${escapeHtml(recipe.finished.image)}"
+                  alt="${escapeHtml(finishedAlt)}"
+                  style="object-position: ${escapeHtml(recipe.finished?.focal || 'center center')}">`
           : '<div class="basket-placeholder">Foto folgt</div>'}
       </figure>
 
