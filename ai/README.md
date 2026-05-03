@@ -79,8 +79,8 @@ Zutaten-ID einen Punkt im Korbfoto (in Prozent der Bildbreite/-höhe):
 
 ```json
 "connectors": {
-  "schokolade": { "x": 28, "y": 35 },
-  "rosmarin":   { "x": 60, "y": 50 }
+"schokolade": { "x": 28, "y": 35 },
+"rosmarin":   { "x": 60, "y": 50 }
 }
 ```
 
@@ -90,6 +90,27 @@ Die `id` (z. B. `"schokolade"`) muss mit der `id` im Zutaten-Item
 > **TODO für Rezept #1:** Korbfoto neu fotografieren mit Sahnekännchen
 > statt rotem Karton, plus Butter und Milch ergänzen — danach die
 > Verbinder-Koordinaten eintragen.
+
+## Heldenfoto: Bildausschnitt steuern
+
+Das Hero-Foto (`finished.image`) wird sowohl auf dem Bildschirm (4:3) als
+auch im Druck (16:9) auf eine feste Form zugeschnitten. Damit wichtige
+Bildteile nicht abgeschnitten werden, kann pro Rezept ein Fokuspunkt
+gesetzt werden:
+
+```json
+"finished": {
+  "image": "../assets/photos/recipe-NNN/finished.jpeg",
+  "focal": "center 35%",
+  "alt": { … }
+}
+```
+
+`focal` akzeptiert jeden gültigen `object-position`-Wert, z. B.
+`"center top"`, `"30% center"`, `"center 60%"`. Ohne Angabe zentriert
+das Bild (`center center`). Faustregel: zuerst horizontal (links/rechts),
+dann vertikal (oben/unten) — kleinere Prozentwerte = weiter links bzw.
+weiter oben.
 
 ## Mehrere Körbe pro Rezept
 

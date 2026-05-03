@@ -151,7 +151,9 @@ function renderRecipe(recipe, lang) {
       </header>
 
       <figure class="hero">
-        <img src="${escapeHtml(recipe.finished?.image || '')}" alt="${escapeHtml(finishedAlt)}">
+        <img src="${escapeHtml(recipe.finished?.image || '')}"
+             alt="${escapeHtml(finishedAlt)}"
+             style="object-position: ${escapeHtml(recipe.finished?.focal || 'center center')}">
       </figure>
 
       <div class="mood">

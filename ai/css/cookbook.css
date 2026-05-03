@@ -551,7 +551,7 @@ h1.recipe-title {
   .recipe-subtitle { font-size: 11pt; margin: 0 0 4mm; }
 
   .hero { margin: 0 0 4mm; }
-  .hero img { aspect-ratio: 16/8; max-height: 55mm; object-fit: cover; }
+  .hero img { aspect-ratio: 16/9; max-height: 60mm; object-fit: cover; }
 
   .mood {
     font-size: 9pt;
