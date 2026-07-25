@@ -389,6 +389,7 @@ function renderLangTabs() {
   el.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
     state.lang = b.dataset.lang;
     localStorage.setItem('cookbook-lang', state.lang);
+    el.querySelectorAll('button').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === state.lang));
     renderForm();
     renderPreview();
   }));

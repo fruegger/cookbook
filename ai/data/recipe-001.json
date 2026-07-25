@@ -1,33 +1,45 @@
 {
   "id": "recipe-001",
   "category": "dessert",
-  "servings": { "de": "für 2 Personen", "en": "serves 2", "fr": "pour 2 personnes", "it": "per 2 persone" },
-
+  "servings": {
+    "de": "für 2 Personen",
+    "en": "serves 2",
+    "fr": "pour 2 personnes",
+    "it": "per 2 persone"
+  },
   "title": {
     "de": "Mousse au Chocolat, Beeren mit Rosmarin und Filo-Crinkle Cake",
-    "en": "",
+    "en": "Chocolate mousse, berries with rosemary and filo crinkle cake",
     "fr": "",
     "it": ""
   },
-
   "subtitle": {
     "de": "Eine Dessert-Trilogie",
-    "en": "",
+    "en": "A Dessert Trilogy",
     "fr": "",
     "it": ""
   },
-
   "mood": {
     "de": [
       "Diese Version der Mousse ist ein Klassiker. Mit meinem besten Willen kann ich mich nicht erinnern, wo und wann ich dieses Rezept aufgeschnappt habe. Auf jeden Fall habe ich es schon beweisbar mindestens dreissig Jahre lang zubereitet, und seltenst gab es Reklamationen.",
       "Die Idee mit dem Rosmarin ist einfach nachvollziehbar: Mach die Augen zu und stelle dir vor, du wärst am Rande eines Waldes irgendwo in den Bergen, vielleicht hörst du ein Bächlein talwärts fliessen … und du riechst die Tannenbäume, Waldbeeren und die Alpen.",
       "Zur kühlen Mousse und den süss-sauren Beeren braucht es Kontrast. Das Crinkle Cake ist da perfekt kontrastreich in mehreren Hinsichten: zuerst einmal ist es warm und südländisch — es ist nämlich von einer griechischen Süssigkeit namens Galaktoboureko inspiriert. Andererseits ist es eine neuartige Interpretation davon, die vor nicht sehr langer Zeit eine TikTok-Mode ausgelöst hat. Ich finde meine Variation mit der Tonkabohne zu diesem Dessert passend."
     ],
-    "en": [],
+    "en": [
+      "This version of chocolate mousse is a classic. Try as I might, I can't recall where or when I first came across this recipe. In any case, I've demonstrably been making it for at least thirty years, and there have been very few complaints so far.",
+      "The idea to add rosemary to the berries is easy to follow: Close your eyes and picture yourself at the edge of a forest somewhere in the mountains, perhaps you can hear a stream flowing downhill… and you can smell the fir trees, wild berries and the Alps.",
+      "The cool mousse and sweet-and-sour berries need a contrast of sorts. The crinkle cake provides just that  in several ways: firstly, it's warm and Mediterranean—it's inspired by a Greek sweet called galaktoboureko. Secondly, it's a novel interpretation of the classic, which recently sparked a TikTok craze. I think my variation with tonka bean complements this dessert nicely.",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
     "fr": [],
     "it": []
   },
-
   "basket": {
     "image": "assets/photos/recipe-001/basket001.jpeg",
     "alt": {
@@ -65,7 +77,7 @@
         "x": 60,
         "y": 60
       },
-      "filo" : {
+      "filo": {
         "x": 45,
         "y": 73
       },
@@ -75,104 +87,715 @@
       }
     }
   },
-
   "ingredients": {
     "groups": [
       {
-        "name": { "de": "Für die Mousse", "en": "", "fr": "", "it": "" },
+        "name": {
+          "de": "Für die Mousse",
+          "en": "For the mousse",
+          "fr": "",
+          "it": ""
+        },
         "items": [
-          { "id": "cognac", "ref": "cognac", "qty": "4 cl", "name": { "de": "Cognac (1 Shotgläschen)", "en": "", "fr": "", "it": "" } },
-          { "id": "rahm", "ref": "vollrahm", "qty": "1 dl", "name": { "de": "Vollrahm", "en": "", "fr": "", "it": "" } },
-          { "id": "schokolade", "ref": "dunkle-schokolade", "qty": "50 g", "name": { "de": "dunkle Schokolade (Crémant)", "en": "", "fr": "", "it": "" } },
-          { "id": "salz", "ref": "salz", "qty": "1 Prise (≈1 g)", "name": { "de": "Salz", "en": "", "fr": "", "it": "" } },
-          { "id": "zucker-mousse", "ref": "zucker", "qty": "20 g", "name": { "de": "Zucker (1½ Löffel)", "en": "", "fr": "", "it": "" } },
-          { "id": "ei-mousse", "ref": "ei", "qty": "1", "name": { "de": "Ei", "en": "", "fr": "", "it": "" } }
+          {
+            "id": "cognac",
+            "ref": "cognac",
+            "qty": "4 cl",
+            "name": {
+              "de": "Cognac (1 Shotgläschen)",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "rahm",
+            "ref": "vollrahm",
+            "qty": "1 dl",
+            "name": {
+              "de": "Vollrahm",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "schokolade",
+            "ref": "dunkle-schokolade",
+            "qty": "50 g",
+            "name": {
+              "de": "dunkle Schokolade (Crémant)",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "salz",
+            "ref": "salz",
+            "qty": "1 pinch(≈1 g)",
+            "name": {
+              "de": "Salz",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "zucker-mousse",
+            "ref": "zucker",
+            "qty": "20 g",
+            "name": {
+              "de": "Zucker (1½ Löffel)",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "ei-mousse",
+            "ref": "ei",
+            "qty": "1",
+            "name": {
+              "de": "Ei",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          }
         ]
       },
       {
-        "name": { "de": "Für die Beeren", "en": "", "fr": "", "it": "" },
+        "name": {
+          "de": "Für die Beeren",
+          "en": "For the berries",
+          "fr": "",
+          "it": ""
+        },
         "items": [
-          { "id": "rosmarin", "ref": "rosmarin", "qty": "1 Zweig", "name": { "de": "Rosmarin", "en": "", "fr": "", "it": "" } },
-          { "id": "beeren", "ref": "beeren-mix", "qty": "100 g", "name": { "de": "gemischte Beeren (Erdbeeren, Himbeeren, Brombeeren, Heidelbeeren)", "en": "", "fr": "", "it": "" } },
-          { "id": "zucker-beeren", "ref": "zucker", "qty": "10 g", "name": { "de": "Zucker", "en": "", "fr": "", "it": "" } }
+          {
+            "id": "rosmarin",
+            "ref": "rosmarin",
+            "qty": "1 twig",
+            "name": {
+              "de": "Rosmarin",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "beeren",
+            "ref": "beeren-mix",
+            "qty": "100 g",
+            "name": {
+              "de": "gemischte Beeren (Erdbeeren, Himbeeren, Brombeeren, Heidelbeeren)",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "zucker-beeren",
+            "ref": "zucker",
+            "qty": "10 g",
+            "name": {
+              "de": "Zucker",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          }
         ]
       },
       {
-        "name": { "de": "Für das Crinkle Cake (ca. 8 Portionen)", "en": "", "fr": "", "it": "" },
+        "name": {
+          "de": "Für das Crinkle Cake (ca. 8 Portionen)",
+          "en": "For the Crinkle Cake (approx. 8 servings)",
+          "fr": "",
+          "it": ""
+        },
         "items": [
-          { "id": "filo", "ref": "filoteig", "qty": "ca. 200 g (6 Blätter)", "name": { "de": "Filoteig", "en": "", "fr": "", "it": "" } },
-          { "id": "ei-cake", "ref": "ei", "qty": "1", "name": { "de": "Ei", "en": "", "fr": "", "it": "" } },
-          { "id": "milch", "ref": "milch", "qty": "1.5 dl", "name": { "de": "Milch", "en": "", "fr": "", "it": "" } },
-          { "id": "butter", "ref": "butter", "qty": "70 g", "name": { "de": "Butter", "en": "", "fr": "", "it": "" } },
-          { "id": "zucker-cake", "ref": "zucker", "qty": "120 g", "name": { "de": "Zucker", "en": "", "fr": "", "it": "" } },
-          { "id": "tonka", "ref": "tonkabohne", "qty": "¼", "name": { "de": "Tonkabohne", "en": "", "fr": "", "it": "" } }
+          {
+            "id": "filo",
+            "ref": "filoteig",
+            "qty": "ca. 200 g (6 sheets)",
+            "name": {
+              "de": "Filoteig",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "ei-cake",
+            "ref": "ei",
+            "qty": "1",
+            "name": {
+              "de": "Ei",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "milch",
+            "ref": "milch",
+            "qty": "1.5 dl",
+            "name": {
+              "de": "Milch",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "butter",
+            "ref": "butter",
+            "qty": "70 g",
+            "name": {
+              "de": "Butter",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "zucker-cake",
+            "ref": "zucker",
+            "qty": "120 g",
+            "name": {
+              "de": "Zucker",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "tonka",
+            "ref": "tonkabohne",
+            "qty": "¼",
+            "name": {
+              "de": "Tonkabohne",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          }
         ]
       }
     ]
   },
-
   "methods": [
     {
-      "name": { "de": "Mousse au Chocolat", "en": "", "fr": "", "it": "" },
+      "name": {
+        "de": "Mousse au Chocolat",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
       "steps": [
-        { "id": "m1", "time": null, "tools": [], "text": { "de": "Trenne Eiweiss und Eigelb.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "m2", "time": "2 min", "tools": ["Schwingbesen"], "text": { "de": "Schlage den Rahm.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "m3", "time": null, "tools": ["Schwingbesen"], "text": { "de": "Gib den Zucker zum Eigelb und mische, bis es zu einem hellen Sabayon wird.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "m4", "time": null, "tools": ["Schwingbesen"], "text": { "de": "Gib das Salz zum Eiweiss und schlage es zu Schnee.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "m5", "time": null, "tools": ["Bain-Marie"], "text": { "de": "Schmelze die Schokolade im Bain-Marie (oder in einem Gefäss über köchelndem Wasser).", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Beim Umgiessen ein Tuch verwenden, damit der Dampf dich nicht verbrennt.", "en": "", "fr": "", "it": "" } },
-        { "id": "m6", "time": null, "tools": [], "text": { "de": "Giesse die geschmolzene Schokolade ins Eigelb und mische. Die Masse kann schnell fest werden — keine Angst, das ist normal.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Achtung, dass du dich nicht verbrennst!", "en": "", "fr": "", "it": "" } },
-        { "id": "m7", "time": null, "tools": [], "text": { "de": "Gib so viel Cognac dazu und mische, bis die Masse wieder zähflüssig wird.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "m8", "time": null, "tools": [], "text": { "de": "Hebe den Rahm vorsichtig unter die Schoko-Eigelb-Masse. Vergiss nicht, etwas Rahm zum Dekorieren zurückzuhalten.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "m9", "time": null, "tools": [], "text": { "de": "Hebe zuletzt das geschlagene Eiweiss sorgfältig unter die Mousse — delikat falten, sonst fällt sie zu einer klebrigen Sosse zusammen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Nicht rühren — falten - ich hab herausgefunden, dass es durch Drehen mit dem Schwingbesen auch geht.", "en": "", "fr": "", "it": "" } },
-        { "id": "m10", "time": null, "tools": [], "text": { "de": "Je nach Präsentation, wills du die Mousse in Gläschen giessen oder in der Schüssel lassen (um sie dann löffelweise als Quenelles auf den Teller zu legen).", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "m10", "time": "≥ 2 h", "tools": ["Kühlschrank"], "text": { "de": "Lasse die Mousse mindestens 2 Stunden im Kühlschrank ruhen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } }
+        {
+          "id": "m1",
+          "time": null,
+          "tools": [],
+          "text": {
+            "de": "Trenne Eiweiss und Eigelb.",
+            "en": "Separate the egg whites and yolks.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "m2",
+          "time": "2 min",
+          "tools": [
+            "whisk"
+          ],
+          "text": {
+            "de": "Schlage den Rahm.",
+            "en": "Whip the cream.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "m3",
+          "time": null,
+          "tools": [
+            "whisk"
+          ],
+          "text": {
+            "de": "Gib den Zucker zum Eigelb und mische, bis es zu einem hellen Sabayon wird.",
+            "en": "Add the sugar to the egg yolks and mix until it becomes a light sabayon.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "m4",
+          "time": null,
+          "tools": [
+            "whisk"
+          ],
+          "text": {
+            "de": "Gib das Salz zum Eiweiss und schlage es zu Schnee.",
+            "en": "Add the salt to the egg whites and beat until stiff peaks form.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "m5",
+          "time": null,
+          "tools": [
+            "Bain-Marie"
+          ],
+          "text": {
+            "de": "Schmelze die Schokolade im Bain-Marie (oder in einem Gefäss über köchelndem Wasser).",
+            "en": "Melt the chocolate in a bain-marie (or in a container over simmering water).",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "Beim Umgiessen ein Tuch verwenden, damit der Dampf dich nicht verbrennt.",
+            "en": "Use a cloth when pouring to prevent the steam from burning you.",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "m6",
+          "time": null,
+          "tools": [],
+          "text": {
+            "de": "Giesse die geschmolzene Schokolade ins Eigelb und mische. Die Masse kann schnell fest werden — keine Angst, das ist normal.",
+            "en": "Pour the melted chocolate into the egg yolk and mix. The mixture may set quickly—don't worry, that's normal.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "Achtung, dass du dich nicht verbrennst!",
+            "en": "Be careful not to burn yourself!",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "m7",
+          "time": null,
+          "tools": [],
+          "text": {
+            "de": "Gib so viel Cognac dazu und mische, bis die Masse wieder zähflüssig wird.",
+            "en": "Add enough cognac and mix until the mixture becomes easily mixable again.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "m8",
+          "time": null,
+          "tools": [],
+          "text": {
+            "de": "Hebe den Rahm vorsichtig unter die Schoko-Eigelb-Masse. Vergiss nicht, etwas Rahm zum Dekorieren zurückzuhalten.",
+            "en": "Gently fold the cream into the chocolate-egg yolk mixture. Don't forget to reserve some cream for decoration.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "m9",
+          "time": null,
+          "tools": [],
+          "text": {
+            "de": "Hebe zuletzt das geschlagene Eiweiss sorgfältig unter die Mousse — delikat falten, sonst fällt sie zu einer klebrigen Sosse zusammen.",
+            "en": "Finally, carefully fold the beaten egg whites into the mousse — fold delicately, otherwise it will collapse into a sticky sauce.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "Nicht rühren — falten - ich hab herausgefunden, dass es durch Drehen mit dem Schwingbesen auch geht.",
+            "en": "Do not stir — fold — I've found that it also works with a whisk by slowly turning  it.",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "m10",
+          "time": null,
+          "tools": [],
+          "text": {
+            "de": "Je nach Präsentation, wills du die Mousse in Gläschen giessen oder in der Schüssel lassen (um sie dann löffelweise als Quenelles auf den Teller zu legen).",
+            "en": "Depending on the presentation you're going for, you can either pour the mousse into glasses or leave it in the bowl (to then spoon it onto the plate as quenelles).",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "m10",
+          "time": "≥ 2 h",
+          "tools": [
+            "Refrigerator"
+          ],
+          "text": {
+            "de": "Lasse die Mousse mindestens 2 Stunden im Kühlschrank ruhen.",
+            "en": "Let the mousse rest in the refrigerator for at least 2 hours.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        }
       ]
     },
     {
-      "name": { "de": "Beeren mit Rosmarin", "en": "", "fr": "", "it": "" },
+      "name": {
+        "de": "Beeren mit Rosmarin",
+        "en": "Berries with rosemary",
+        "fr": "",
+        "it": ""
+      },
       "steps": [
-        { "id": "b1", "time": "5 min", "tools": ["kleine Pfanne"], "text": { "de": "Lass Zucker und Wasser in gleicher Menge mit dem Rosmarinzweig in einer kleinen Pfanne köcheln, bis ca. zwei Drittel reduziert sind.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "b2", "time": null, "tools": ["Sieb"], "text": { "de": "Entferne das Rosmarin und filtere den Sirup.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "b3", "time": "5 bis 10 sec", "tools": ["Bratpfanne"], "text": { "de": "Erhitze etwas Sirup in einer Bratpfanne auf mittlerer Flamme und 'schocke' gewaschenen Beeren ca. 10 Sekunden darin.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Nur kurz — die Beeren sollen ihre Form behalten. Es ist auch nicht notwendig, sie im Eiswasser zu kühlen: sie hatten gar keine Zeit warm zu werden", "en": "", "fr": "", "it": "" } },
-        { "id": "b4", "time": null, "tools": [], "text": { "de": "Giesse soviel des restlichen Sirup über die fertige Beeren, wie du für genug hälst.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Nur kurz — die Beeren sollen ihre Form behalten (ein Paar Teelöffel sollten reichen).", "en": "", "fr": "", "it": "" } }
+        {
+          "id": "b1",
+          "time": "5 min",
+          "tools": [
+            "small pan"
+          ],
+          "text": {
+            "de": "Lass Zucker und Wasser in gleicher Menge mit dem Rosmarinzweig in einer kleinen Pfanne köcheln, bis ca. zwei Drittel reduziert sind.",
+            "en": "Simmer equal amounts of sugar and water with the rosemary sprig in a small pan until about two-thirds have reduced.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "b2",
+          "time": null,
+          "tools": [
+            "Sieve"
+          ],
+          "text": {
+            "de": "Entferne das Rosmarin und filtere den Sirup.",
+            "en": "Remove the rosemary and filter the syrup.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "b3",
+          "time": "5 to 10 sec",
+          "tools": [
+            "Skillet"
+          ],
+          "text": {
+            "de": "Erhitze etwas Sirup in einer Bratpfanne auf mittlerer Flamme und 'schocke' gewaschenen Beeren ca. 10 Sekunden darin.",
+            "en": "Heat some syrup in a skillet over medium heat and quickly 'shock' the washed berries in it for about 10 seconds",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "Nur kurz — die Beeren sollen ihre Form behalten. Es ist auch nicht notwendig, sie im Eiswasser zu kühlen: sie hatten gar keine Zeit warm zu werden",
+            "en": "Only very briefly—the berries should retain their shape. There's also no need to cool them in ice water: they haven't had time to warm up.",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "b4",
+          "time": null,
+          "tools": [],
+          "text": {
+            "de": "Giesse soviel des restlichen Sirup über die fertige Beeren, wie du für genug hälst.",
+            "en": "Pour as much of the remaining syrup over the finished berries as you deem necessary.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "Ein Paar Teelöffel sollten reichen.",
+            "en": "A couple of teaspoons should be enough",
+            "fr": "",
+            "it": ""
+          }
+        }
       ]
     },
     {
-      "name": { "de": "Filo-Crinkle Cake", "en": "", "fr": "", "it": "" },
+      "name": {
+        "de": "Filo-Crinkle Cake",
+        "en": "File Crinkle Cake",
+        "fr": "",
+        "it": ""
+      },
       "steps": [
-        { "id": "c1", "time": null, "tools": ["Pyrex-Form"], "text": { "de": "Forme mit dem Filoteig die Knitter (oder Wellen) in einem Blech oder einer Pyrex-Form.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "c2", "time": "10 min", "tools": ["Ofen, 180 °C"], "text": { "de": "Backe im 180 °C heissen Ofen 10 Minuten.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "c3", "time": null, "tools": ["Topf"], "text": { "de": "Schmelze in der Zwischenzeit die Butter.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "c4", "time": "10 min", "tools": ["Ofen, 180 °C"], "text": { "de": "Nehme die Filoknitter aus dem Ofen, giesse die geschmolzene Butter darüber und stelle sie für weitere 10 Minuten zurück in den Ofen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "c5", "time": null, "tools": ["Schüssel", "Schwingbesen"], "text": { "de": "Verrühre währenddessen Milch, Ei und ein Drittel des Zuckers zu einem Guss.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "c6", "time": "25 min", "tools": ["Ofen, 180 °C"], "text": { "de": "Nehme den Filokuchen aus dem Ofen, girsse den Ei-Milch-Guss darüber und backe ihn für 25 Minuten.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "c7", "time": null, "tools": ["kleine Pfanne"], "text": { "de": "In dieser Zeit, koche aus dem restlichen Zucker und gleicher Menge Wasser ein einfaches Sirup — diesmal ohne Rosmarin, um die Geschmacksrichtungen klar zu trennen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "c8", "time": null, "tools": ["Reibe"], "text": { "de": "Wenn der Knitterkuchen fertig ist, giesst du den Sirup darüber und reibst eine Spur Tonkabohne darüber. Dann lässt du alles etwas abkühlen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Tonkabohne nur sparsam verwenden — sie ist intensiv.", "en": "", "fr": "", "it": "" } }
+        {
+          "id": "c1",
+          "time": null,
+          "tools": [
+            "Pyrex-Form"
+          ],
+          "text": {
+            "de": "Forme mit dem Filoteig die Knitter (oder Wellen) in einem Blech oder einer Pyrex-Form.",
+            "en": "Shape the filo pastry into crinkles (or waves) in a baking tray or Pyrex mold.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "c2",
+          "time": "10 min",
+          "tools": [
+            "Ofen, 180 °C"
+          ],
+          "text": {
+            "de": "Backe im 180 °C heissen Ofen 10 Minuten.",
+            "en": "Bake in a 180°C oven for 10 minutes.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "c3",
+          "time": null,
+          "tools": [
+            "Topf"
+          ],
+          "text": {
+            "de": "Schmelze in der Zwischenzeit die Butter.",
+            "en": "Meanwhile, melt the butter.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "c4",
+          "time": "10 min",
+          "tools": [
+            "Ofen, 180 °C"
+          ],
+          "text": {
+            "de": "Nehme die Filoknitter aus dem Ofen, giesse die geschmolzene Butter darüber und stelle sie für weitere 10 Minuten zurück in den Ofen.",
+            "en": "Remove the filo pastries from the oven, pour the melted butter over them and return them to the oven for another 10 minutes.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "c5",
+          "time": null,
+          "tools": [
+            "Schüssel",
+            "Schwingbesen"
+          ],
+          "text": {
+            "de": "Verrühre währenddessen Milch, Ei und ein Drittel des Zuckers zu einem Guss.",
+            "en": "Meanwhile, mix the milk, egg and one-third of the sugar to make a glaze.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "c6",
+          "time": "25 min",
+          "tools": [
+            "Ofen, 180 °C"
+          ],
+          "text": {
+            "de": "Nehme den Filokuchen aus dem Ofen, girsse den Ei-Milch-Guss darüber und backe ihn für 25 Minuten.",
+            "en": "Take the filo cake out of the oven, pour the egg and milk custard over it and bake for 25 minutes.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "c7",
+          "time": null,
+          "tools": [
+            "kleine Pfanne"
+          ],
+          "text": {
+            "de": "In dieser Zeit, koche aus dem restlichen Zucker und gleicher Menge Wasser ein einfaches Sirup — diesmal ohne Rosmarin, um die Geschmacksrichtungen klar zu trennen.",
+            "en": "During this time, boil the remaining sugar and the same amount of water to make a simple syrup — this time without rosemary, to clearly separate the flavors.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "c8",
+          "time": null,
+          "tools": [
+            "Reibe"
+          ],
+          "text": {
+            "de": "Wenn der Knitterkuchen fertig ist, giesst du den Sirup darüber und reibst eine Spur Tonkabohne darüber. Dann lässt du alles etwas abkühlen.",
+            "en": "Once the crinkle cake is ready, pour the syrup over it and grate a little tonka bean on top. Then let it cool down a bit.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "Tonkabohne nur sparsam verwenden — sie ist intensiv.",
+            "en": "Use tonka beans VERY sparingly — it is intense.",
+            "fr": "",
+            "it": ""
+          }
+        }
       ]
     }
   ],
-
   "finished": {
     "image": "assets/photos/recipe-001/finished001.jpeg",
     "focal": "center 30%",
     "alt": {
       "de": "Das fertige Dessert: Mousse au Chocolat im Glas, Beeren mit Rosmarin und Filo-Crinkle Cake auf weissem Teller",
-      "en": "", "fr": "", "it": ""
+      "en": "",
+      "fr": "",
+      "it": ""
     }
   },
-
   "sources": [
     {
       "type": "url",
-      "label": { "de": "Ramena (TikTok) — die Auslöserin der Crinkle-Cake-Welle", "en": "", "fr": "", "it": "" },
+      "label": {
+        "de": "Ramena (TikTok) — die Auslöserin der Crinkle-Cake-Welle",
+        "en": "Ramena (TikTok) — the trigger of the crinkle cake craze",
+        "fr": "",
+        "it": ""
+      },
       "url": "https://www.youtube.com/watch?v=Kd8KvjigF00"
     },
     {
       "type": "tradition",
-      "label": { "de": "Inspiriert von Galaktoboureko, einer griechischen Süssigkeit", "en": "", "fr": "", "it": "" }
+      "label": {
+        "de": "Inspiriert von Galaktoboureko, einer griechischen Süssigkeit",
+        "en": "Inspired by Galaktoboureko, a Greek sweet",
+        "fr": "",
+        "it": ""
+      }
     }
   ],
-
   "notes": {
     "de": [
       "Falls du die Schokolade über köchelndem Wasser schmilzt: beim Umgiessen ein Tuch verwenden, damit der Dampf dich nicht verbrennt.",
@@ -181,6 +804,14 @@
       "Die vegane Variante gelingt 100 % mit Aquafaba (Wasser aus einer Büchse Kichererbsen): ein Teil davon anstelle Eigelb, der Rest anstatt Eiweiss. Achtung: vegane Schokolade ist nicht einfach zu finden!",
       "Auf dem Crinkle Cake passen auf feingehackte Pistazien bestens."
     ],
-    "en": [], "fr": [], "it": []
+    "en": [
+      "If you melt the chocolate over simmering water: use a cloth when pouring it over so that the steam doesn't burn you.\n",
+      "If you whisk the beaten egg whites again just before folding them in, they certainly won't collapse.",
+      "Using a glass bowl lets you see exactly if everything is mixed well :)",
+      "The vegan version works perfectly with aquafaba (the liquid from a can of chickpeas): use some of it instead of egg yolks, and the rest instead of egg whites. Note: vegan chocolate isn't easy to find!",
+      "Finely chopped pistachios go perfectly on the crinkle cake."
+    ],
+    "fr": [],
+    "it": []
   }
 }
