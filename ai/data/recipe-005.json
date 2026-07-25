@@ -1,0 +1,540 @@
+{
+  "id": "recipe-005",
+  "category": "sauce",
+  "servings": {
+    "de": "für 2 Personen",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+  "title": {
+    "de": "Sauce Hollandaise",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+  "subtitle": {
+    "de": "und zwei Variationen: Béarnaise und Maltaise",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+  "mood": {
+    "de": [
+      "Ernährungstechnisch ist die Hollandaise ein Desaster: stell dir vor ich würde dich am Tisch bitten, mir die 'Ei-Fett-Emulsion' über zu reichen...",
+      "Tatsache ist aber, dass die Familie der Hollandaise Sossen schon sehr lecker ist; etwa zu Spargel oder zu Ei Benedict. ",
+      "Es gibt eine ganze Reihe mehr oder weniger extravagante Ableitungen der Hollandaise: Mousseline, Choron, Mikado... Die, die ich hier beschreiben will, sind die Béarnaise und die Maltaise.",
+      "Schalotten und Estragon definieren die Béarnaise: sie passt gut zu Steaks, Kartoffeln und Bratkartoffeln.",
+      "Die Geschichte der Béarnaise ist etwas kompliziert: der Name kommt aus 'Béarn' und nicht aus Bern, wie ich es einst gemeint habe. Die Sosse selber stammt aber nicht aus Béarn, sondern aus Saint Germain-en-Laye bei Paris.",
+      "Dort gibt es ein Restaurant namens 'Pavillon Henri IV', wo Chef Collinet die Sosse erfand. Was aber hat das mit Béarn zu tun? Naja, König Henri de Navarre war auch 'le grand Béarnais' benannt.",
+      "Die Sauce Maltaise wurde ganz einfach nach ihrer definierenden Zutat benannt: die Blutorangen, eine Sorte davon war die Maltesische Orange. Populär ist sie durch Escoffier geworden.",
+      "Die Maltaise ist nicht jedermanns / jederfraus Sache: der Zitrusgeschmack (Schale und Saft) ist schon recht intensiv. Ich persönlich mag sie sehr zu Frühlingsgemüse oder Fisch."
+    ],
+    "en": [],
+    "fr": [],
+    "it": []
+  },
+  "basket": {
+    "image": "assets/photos/recipe-005/basket005.jpeg",
+    "alt": {
+      "de": "Zutaten für saucen Hollandaise, Maltaise und Béarnaise: Sauvignon Blanc, Kressi, Butter, Ei, Schalotte, Estragon, Salz, Pfeffer, Blutorange, Zitzone",
+      "en": "",
+      "fr": "",
+      "it": ""
+    },
+    "connectors": {
+      "butter": {
+        "x": 70,
+        "y": 18
+      },
+      "eigelb": {
+        "x": 83,
+        "y": 30
+      },
+      "zitronensaft": {
+        "x": 45,
+        "y": 80
+      },
+      "essig": {
+        "x": 50,
+        "y": 30
+      },
+      "weisswein": {
+        "x": 20,
+        "y": 40
+      },
+      "schalotte": {
+        "x": 20,
+        "y": 65
+      },
+      "estragon": {
+        "x": 70,
+        "y": 75
+      },
+      "blutorange": {
+        "x": 20,
+        "y": 85
+      }
+    }
+  },
+  "ingredients": {
+    "groups": [
+      {
+        "name": {
+          "de": "Für die Hollandaise",
+          "en": "",
+          "fr": "",
+          "it": ""
+        },
+        "items": [
+          {
+            "id": "butter",
+            "ref": "butter",
+            "qty": "30 g",
+            "name": {
+              "de": "Butter",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "eigelb",
+            "ref": "ei",
+            "qty": "1",
+            "name": {
+              "de": "Eigelb",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "zitronensaft",
+            "ref": "zitronensaft",
+            "qty": "1 Esslöffel",
+            "name": {
+              "de": "Zitronensaft (nur für Hollandaise und Maltaise)",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          }
+        ]
+      },
+      {
+        "name": {
+          "de": "für die Béarnaise",
+          "en": "",
+          "fr": "",
+          "it": ""
+        },
+        "items": [
+          {
+            "id": "essig",
+            "ref": "kressi",
+            "qty": "1 EL",
+            "name": {
+              "de": "Kräuteressig (z. B. Kressi)",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "weisswein",
+            "ref": "weisswein",
+            "qty": "2 EL",
+            "name": {
+              "de": "Weisswein",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "schalotte",
+            "ref": "schalotte",
+            "qty": "1 klein",
+            "name": {
+              "de": "Schalotte",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "estragon",
+            "ref": "estragon",
+            "qty": "ein paar Blätter",
+            "name": {
+              "de": "Estragon",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          }
+        ]
+      },
+      {
+        "name": {
+          "de": "für die Maltaise",
+          "en": "",
+          "fr": "",
+          "it": ""
+        },
+        "items": [
+          {
+            "id": "blutorange",
+            "ref": "blutorange",
+            "qty": "1",
+            "name": {
+              "de": "Blutorange",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          }
+
+        ]
+
+      }
+    ]
+  },
+  "methods": [
+    {
+      "name": {
+        "de": "Béarnaise",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "steps": [
+        {
+          "id": "be1",
+          "time": null,
+          "tools": [
+            "Messer"
+          ],
+          "text": {
+            "de": "Hacke Schalotte und Estragon fein.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "be2",
+          "time": null,
+          "tools": [
+            "kleine Pfanne"
+          ],
+          "text": {
+            "de": "Gebe Weisswein, Essig, Schalotte und Estragon in eine kleine Pfanne.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "be3",
+          "time": "≈ 5 min",
+          "tools": [],
+          "text": {
+            "de": "Redutiere auf die Hälfte (etwa 5 Minuten).",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "be4",
+          "time": null,
+          "tools": [
+            "feines Sieb"
+          ],
+          "text": {
+            "de": "Filtere die Reduktion durch ein feines Sieb.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "de": "Maltaise",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "steps": [
+        {
+          "id": "ma1",
+          "time": null,
+          "tools": [
+            "Messer, Saftpresse, Feinreibe"
+          ],
+          "text": {
+            "de": "Reibe je nach gewünschte Intensität etwas mehr oder weniger Schale ab der Blutorange (1/4 Orange reicht für mich).",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "ma2",
+          "time": null,
+          "tools": [
+            "Messer, Saftpresse"
+          ],
+          "text": {
+            "de": "Presse den Saft der Blutorange.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "ma3",
+          "time": null,
+          "tools": [
+            "kleine Pfanne"
+          ],
+          "text": {
+            "de": "Gebe 3 bis 4 Esslöffel Orangensaft in eine kleine Pfanne.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "ma4",
+          "time": "≈ 5 min",
+          "tools": [],
+          "text": {
+            "de": "reduziere den Saft auf die Hälfte (etwa 5 Minuten).",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "ma5",
+          "time": null,
+          "tools": [
+            ""
+          ],
+          "text": {
+            "de": "Jetzt kannst du Orangenschale und Saft zusammenmischen.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "de": "Hollandaise, Béarnaise, Maltaise",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "steps": [
+        {
+          "id": "ho1",
+          "time": null,
+          "tools": [
+            "kleiner Topf"
+          ],
+          "text": {
+            "de": "Schmelze die Butter, entferne den Schaum an der Oberfläche und giesse die klare Butter vorsichtig um — die weisse Flüssigkeit am Boden bleibt zurück.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "ho2",
+          "time": null,
+          "tools": [
+            "Schüssel"
+          ],
+          "text": {
+            "de": "Gebe für Maltaise die Orangenreduktion, für Béarnaise die Estragon-Schalottenreduktion und für Hollandaise einfach Wasser und das Eigelb in eine Schüssel.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "ho3",
+          "time": null,
+          "tools": [
+            "Schwingbesen"
+          ],
+          "text": {
+            "de": "Schlage die Mischung mit dem Schwingbesen schaumig.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "ho4",
+          "time": null,
+          "tools": [
+            "Bain-Marie"
+          ],
+          "text": {
+            "de": "Halte die Schüssel über kochendes Wasser und arbeite unter ständigem Rühren die geschmolzene Butter langsam ein. Temperaturkontrolle ist hier essentiell — vielleicht musst du die Schüssel zeitweise von der Hitze nehmen.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "Zu heiss → das Eigelb stockt und die Sosse gerinnt. Im Zweifel lieber kurz vom Feuer.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "ho5",
+          "time": null,
+          "tools": [],
+          "text": {
+            "de": "Wie immer: mit Salz und Pfeffer abschmecken. Zu Hollandaise und Maltaise kannst du ein Teelöffel Zitronensaft hinzufügen",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        }
+      ]
+    }
+  ],
+  "finished": {
+    "image": "assets/photos/recipe-005/finished005.jpeg",
+    "focal": "center bottom",
+    "alt": {
+      "de": "Schälchen mit hellgelber Hollandaise, hellgelber Béarnaise, und orangefarbener Maltaise",
+      "en": "",
+      "fr": "",
+      "it": ""
+    }
+  },
+  "sources": [
+    {
+      "type": "url",
+      "label": {
+        "de": "Fallow — Jack Croft und Will Murray, die Chefs des ikonischen Londoner Fallow,  haben ein sehr unterhanlsames und informatives you tube Kanal.",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "url": "https://www.youtube.com/watch?v=xniS7kMpW4I"
+    }
+  ],
+  "notes": {
+    "de": [
+      "Die Zitrone am Schluss ist optional, für Hollandaise kannst du auch etwas neutralerer Essig stattdessen nehme. Bei Maltaise gehr die Säure der Orange beim reduzieren verloren, die Zitrone stellt sie wieder her.",
+      "Mein Lieblingsweisswein für die Reduktion bei Béarnaise ist Sauvignon Blanc — frisch und kräutrig, das passt zum Estragon."    ],
+    "en": [],
+    "fr": [],
+    "it": []
+  }
+}

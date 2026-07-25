@@ -1,0 +1,417 @@
+{
+  "id": "recipe-004",
+  "category": "bread",
+  "servings": {
+    "de": "für 2 Personen",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+  "title": {
+    "de": "Toast- Milchbrot",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+  "subtitle": {
+    "de": "Alltäglich aber keinesfalls banal",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+  "mood": {
+    "de": [
+      "Als ich eines Tages in Chapel Hill Brot kaufen wollte, erhielt ich ein 'wertvolles' Tipp: ich soll die Packung zusammenpressen.",
+      "Nur falls diese wieder zur ursprüngliche Grösse zurückspringen würde, wäre das Brot frish.",
+      "Dieses Brot ist besonders fluffig und dank Tangzhong bleibt es sogar ziemlich lange frisch. Tangzhong ist einfach eine Gelatine aus Mehl, Wasser und Milch.",
+      "Bitte drucke das Brot nicht zusammen."
+    ],
+    "en": [],
+    "fr": [],
+    "it": []
+  },
+  "baskets": [
+    {
+      "id": "bread",
+      "title": {
+        "de": "Toastbrot",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "image": "assets/photos/recipe-004/basket004.jpeg",
+      "alt": {
+        "de": "Zutaten für das Milch-Toastbrot: Mehl, Milch, Butter, Zucker, Salz",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "connectors": {
+        "milch-brot": {
+          "x": 55,
+          "y": 22
+        },
+        "mehl": {
+          "x": 24,
+          "y": 45
+        },
+        "hefe": {
+          "x": 79,
+          "y": 67
+        },
+        "zucker-brot": {
+          "x": 60,
+          "y": 83
+        },
+        "salz-brot": {
+          "x": 80,
+          "y": 50
+        },
+        "butter-brot": {
+          "x": 48,
+          "y": 57
+        }
+      }
+    }
+  ],
+  "ingredients": {
+    "groups": [
+      {
+        "basket": "bread",
+        "name": {
+          "de": "Für das Toastbrot",
+          "en": "",
+          "fr": "",
+          "it": ""
+        },
+        "items": [
+          {
+            "id": "milch-brot",
+            "ref": "milch",
+            "qty": "1 dl",
+            "name": {
+              "de": "Milch",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "mehl",
+            "ref": "mehl",
+            "qty": "170 g",
+            "name": {
+              "de": "Mehl",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "butter-brot",
+            "ref": "butter",
+            "qty": "20 g",
+            "name": {
+              "de": "Butter",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "salz-brot",
+            "ref": "salz",
+            "qty": "3 g",
+            "name": {
+              "de": "Salz",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "hefe",
+            "ref": "trockenhefe",
+            "qty": "½ Päckchen",
+            "name": {
+              "de": "Trockenhefe",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "zucker-brot",
+            "ref": "zucker",
+            "qty": "16 g",
+            "name": {
+              "de": "Zucker",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "methods": [
+    {
+      "name": {
+        "de": "Toastbrot",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "steps": [
+        {
+          "id": "t1",
+          "time": null,
+          "tools": [
+            "kleine Pfanne",
+            "Schwingbesen"
+          ],
+          "text": {
+            "de": "Zuerst Tangzhong machen: 10 g Mehl, 30 g Milch und 15 g Wasser in einer kleinen Pfanne — auf mittlerer Hitze unter ständigem Rühren mit dem Schwingbesen aufkochen, bis ein Gel entsteht. Eine Weile passiert nichts, dann ziemlich plötzlich doch.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "Nicht aufhören zu rühren, sonst klumpt es.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "t2",
+          "time": "7–8 min",
+          "tools": [
+            "Schüssel"
+          ],
+          "text": {
+            "de": "Die restlichen 70 g Milch lauwarm machen, mit dem Zucker und der Trockenhefe verrühren. 7–8 Minuten warten, bis die Hefe aktiviert ist (am Schaum erkennbar).",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "Wirklich nur lauwarm — heisse Milch tötet die Hefe.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "t3",
+          "time": null,
+          "tools": [],
+          "text": {
+            "de": "Die Milch-Hefe-Zucker-Mischung mit dem Tangzhong-Gel verrühren.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "t4",
+          "time": "≈ 10 min",
+          "tools": [
+            "Schüssel"
+          ],
+          "text": {
+            "de": "In einer anderen Schüssel Mehl und Salz vermischen. Die Gel-Flüssigkeit dazugeben und etwa 10 Minuten zu einem geschmeidigen Teig kneten.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "t5",
+          "time": null,
+          "tools": [],
+          "text": {
+            "de": "Stückchenweise die Butter in den Teig einarbeiten — ähnlich wie beim Brioche-Teig.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "t6",
+          "time": "1–2 h",
+          "tools": [
+            "Tuch"
+          ],
+          "text": {
+            "de": "Wenn der Teig geschmeidig und elastisch ist, abgedeckt 1–2 Stunden ruhen lassen (oder bis sich das Volumen verdoppelt hat).",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "t7",
+          "time": null,
+          "tools": [
+            "Wallholz"
+          ],
+          "text": {
+            "de": "Vier gleich grosse Würste formen. Ich mache zuerst Bällchen, walle sie flach und rolle sie dann zu Würstchen auf.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "t8",
+          "time": "1–2 h",
+          "tools": [
+            "kleine Form",
+            "Tuch"
+          ],
+          "text": {
+            "de": "Die Teigröllchen in eine kleine, gebutterte Form legen — sie müssen sich berühren, kein Raum dazwischen — und nochmals abgedeckt 1–2 Stunden ruhen lassen.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "t9",
+          "time": null,
+          "tools": [
+            "Pinsel"
+          ],
+          "text": {
+            "de": "Inzwischen sollten die Röllchen zu einem Brot zusammengewachsen sein. Mit Eiguss bestreichen (ich mag etwas Sahne lieber).",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "t10",
+          "time": "16–20 min",
+          "tools": [
+            "Ofen, 190 °C"
+          ],
+          "text": {
+            "de": "Bei 190 °C 16–20 Minuten goldbraun backen.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "t11",
+          "time": null,
+          "tools": [],
+          "text": {
+            "de": "Ob du das Brot in Scheiben schneidest und toastest oder so aufträgst, ist Geschmacksache.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        }
+      ]
+    }
+  ],
+  "finished": {
+    "image": "assets/photos/recipe-004/finished004.jpeg",
+    "focal": "center 25%",
+    "alt": {
+      "de": "Toastbrot und ein Brotmesser",
+      "en": "",
+      "fr": "",
+      "it": ""
+    }
+  },
+  "sources": [
+    {
+      "type": "url",
+      "label": {
+        "de": "Joshua Weissman — die Idee zum Tangzhong (und ein YouTube-Kanal mit Mengenangaben in Gramm und Liter, nicht in Pfund, Steinen, Tassen oder Parsec pro Ampère/Melone)",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "url": "https://www.joshuaweissman.com/"
+    }
+  ],
+  "notes": {
+    "de": [
+      "Die japanische Alchemie dieses Brote ist das Tangzhong. Es funktioniert wirklich: das Brot wird fluffiger und (etwas) länger haltbar.",
+      "Scheiben in doppelter Dicke können zwar nicht im normalen Toaster getoastet werden, sehen aber besonders gut aus."
+    ],
+    "en": [],
+    "fr": [],
+    "it": []
+  }
+}

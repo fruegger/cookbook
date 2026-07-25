@@ -36,8 +36,44 @@
       "fr": "",
       "it": ""
     },
-    "_note": "TODO: Connector-Koordinaten (x/y in Prozent) für die SVG-Linien zur Zutatenliste eintragen.",
-    "connectors": {}
+    "connectors": {
+      "cognac": {
+        "x": 37,
+        "y": 20
+      },
+      "rahm": {
+        "x": 53,
+        "y": 22
+      },
+      "schokolade": {
+        "x": 80,
+        "y": 25
+      },
+      "zucker-mousse": {
+        "x": 15,
+        "y": 40
+      },
+      "ei-mousse": {
+        "x": 85,
+        "y": 50
+      },
+      "beeren": {
+        "x": 20,
+        "y": 62
+      },
+      "rosmarin": {
+        "x": 60,
+        "y": 60
+      },
+      "filo" : {
+        "x": 45,
+        "y": 73
+      },
+      "tonka": {
+        "x": 10,
+        "y": 80
+      }
+    }
   },
 
   "ingredients": {
@@ -45,19 +81,19 @@
       {
         "name": { "de": "Für die Mousse", "en": "", "fr": "", "it": "" },
         "items": [
-          { "id": "ei-mousse", "ref": "ei", "qty": "1", "name": { "de": "Ei", "en": "", "fr": "", "it": "" } },
-          { "id": "schokolade", "ref": "dunkle-schokolade", "qty": "50 g", "name": { "de": "dunkle Schokolade (Crémant)", "en": "", "fr": "", "it": "" } },
-          { "id": "zucker-mousse", "ref": "zucker", "qty": "20 g", "name": { "de": "Zucker (1½ Löffel)", "en": "", "fr": "", "it": "" } },
-          { "id": "salz", "ref": "salz", "qty": "1 Prise (≈1 g)", "name": { "de": "Salz", "en": "", "fr": "", "it": "" } },
+          { "id": "cognac", "ref": "cognac", "qty": "4 cl", "name": { "de": "Cognac (1 Shotgläschen)", "en": "", "fr": "", "it": "" } },
           { "id": "rahm", "ref": "vollrahm", "qty": "1 dl", "name": { "de": "Vollrahm", "en": "", "fr": "", "it": "" } },
-          { "id": "cognac", "ref": "cognac", "qty": "4 cl", "name": { "de": "Cognac (1 Shotgläschen)", "en": "", "fr": "", "it": "" } }
+          { "id": "schokolade", "ref": "dunkle-schokolade", "qty": "50 g", "name": { "de": "dunkle Schokolade (Crémant)", "en": "", "fr": "", "it": "" } },
+          { "id": "salz", "ref": "salz", "qty": "1 Prise (≈1 g)", "name": { "de": "Salz", "en": "", "fr": "", "it": "" } },
+          { "id": "zucker-mousse", "ref": "zucker", "qty": "20 g", "name": { "de": "Zucker (1½ Löffel)", "en": "", "fr": "", "it": "" } },
+          { "id": "ei-mousse", "ref": "ei", "qty": "1", "name": { "de": "Ei", "en": "", "fr": "", "it": "" } }
         ]
       },
       {
         "name": { "de": "Für die Beeren", "en": "", "fr": "", "it": "" },
         "items": [
-          { "id": "beeren", "ref": "beeren-mix", "qty": "100 g", "name": { "de": "gemischte Beeren (Erdbeeren, Himbeeren, Brombeeren, Heidelbeeren)", "en": "", "fr": "", "it": "" } },
           { "id": "rosmarin", "ref": "rosmarin", "qty": "1 Zweig", "name": { "de": "Rosmarin", "en": "", "fr": "", "it": "" } },
+          { "id": "beeren", "ref": "beeren-mix", "qty": "100 g", "name": { "de": "gemischte Beeren (Erdbeeren, Himbeeren, Brombeeren, Heidelbeeren)", "en": "", "fr": "", "it": "" } },
           { "id": "zucker-beeren", "ref": "zucker", "qty": "10 g", "name": { "de": "Zucker", "en": "", "fr": "", "it": "" } }
         ]
       },
@@ -87,29 +123,31 @@
         { "id": "m6", "time": null, "tools": [], "text": { "de": "Giesse die geschmolzene Schokolade ins Eigelb und mische. Die Masse kann schnell fest werden — keine Angst, das ist normal.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Achtung, dass du dich nicht verbrennst!", "en": "", "fr": "", "it": "" } },
         { "id": "m7", "time": null, "tools": [], "text": { "de": "Gib so viel Cognac dazu und mische, bis die Masse wieder zähflüssig wird.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
         { "id": "m8", "time": null, "tools": [], "text": { "de": "Hebe den Rahm vorsichtig unter die Schoko-Eigelb-Masse. Vergiss nicht, etwas Rahm zum Dekorieren zurückzuhalten.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "m9", "time": null, "tools": [], "text": { "de": "Hebe zuletzt das geschlagene Eiweiss sorgfältig unter die Mousse — delikat falten, sonst fällt sie zu einer klebrigen Sosse zusammen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Nicht rühren — falten.", "en": "", "fr": "", "it": "" } },
-        { "id": "m10", "time": "≥ 2 h", "tools": ["Kühlschrank"], "text": { "de": "Je nach Präsentation in Gläschen giessen oder in der Schüssel lassen (löffelweise als Quenelles auf den Teller). Mindestens 2 Stunden im Kühlschrank ruhen lassen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } }
+        { "id": "m9", "time": null, "tools": [], "text": { "de": "Hebe zuletzt das geschlagene Eiweiss sorgfältig unter die Mousse — delikat falten, sonst fällt sie zu einer klebrigen Sosse zusammen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Nicht rühren — falten - ich hab herausgefunden, dass es durch Drehen mit dem Schwingbesen auch geht.", "en": "", "fr": "", "it": "" } },
+        { "id": "m10", "time": null, "tools": [], "text": { "de": "Je nach Präsentation, wills du die Mousse in Gläschen giessen oder in der Schüssel lassen (um sie dann löffelweise als Quenelles auf den Teller zu legen).", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "m10", "time": "≥ 2 h", "tools": ["Kühlschrank"], "text": { "de": "Lasse die Mousse mindestens 2 Stunden im Kühlschrank ruhen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } }
       ]
     },
     {
       "name": { "de": "Beeren mit Rosmarin", "en": "", "fr": "", "it": "" },
       "steps": [
-        { "id": "b1", "time": "5 min", "tools": ["kleine Pfanne"], "text": { "de": "Gleiche Mengen Zucker und Wasser mit dem Rosmarinzweig in einer kleinen Pfanne köcheln, bis ca. zwei Drittel reduziert sind.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "b2", "time": null, "tools": ["Sieb"], "text": { "de": "Rosmarin entfernen und den Sirup filtern.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "b3", "time": "10 sec", "tools": ["Bratpfanne"], "text": { "de": "Etwas Sirup in einer Bratpfanne auf mittlerer Flamme erhitzen und die gewaschenen Beeren ca. 10 Sekunden darin schocken.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Nur kurz — die Beeren sollen ihre Form behalten.", "en": "", "fr": "", "it": "" } }
+        { "id": "b1", "time": "5 min", "tools": ["kleine Pfanne"], "text": { "de": "Lass Zucker und Wasser in gleicher Menge mit dem Rosmarinzweig in einer kleinen Pfanne köcheln, bis ca. zwei Drittel reduziert sind.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "b2", "time": null, "tools": ["Sieb"], "text": { "de": "Entferne das Rosmarin und filtere den Sirup.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "b3", "time": "5 bis 10 sec", "tools": ["Bratpfanne"], "text": { "de": "Erhitze etwas Sirup in einer Bratpfanne auf mittlerer Flamme und 'schocke' gewaschenen Beeren ca. 10 Sekunden darin.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Nur kurz — die Beeren sollen ihre Form behalten. Es ist auch nicht notwendig, sie im Eiswasser zu kühlen: sie hatten gar keine Zeit warm zu werden", "en": "", "fr": "", "it": "" } },
+        { "id": "b4", "time": null, "tools": [], "text": { "de": "Giesse soviel des restlichen Sirup über die fertige Beeren, wie du für genug hälst.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Nur kurz — die Beeren sollen ihre Form behalten (ein Paar Teelöffel sollten reichen).", "en": "", "fr": "", "it": "" } }
       ]
     },
     {
       "name": { "de": "Filo-Crinkle Cake", "en": "", "fr": "", "it": "" },
       "steps": [
-        { "id": "c1", "time": null, "tools": ["Pyrex-Form"], "text": { "de": "Mit dem Filoteig die Knitter (oder Wellen) in einem Blech oder einer Pyrex-Form formen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "c2", "time": "10 min", "tools": ["Ofen, 180 °C"], "text": { "de": "Im 180 °C heissen Ofen 10 Minuten backen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "c3", "time": null, "tools": ["Topf"], "text": { "de": "In der Zwischenzeit die Butter schmelzen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "c4", "time": "10 min", "tools": ["Ofen, 180 °C"], "text": { "de": "Die Filoknitter aus dem Ofen nehmen, die geschmolzene Butter darübergiessen und für weitere 10 Minuten zurück in den Ofen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "c5", "time": null, "tools": ["Schüssel", "Schwingbesen"], "text": { "de": "Währenddessen Milch, Ei und ein Drittel des Zuckers zu einem Guss verrühren.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "c6", "time": "25 min", "tools": ["Ofen, 180 °C"], "text": { "de": "Den Filokuchen aus dem Ofen nehmen, den Ei-Milch-Guss darübergiessen und für 25 Minuten zurück in den Ofen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "c7", "time": null, "tools": ["kleine Pfanne"], "text": { "de": "In dieser Zeit aus dem restlichen Zucker und gleicher Menge Wasser ein einfaches Sirup kochen — diesmal ohne Rosmarin, um die Geschmacksrichtungen klar zu trennen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
-        { "id": "c8", "time": null, "tools": ["Reibe"], "text": { "de": "Wenn der Knitterkuchen fertig ist, den Sirup darübergiessen, eine Spur Tonkabohne darüberreiben und etwas abkühlen lassen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Tonkabohne nur sparsam verwenden — sie ist intensiv.", "en": "", "fr": "", "it": "" } }
+        { "id": "c1", "time": null, "tools": ["Pyrex-Form"], "text": { "de": "Forme mit dem Filoteig die Knitter (oder Wellen) in einem Blech oder einer Pyrex-Form.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "c2", "time": "10 min", "tools": ["Ofen, 180 °C"], "text": { "de": "Backe im 180 °C heissen Ofen 10 Minuten.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "c3", "time": null, "tools": ["Topf"], "text": { "de": "Schmelze in der Zwischenzeit die Butter.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "c4", "time": "10 min", "tools": ["Ofen, 180 °C"], "text": { "de": "Nehme die Filoknitter aus dem Ofen, giesse die geschmolzene Butter darüber und stelle sie für weitere 10 Minuten zurück in den Ofen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "c5", "time": null, "tools": ["Schüssel", "Schwingbesen"], "text": { "de": "Verrühre währenddessen Milch, Ei und ein Drittel des Zuckers zu einem Guss.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "c6", "time": "25 min", "tools": ["Ofen, 180 °C"], "text": { "de": "Nehme den Filokuchen aus dem Ofen, girsse den Ei-Milch-Guss darüber und backe ihn für 25 Minuten.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "c7", "time": null, "tools": ["kleine Pfanne"], "text": { "de": "In dieser Zeit, koche aus dem restlichen Zucker und gleicher Menge Wasser ein einfaches Sirup — diesmal ohne Rosmarin, um die Geschmacksrichtungen klar zu trennen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "", "en": "", "fr": "", "it": "" } },
+        { "id": "c8", "time": null, "tools": ["Reibe"], "text": { "de": "Wenn der Knitterkuchen fertig ist, giesst du den Sirup darüber und reibst eine Spur Tonkabohne darüber. Dann lässt du alles etwas abkühlen.", "en": "", "fr": "", "it": "" }, "photo": "", "warning": { "de": "Tonkabohne nur sparsam verwenden — sie ist intensiv.", "en": "", "fr": "", "it": "" } }
       ]
     }
   ],
@@ -140,7 +178,8 @@
       "Falls du die Schokolade über köchelndem Wasser schmilzt: beim Umgiessen ein Tuch verwenden, damit der Dampf dich nicht verbrennt.",
       "Wenn du das geschlagene Eiweiss kurz vor dem Unterheben nochmals mit dem Schwingbesen aufschlägst, fällt es sicher nicht zusammen.",
       "Mit einer Glasschüssel siehst du genau, ob alles gut gemischt ist :)",
-      "Die vegane Variante gelingt 100 % mit Aquafaba (Wasser aus einer Büchse Kichererbsen): ein Teil davon anstelle Eigelb, der Rest anstatt Eiweiss. Achtung: vegane Schokolade ist nicht einfach zu finden!"
+      "Die vegane Variante gelingt 100 % mit Aquafaba (Wasser aus einer Büchse Kichererbsen): ein Teil davon anstelle Eigelb, der Rest anstatt Eiweiss. Achtung: vegane Schokolade ist nicht einfach zu finden!",
+      "Auf dem Crinkle Cake passen auf feingehackte Pistazien bestens."
     ],
     "en": [], "fr": [], "it": []
   }

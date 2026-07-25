@@ -1,0 +1,279 @@
+{
+  "id": "recipe-006",
+  "category": "side",
+  "servings": {
+    "de": "für 2 Personen",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+  "title": {
+    "de": "Stöckli Salat",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+  "subtitle": {
+    "de": "Rotkohl - Pekannüsse - Granatapfel ",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+  "mood": {
+    "de": [
+      "Sowohl farblich als auch geschmacklich ist dieser Salat äusserst exuberant. In einer gewissen Weise erinnert es an Fatoush, andererseits sind weder Rotkohl noch Pekannüsse besonders typisch dafür.",
+      "Meiner Meinung nach ein sehr gelungenes Fusion Beispiel.",
+      "Die Granatapfelmelasse ist ein sauer-süssliches, dickflüssiges Konzentrat, das hier als Säure mit viel Geschmack funktioniert, ähnlich wie aceto balsamico. Anders als in der Levante, ist hierzulande diese Zutat praktisch unbekannt.",
+      "... und warum heisst es dann 'Stöckli Salat'? - Einfach: der Stöckli hats erfunden."
+    ],
+    "en": [],
+    "fr": [],
+    "it": []
+  },
+  "basket": {
+    "image": "assets/photos/recipe-006/basket006.jpeg",
+    "alt": {
+      "de": "Zutaten für den Stöckli Salat: Rotkohl, Granatapfel, Pekannüsse, Granatapfelmelasse, Olivenöl, Koriander, Salz, Pfeffer",
+      "en": "",
+      "fr": "",
+      "it": ""
+    },
+    "connectors": {
+      "melasse": {
+        "x": 75,
+        "y": 20
+      },
+      "olivenoel": {
+        "x": 52,
+        "y": 30
+      },
+      "pekannuesse": {
+        "x": 30,
+        "y": 50
+      },
+      "rotkohl": {
+        "x": 50,
+        "y": 70
+      },
+      "granatapfel": {
+        "x": 85,
+        "y": 50
+      },
+      "koriander": {
+        "x": 85,
+        "y": 75
+      }
+    }
+  },
+  "ingredients": {
+    "groups": [
+      {
+        "name": {
+          "de": "für die Salatsosse",
+          "en": "",
+          "fr": "",
+          "it": ""
+        },
+        "items": [
+          {
+            "id": "melasse",
+            "ref": "melasse",
+            "qty": "1 EL (ca 20 g)",
+            "name": {
+              "de": "Granatapfelmelasse",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "olivenoel",
+            "ref": "olivenoel",
+            "qty": "2 EL",
+            "name": {
+              "de": "Olivenöl",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          }
+        ]
+      },
+      {
+        "name": {
+          "de": "Für den Salat",
+          "en": "",
+          "fr": "",
+          "it": ""
+        },
+        "items": [
+          {
+            "id": "pekannuesse",
+            "ref": "pekannuesse",
+            "qty": "40 g",
+            "name": {
+              "de": "Pekannüsse",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "granatapfel",
+            "ref": "granatapfel",
+            "qty": "40 g",
+            "name": {
+              "de": "Granatapfel Kerne",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "rotkohl",
+            "ref": "rotkoh",
+            "qty": "160 g",
+            "name": {
+              "de": "Rotkohl",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "koriander",
+            "ref": "koriander",
+            "qty": "10 g",
+            "name": {
+              "de": "Koriander (optional)",
+              "en": "",
+              "fr": "",
+              "it": ""
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "methods": [
+    {
+      "name": {
+        "de": "Salat",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "steps": [
+        {
+          "id": "ss1",
+          "time": null,
+          "tools": [
+            "Messer"
+          ],
+          "text": {
+            "de": "Schneide den Rotkohl in dünne Streifen (ähnlich wie shredded cabbage für Tonkatsu).",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "ss2",
+          "time": "≈ 5 min",
+          "tools": [
+            "kleine Pfanne"
+          ],
+          "text": {
+            "de": "Röste die Pekannüsse während ein Paar Minuten in einer kleinen Pfanne.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "Achtung: die Nüsse nehmen beim rösten sehr wenig Farbe an, warte nicht, bis sie viel dünkler werden, dann sind sie vermutlich verbrannt.",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "ss3",
+          "time": null,
+          "tools": [],
+          "text": {
+            "de": "Hacke die Nüsse grob.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "ss4",
+          "time": null,
+          "tools": [
+            "Salatschüssel"
+          ],
+          "text": {
+            "de": "Gebe alle Zutaten in eine Salatschüssel (Rotkohl, Granatapfelkerne, Pekannüsse, Öl, Melasse, Salz und Pfeffer.",
+            "en": "",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        }
+      ]
+    }
+  ],
+  "finished": {
+    "image": "assets/photos/recipe-006/finished006.jpeg",
+    "focal": "center middle",
+    "alt": {
+      "de": "Schälchen und Salatschüssel mid Stöcklisalat",
+      "en": "",
+      "fr": "",
+      "it": ""
+    }
+  },
+  "sources": [
+    {
+      "type": "url",
+      "label": {
+        "de": "Michi Stöckli, der Erfinder selber!",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "url": ""
+    }
+  ],
+  "notes": {
+    "de": [
+      "Es ist nicht notwendig, eine separate Sosse zu mischen und erst kurz vor dem Servieren den Salat zu mischen. Im Gegenteil: es darf ruhig ein wenig gemischt stehen bleiben.",
+      "Michi besteht darauf, dass am Schluss Korianderblätter auf den Salat gehören: ich bin mit ihm einig, dass es gut passt, aber bei uns mag niemand (ausser ich) Koriander. Also verzichte ich darauf. Eine weitere Option wäre Minze: ein weiteres Fatoush Zitat."
+    ],
+    "en": [],
+    "fr": [],
+    "it": []
+  }
+}

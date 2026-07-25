@@ -524,7 +524,7 @@ h1.recipe-title {
 /* =========================================================
    Responsive
    ========================================================= */
-@media (max-width: 760px) {
+@media screen and (max-width: 760px) {
   .basket-pair { grid-template-columns: 1fr; }
   .basket-pair > svg.connectors { display: none; } /* lines make no sense when stacked */
   .step { grid-template-columns: 2rem 1fr; }
@@ -579,6 +579,9 @@ h1.recipe-title {
     gap: 6mm;
     margin: 0 0 4mm;
     page-break-inside: avoid;
+    position: relative; /* explicit anchor — Chrome's print preview can lose
+                           the inline `position: relative` from the screen
+                           cascade in some cases */
   }
   .basket-figure img { aspect-ratio: auto; max-height: 95mm; }
   .ingredient-list h3 { font-size: 10pt; margin: 2mm 0 1mm; }
@@ -586,6 +589,23 @@ h1.recipe-title {
   .ingredient-list .basket-label { font-size: 7pt; margin-bottom: 1.5mm; padding-bottom: 1mm; color: black; }
   .basket-pair + .basket-pair { margin-top: 3mm; padding-top: 2mm; border-top: 1px solid var(--rule); }
 
+  /* Connector overlay: ensure it's visible, positioned, and sized in print.
+     Chrome's print preview can lose inline styles set by JS, so re-declare
+     everything needed here. */
+  .basket-pair > svg.connectors {
+    display: block !important;
+    visibility: visible !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: visible !important;
+    z-index: 2;
+    pointer-events: none;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
   /* Connector lines: print darker and thicker than screen. Override the
      attributes set by the JS so faint screen lines become solid in print.
      `!important` is needed because SVG presentation attributes set inline

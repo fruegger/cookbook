@@ -16,7 +16,7 @@
       "id": "recipe-002",
       "category": "soup",
       "title": {
-        "de": "Kaviar vom Feld",
+        "de": "Kaviar vom Feld auf Randenvelouté",
         "en": "",
         "fr": "",
         "it": ""
@@ -35,6 +35,42 @@
       },
       "thumb": "assets/photos/recipe-003/finished003.jpeg",
       "href": "recipe.html?id=recipe-003"
+    },
+    {
+      "id": "recipe-004",
+      "category": "bread",
+      "title": {
+        "de": "Toast- Milchbrot",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "thumb": "assets/photos/recipe-004/finished004.jpeg",
+      "href": "recipe.html?id=recipe-004"
+    },
+    {
+      "id": "recipe-005",
+      "category": "sauce",
+      "title": {
+        "de": "Sauce Hollandaise",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "thumb": "assets/photos/recipe-005/finished005.jpeg",
+      "href": "recipe.html?id=recipe-005"
+    },
+    {
+      "id": "recipe-006",
+      "category": "side",
+      "title": {
+        "de": "Stöckli Salat",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "thumb": "assets/photos/recipe-006/finished006.jpeg",
+      "href": "recipe.html?id=recipe-006"
     }
   ]
 }
