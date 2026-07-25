@@ -34,6 +34,20 @@ function pickLang(field, lang) {
   return '';
 }
 
+/* Tools can be stored either as a plain array (legacy, still used by
+   recipe-002/003) or as a per-language object like other i18n fields
+   (e.g. { de: [...], en: [...] }). This resolves either shape for display,
+   falling back across languages the same way pickLang does. */
+function pickTools(tools, lang) {
+  if (!tools) return [];
+  if (Array.isArray(tools)) return tools;
+  if (tools[lang] && tools[lang].length) return tools[lang];
+  for (const l of LANGS) {
+    if (tools[l] && tools[l].length) return tools[l];
+  }
+  return [];
+}
+
 function availableLangs(obj, key = 'title') {
   return LANGS.filter(l => {
     const t = obj?.[key]?.[l];
@@ -127,7 +141,7 @@ function renderRecipe(recipe, lang, registry) {
       <div class="basket-pair">
         <figure class="basket-figure">
           ${b.image
-            ? `<img src="${escapeHtml(b.image)}" alt="${escapeHtml(bAlt)}">`
+            ? `<img src="${escapeHtml(b.image)}" alt="${escapeHtml(bAlt)}" onload="window.cookbook && window.cookbook.layoutBasketConnectors(this.closest('.basket-pair'))">`
             : '<div class="basket-placeholder">Foto folgt</div>'}
         </figure>
         <div class="ingredient-list">
@@ -149,7 +163,7 @@ function renderRecipe(recipe, lang, registry) {
           const warn = pickLang(s.warning, lang);
           const meta = [];
           if (s.time) meta.push(`<span class="time">${escapeHtml(s.time)}</span>`);
-          (s.tools || []).forEach(t => meta.push(`<span class="tool">${escapeHtml(t)}</span>`));
+          pickTools(s.tools, lang).forEach(t => meta.push(`<span class="tool">${escapeHtml(t)}</span>`));
           return `
             <li class="step" id="step-${escapeHtml(s.id)}">
               <div class="num"></div>
@@ -224,169 +238,91 @@ function renderRecipe(recipe, lang, registry) {
 
   document.title = title + ' — Dinner für zwei';
 
-  // Draw connector lines once the new DOM is in place. A second pass runs
-  // when images load (handled inside wireConnectors). Also start observing
-  // size changes so the lines stay in sync with the print transition.
-  requestAnimationFrame(() => {
-    wireConnectors(root);
-    observeBasketPairs();
-  });
+  if (typeof requestAnimationFrame === 'function') {
+    requestAnimationFrame(() => layoutBasketConnectors(root));
+  } else {
+    layoutBasketConnectors(root);
+  }
 }
 
 /* ---------- SVG connectors between list items and basket photo ----------
-   Two-stage rendering:
-     1. renderConnectors(map) emits an empty <svg class="connectors"> sibling
-        to the figure (inside .basket-pair) carrying the connector data as a
-        JSON attribute. No geometry is computed at HTML-render time because
-        we don't yet know where the <li> elements will land.
-     2. wireConnectors() runs after the recipe is in the DOM, measures each
-        <li data-ing-id="…"> and the basket figure, and writes <circle>+<line>
-        elements into the SVG using pixel coordinates relative to .basket-pair.
-   The pass is re-run on resize, on basket-image load, and on language switch.
-*/
+   The dots are authored as percentages across the *photo* (x/y: 0-100).
+   The actual pixel position of each dot, and the line reaching to its
+   matching ingredient row, can only be known after layout (row heights
+   depend on translated text length), so the raw data is stashed on the
+   <svg> itself and layoutBasketConnectors() rebuilds circles+lines from
+   it on demand. This also means a not-yet-laid-out container (zero-size
+   measurement) never permanently loses the connector data — it's always
+   available to redraw once real layout is possible. */
 function renderConnectors(map) {
-  const data = encodeURIComponent(JSON.stringify(map || {}));
-  return `<svg class="connectors" data-connectors="${data}" aria-hidden="true"></svg>`;
+  if (!map || !Object.keys(map).length) return '';
+  return `<svg class="connectors" preserveAspectRatio="none" data-connectors='${escapeHtml(JSON.stringify(map))}'></svg>`;
 }
 
-function wireConnectors(root) {
-  const scope = root || document;
-  const svgNS = 'http://www.w3.org/2000/svg';
+/* Measures the rendered DOM and (re)draws each dot over the photo, plus a
+   line reaching to the matching ingredient row in the list. Safe to call
+   repeatedly (e.g. after language switches, resize, or print) since it
+   always rebuilds from the connector data stored on the svg, never from
+   whatever happens to be in the DOM already. If the container isn't
+   measurable yet (zero size — e.g. a hidden tab, or a not-yet-painted
+   first frame) it retries once on the next frame instead of giving up. */
+function layoutBasketConnectors(scope, _isRetry) {
+  const root = scope || document;
+  const pairs = root.matches && root.matches('.basket-pair')
+    ? [root]
+    : root.querySelectorAll('.basket-pair');
+  pairs.forEach(pair => {
+    const svg = pair.querySelector(':scope > svg.connectors');
+    if (!svg) return;
+    let map;
+    try { map = JSON.parse(svg.dataset.connectors || '{}'); } catch { map = {}; }
+    if (!Object.keys(map).length) return;
 
-  scope.querySelectorAll('.basket-pair').forEach(pair => {
-    const svg = pair.querySelector('svg.connectors');
-    const figure = pair.querySelector('.basket-figure');
-    const img = figure && figure.querySelector('img');
-    const list = pair.querySelector('.ingredient-list');
-    if (!svg || !figure || !list) return;
-
-    let map = {};
-    try {
-      map = JSON.parse(decodeURIComponent(svg.dataset.connectors || '%7B%7D'));
-    } catch { map = {}; }
-
-    // Defer until the image has dimensions; otherwise the figure rect can be 0.
-    if (img && !img.complete) {
-      img.addEventListener('load', () => wireConnectors(scope), { once: true });
-      img.addEventListener('error', () => wireConnectors(scope), { once: true });
-    }
-
+    const img = pair.querySelector('.basket-figure img');
     const pairRect = pair.getBoundingClientRect();
-    const figRect = figure.getBoundingClientRect();
-    if (pairRect.width === 0 || figRect.width === 0) return;
+    if (!img || !pairRect.width || !pairRect.height) {
+      // Not laid out yet — leave existing content untouched and retry
+      // once on the next frame rather than destructively clearing.
+      if (!_isRetry && typeof requestAnimationFrame === 'function') {
+        requestAnimationFrame(() => layoutBasketConnectors(pair, true));
+      }
+      return;
+    }
+    const imgRect = img.getBoundingClientRect();
 
-    // Use a normalized 0-100 viewBox with preserveAspectRatio="none" so the
-    // SVG stretches to whatever size the basket-pair takes — including the
-    // very different print layout. This avoids needing to recompute pixel
-    // coordinates for print (where getBoundingClientRect can't see the
-    // print-specific layout).
-    svg.setAttribute('viewBox', '0 0 100 100');
-    svg.setAttribute('preserveAspectRatio', 'none');
-    svg.style.position = 'absolute';
-    svg.style.inset = '0';
-    svg.style.width = '100%';
-    svg.style.height = '100%';
-    svg.style.pointerEvents = 'none';
-    pair.style.position = pair.style.position || 'relative';
-    svg.innerHTML = '';
+    svg.setAttribute('viewBox', `0 0 ${pairRect.width} ${pairRect.height}`);
 
-    // Figure offset/size as percentages of the pair.
-    const figXpct = ((figRect.left - pairRect.left) / pairRect.width) * 100;
-    const figYpct = ((figRect.top - pairRect.top) / pairRect.height) * 100;
-    const figWpct = (figRect.width / pairRect.width) * 100;
-    const figHpct = (figRect.height / pairRect.height) * 100;
+    const listItems = pair.querySelectorAll('.ingredient-list li[data-ing-id]');
+    const parts = [];
+    Object.entries(map).forEach(([targetId, p]) => {
+      const cx = (imgRect.left - pairRect.left) + (p.x / 100) * imgRect.width;
+      const cy = (imgRect.top - pairRect.top) + (p.y / 100) * imgRect.height;
 
-    Object.entries(map).forEach(([id, p]) => {
-      const li = list.querySelector(`li[data-ing-id="${CSS.escape(id)}"]`);
-      if (!li) return;
-      const liRect = li.getBoundingClientRect();
-
-      // Image-side endpoint, in percentages of the pair.
-      const x1 = figXpct + (p.x / 100) * figWpct;
-      const y1 = figYpct + (p.y / 100) * figHpct;
-
-      // List-side endpoint: middle-left of the <li>, in percentages of the pair.
-      const x2 = ((liRect.left - pairRect.left) / pairRect.width) * 100;
-      const y2 = (((liRect.top - pairRect.top) + liRect.height / 2) / pairRect.height) * 100;
-
-      // Line first (so circles sit on top). Stroke is set as attributes so
-      // the line renders even if CSS doesn't apply (default <line> stroke
-      // is 'none' — invisible). non-scaling-stroke keeps the line visually
-      // ~1.25px regardless of the SVG's stretched aspect ratio.
-      const line = document.createElementNS(svgNS, 'line');
-      line.setAttribute('x1', x1);
-      line.setAttribute('y1', y1);
-      line.setAttribute('x2', x2);
-      line.setAttribute('y2', y2);
-      line.setAttribute('stroke', '#2a2520');
-      line.setAttribute('stroke-width', '1.25');
-      line.setAttribute('stroke-opacity', '0.7');
-      line.setAttribute('vector-effect', 'non-scaling-stroke');
-      svg.appendChild(line);
-
-      const dot = document.createElementNS(svgNS, 'circle');
-      // Circle in a stretched viewBox would become an ellipse, so place it
-      // and size it in viewBox units — small enough that the distortion
-      // is invisible.
-      dot.setAttribute('cx', x1);
-      dot.setAttribute('cy', y1);
-      dot.setAttribute('r', 0.6);
-      dot.setAttribute('fill', '#8b1e3f');
-      dot.setAttribute('fill-opacity', '0.9');
-      dot.setAttribute('data-target', id);
-      svg.appendChild(dot);
+      const li = Array.from(listItems).find(el => el.dataset.ingId === targetId);
+      if (li) {
+        const liRect = li.getBoundingClientRect();
+        const x2 = liRect.left - pairRect.left;
+        const y2 = liRect.top - pairRect.top + liRect.height / 2;
+        parts.push(`<line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}"/>`);
+      }
+      parts.push(`<circle class="connector-dot" data-target="${escapeHtml(targetId)}" cx="${cx}" cy="${cy}" r="3.5"/>`);
     });
+    svg.innerHTML = parts.join('');
   });
 }
 
-// Re-wire on resize (debounced) and after fonts settle.
-let _connectorRaf = null;
-function scheduleConnectorRewire() {
-  if (_connectorRaf) cancelAnimationFrame(_connectorRaf);
-  _connectorRaf = requestAnimationFrame(() => {
-    _connectorRaf = null;
-    wireConnectors();
+// Recompute on resize (row heights and photo box both change), debounced.
+let _connectorResizeTimer = null;
+if (typeof window !== 'undefined') {
+  window.addEventListener('resize', () => {
+    clearTimeout(_connectorResizeTimer);
+    _connectorResizeTimer = setTimeout(() => layoutBasketConnectors(document), 100);
   });
-}
-window.addEventListener('resize', scheduleConnectorRewire);
-
-// ResizeObserver catches every layout change to a basket-pair — including
-// when the print stylesheet kicks in and resizes the columns. This is the
-// most reliable trigger across browsers because it doesn't depend on the
-// browser firing beforeprint or matchMedia('print') reliably.
-let _resizeObserver = null;
-function observeBasketPairs() {
-  if (typeof ResizeObserver === 'undefined') return;
-  if (_resizeObserver) _resizeObserver.disconnect();
-  _resizeObserver = new ResizeObserver(scheduleConnectorRewire);
-  document.querySelectorAll('.basket-pair').forEach(p => _resizeObserver.observe(p));
-}
-
-// Print handling: the screen and print layouts have different column ratios
-// (1.1fr 1fr vs 0.85fr 1fr) and different image dimensions, so the lines must
-// be recomputed when entering print and restored when leaving.
-//
-// `matchMedia('print').onchange` fires reliably with the print layout already
-// applied, which beforeprint does not. We use both for browser coverage.
-function rewireForPrint() {
-  // Two passes: one immediate, one after a frame, because some browsers
-  // apply print CSS in stages.
-  wireConnectors();
-  requestAnimationFrame(() => wireConnectors());
-}
-window.addEventListener('beforeprint', rewireForPrint);
-window.addEventListener('afterprint', scheduleConnectorRewire);
-if (window.matchMedia) {
-  const mql = window.matchMedia('print');
-  const onChange = () => {
-    if (mql.matches) rewireForPrint();
-    else scheduleConnectorRewire();
-  };
-  if (mql.addEventListener) mql.addEventListener('change', onChange);
-  else if (mql.addListener) mql.addListener(onChange); // older Safari
-}
-if (document.fonts && document.fonts.ready) {
-  document.fonts.ready.then(() => wireConnectors());
+  // Print uses a different (mm-based) box for the photo (see cookbook.css),
+  // so coordinates computed for screen layout don't carry over — recompute
+  // right before printing, and again after in case the user cancels.
+  window.addEventListener('beforeprint', () => layoutBasketConnectors(document));
+  window.addEventListener('afterprint', () => layoutBasketConnectors(document));
 }
 
 /* ---------- Language switcher ---------- */
@@ -564,6 +500,6 @@ async function bootIngredient(arg) {
 window.bootRecipe = bootRecipe;
 window.bootIngredient = bootIngredient;
 window.cookbook = {
-  pickLang, escapeHtml, LANGS, LANG_LABELS, CAT_LABELS,
-  renderRecipe, renderIngredient, loadIngredientRegistry
+  pickLang, pickTools, escapeHtml, LANGS, LANG_LABELS, CAT_LABELS,
+  renderRecipe, renderIngredient, loadIngredientRegistry, layoutBasketConnectors
 };

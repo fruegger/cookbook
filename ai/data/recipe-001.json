@@ -103,7 +103,7 @@
             "qty": "4 cl",
             "name": {
               "de": "Cognac (1 Shotgläschen)",
-              "en": "",
+              "en": "brandy (1 shot)",
               "fr": "",
               "it": ""
             }
@@ -114,7 +114,7 @@
             "qty": "1 dl",
             "name": {
               "de": "Vollrahm",
-              "en": "",
+              "en": "cream",
               "fr": "",
               "it": ""
             }
@@ -125,7 +125,7 @@
             "qty": "50 g",
             "name": {
               "de": "dunkle Schokolade (Crémant)",
-              "en": "",
+              "en": "dark chocolate (Crémant)",
               "fr": "",
               "it": ""
             }
@@ -133,10 +133,10 @@
           {
             "id": "salz",
             "ref": "salz",
-            "qty": "1 pinch(≈1 g)",
+            "qty": "≈1 g",
             "name": {
-              "de": "Salz",
-              "en": "",
+              "de": "Prise Salz",
+              "en": "pinch of salt",
               "fr": "",
               "it": ""
             }
@@ -147,7 +147,7 @@
             "qty": "20 g",
             "name": {
               "de": "Zucker (1½ Löffel)",
-              "en": "",
+              "en": "sugar",
               "fr": "",
               "it": ""
             }
@@ -158,7 +158,7 @@
             "qty": "1",
             "name": {
               "de": "Ei",
-              "en": "",
+              "en": "egg",
               "fr": "",
               "it": ""
             }
@@ -176,10 +176,10 @@
           {
             "id": "rosmarin",
             "ref": "rosmarin",
-            "qty": "1 twig",
+            "qty": "1",
             "name": {
-              "de": "Rosmarin",
-              "en": "",
+              "de": "Zweig Rosmarin",
+              "en": "twig of rosemary",
               "fr": "",
               "it": ""
             }
@@ -190,18 +190,18 @@
             "qty": "100 g",
             "name": {
               "de": "gemischte Beeren (Erdbeeren, Himbeeren, Brombeeren, Heidelbeeren)",
-              "en": "",
+              "en": "mixed berries (strawberries, blueberries, blackberries, raspberries)",
               "fr": "",
               "it": ""
             }
           },
           {
             "id": "zucker-beeren",
-            "ref": "zucker",
+            "ref": "zucker-mousse",
             "qty": "10 g",
             "name": {
               "de": "Zucker",
-              "en": "",
+              "en": "sugar",
               "fr": "",
               "it": ""
             }
@@ -222,7 +222,7 @@
             "qty": "ca. 200 g (6 sheets)",
             "name": {
               "de": "Filoteig",
-              "en": "",
+              "en": "filo dough",
               "fr": "",
               "it": ""
             }
@@ -233,7 +233,7 @@
             "qty": "1",
             "name": {
               "de": "Ei",
-              "en": "",
+              "en": "egg",
               "fr": "",
               "it": ""
             }
@@ -244,7 +244,7 @@
             "qty": "1.5 dl",
             "name": {
               "de": "Milch",
-              "en": "",
+              "en": "milk",
               "fr": "",
               "it": ""
             }
@@ -255,7 +255,7 @@
             "qty": "70 g",
             "name": {
               "de": "Butter",
-              "en": "",
+              "en": "butter",
               "fr": "",
               "it": ""
             }
@@ -266,7 +266,7 @@
             "qty": "120 g",
             "name": {
               "de": "Zucker",
-              "en": "",
+              "en": "sugar",
               "fr": "",
               "it": ""
             }
@@ -277,7 +277,7 @@
             "qty": "¼",
             "name": {
               "de": "Tonkabohne",
-              "en": "",
+              "en": "tonka bean",
               "fr": "",
               "it": ""
             }
@@ -298,7 +298,12 @@
         {
           "id": "m1",
           "time": null,
-          "tools": [],
+          "tools": {
+            "de": [],
+            "en": [],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Trenne Eiweiss und Eigelb.",
             "en": "Separate the egg whites and yolks.",
@@ -316,9 +321,16 @@
         {
           "id": "m2",
           "time": "2 min",
-          "tools": [
-            "whisk"
-          ],
+          "tools": {
+            "de": [
+              "Schwingbesen"
+            ],
+            "en": [
+              "whisk"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Schlage den Rahm.",
             "en": "Whip the cream.",
@@ -336,9 +348,16 @@
         {
           "id": "m3",
           "time": null,
-          "tools": [
-            "whisk"
-          ],
+          "tools": {
+            "de": [
+              "Schwingbesen"
+            ],
+            "en": [
+              "whisk"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Gib den Zucker zum Eigelb und mische, bis es zu einem hellen Sabayon wird.",
             "en": "Add the sugar to the egg yolks and mix until it becomes a light sabayon.",
@@ -356,9 +375,16 @@
         {
           "id": "m4",
           "time": null,
-          "tools": [
-            "whisk"
-          ],
+          "tools": {
+            "de": [
+              "Schwingbesen"
+            ],
+            "en": [
+              "whisk"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Gib das Salz zum Eiweiss und schlage es zu Schnee.",
             "en": "Add the salt to the egg whites and beat until stiff peaks form.",
@@ -376,9 +402,16 @@
         {
           "id": "m5",
           "time": null,
-          "tools": [
-            "Bain-Marie"
-          ],
+          "tools": {
+            "de": [
+              "Bain-Marie"
+            ],
+            "en": [
+              "Bain-Marie"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Schmelze die Schokolade im Bain-Marie (oder in einem Gefäss über köchelndem Wasser).",
             "en": "Melt the chocolate in a bain-marie (or in a container over simmering water).",
@@ -396,7 +429,12 @@
         {
           "id": "m6",
           "time": null,
-          "tools": [],
+          "tools": {
+            "de": [],
+            "en": [],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Giesse die geschmolzene Schokolade ins Eigelb und mische. Die Masse kann schnell fest werden — keine Angst, das ist normal.",
             "en": "Pour the melted chocolate into the egg yolk and mix. The mixture may set quickly—don't worry, that's normal.",
@@ -414,7 +452,12 @@
         {
           "id": "m7",
           "time": null,
-          "tools": [],
+          "tools": {
+            "de": [],
+            "en": [],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Gib so viel Cognac dazu und mische, bis die Masse wieder zähflüssig wird.",
             "en": "Add enough cognac and mix until the mixture becomes easily mixable again.",
@@ -432,7 +475,12 @@
         {
           "id": "m8",
           "time": null,
-          "tools": [],
+          "tools": {
+            "de": [],
+            "en": [],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Hebe den Rahm vorsichtig unter die Schoko-Eigelb-Masse. Vergiss nicht, etwas Rahm zum Dekorieren zurückzuhalten.",
             "en": "Gently fold the cream into the chocolate-egg yolk mixture. Don't forget to reserve some cream for decoration.",
@@ -450,7 +498,12 @@
         {
           "id": "m9",
           "time": null,
-          "tools": [],
+          "tools": {
+            "de": [],
+            "en": [],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Hebe zuletzt das geschlagene Eiweiss sorgfältig unter die Mousse — delikat falten, sonst fällt sie zu einer klebrigen Sosse zusammen.",
             "en": "Finally, carefully fold the beaten egg whites into the mousse — fold delicately, otherwise it will collapse into a sticky sauce.",
@@ -468,7 +521,12 @@
         {
           "id": "m10",
           "time": null,
-          "tools": [],
+          "tools": {
+            "de": [],
+            "en": [],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Je nach Präsentation, wills du die Mousse in Gläschen giessen oder in der Schüssel lassen (um sie dann löffelweise als Quenelles auf den Teller zu legen).",
             "en": "Depending on the presentation you're going for, you can either pour the mousse into glasses or leave it in the bowl (to then spoon it onto the plate as quenelles).",
@@ -486,9 +544,16 @@
         {
           "id": "m10",
           "time": "≥ 2 h",
-          "tools": [
-            "Refrigerator"
-          ],
+          "tools": {
+            "de": [
+              "Kühlschrank"
+            ],
+            "en": [
+              "Refrigerator"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Lasse die Mousse mindestens 2 Stunden im Kühlschrank ruhen.",
             "en": "Let the mousse rest in the refrigerator for at least 2 hours.",
@@ -516,9 +581,16 @@
         {
           "id": "b1",
           "time": "5 min",
-          "tools": [
-            "small pan"
-          ],
+          "tools": {
+            "de": [
+              "kleine Pfanne"
+            ],
+            "en": [
+              "small Pan"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Lass Zucker und Wasser in gleicher Menge mit dem Rosmarinzweig in einer kleinen Pfanne köcheln, bis ca. zwei Drittel reduziert sind.",
             "en": "Simmer equal amounts of sugar and water with the rosemary sprig in a small pan until about two-thirds have reduced.",
@@ -536,9 +608,16 @@
         {
           "id": "b2",
           "time": null,
-          "tools": [
-            "Sieve"
-          ],
+          "tools": {
+            "de": [
+              "Sieb"
+            ],
+            "en": [
+              "Sieve"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Entferne das Rosmarin und filtere den Sirup.",
             "en": "Remove the rosemary and filter the syrup.",
@@ -556,9 +635,16 @@
         {
           "id": "b3",
           "time": "5 to 10 sec",
-          "tools": [
-            "Skillet"
-          ],
+          "tools": {
+            "de": [
+              "Bratpfanne"
+            ],
+            "en": [
+              "Skillet"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Erhitze etwas Sirup in einer Bratpfanne auf mittlerer Flamme und 'schocke' gewaschenen Beeren ca. 10 Sekunden darin.",
             "en": "Heat some syrup in a skillet over medium heat and quickly 'shock' the washed berries in it for about 10 seconds",
@@ -576,7 +662,12 @@
         {
           "id": "b4",
           "time": null,
-          "tools": [],
+          "tools": {
+            "de": [],
+            "en": [],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Giesse soviel des restlichen Sirup über die fertige Beeren, wie du für genug hälst.",
             "en": "Pour as much of the remaining syrup over the finished berries as you deem necessary.",
@@ -596,7 +687,7 @@
     {
       "name": {
         "de": "Filo-Crinkle Cake",
-        "en": "File Crinkle Cake",
+        "en": "Filo Crinkle Cake",
         "fr": "",
         "it": ""
       },
@@ -604,9 +695,16 @@
         {
           "id": "c1",
           "time": null,
-          "tools": [
-            "Pyrex-Form"
-          ],
+          "tools": {
+            "de": [
+              "Pyrex-Form"
+            ],
+            "en": [
+              "Pyrex mold"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Forme mit dem Filoteig die Knitter (oder Wellen) in einem Blech oder einer Pyrex-Form.",
             "en": "Shape the filo pastry into crinkles (or waves) in a baking tray or Pyrex mold.",
@@ -624,9 +722,16 @@
         {
           "id": "c2",
           "time": "10 min",
-          "tools": [
-            "Ofen, 180 °C"
-          ],
+          "tools": {
+            "de": [
+              "Ofen, 180 °C"
+            ],
+            "en": [
+              "Oven 180 °C"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Backe im 180 °C heissen Ofen 10 Minuten.",
             "en": "Bake in a 180°C oven for 10 minutes.",
@@ -644,9 +749,16 @@
         {
           "id": "c3",
           "time": null,
-          "tools": [
-            "Topf"
-          ],
+          "tools": {
+            "de": [
+              "Topf"
+            ],
+            "en": [
+              "Pan"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Schmelze in der Zwischenzeit die Butter.",
             "en": "Meanwhile, melt the butter.",
@@ -664,9 +776,16 @@
         {
           "id": "c4",
           "time": "10 min",
-          "tools": [
-            "Ofen, 180 °C"
-          ],
+          "tools": {
+            "de": [
+              "Ofen, 180 °C"
+            ],
+            "en": [
+              "Oven, 180 °C"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Nehme die Filoknitter aus dem Ofen, giesse die geschmolzene Butter darüber und stelle sie für weitere 10 Minuten zurück in den Ofen.",
             "en": "Remove the filo pastries from the oven, pour the melted butter over them and return them to the oven for another 10 minutes.",
@@ -684,10 +803,18 @@
         {
           "id": "c5",
           "time": null,
-          "tools": [
-            "Schüssel",
-            "Schwingbesen"
-          ],
+          "tools": {
+            "de": [
+              "Schüssel",
+              "Schwingbesen"
+            ],
+            "en": [
+              "Bowl",
+              "Whisk"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Verrühre währenddessen Milch, Ei und ein Drittel des Zuckers zu einem Guss.",
             "en": "Meanwhile, mix the milk, egg and one-third of the sugar to make a glaze.",
@@ -705,9 +832,16 @@
         {
           "id": "c6",
           "time": "25 min",
-          "tools": [
-            "Ofen, 180 °C"
-          ],
+          "tools": {
+            "de": [
+              "Ofen, 180 °C"
+            ],
+            "en": [
+              "Oven, 180 °C"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Nehme den Filokuchen aus dem Ofen, girsse den Ei-Milch-Guss darüber und backe ihn für 25 Minuten.",
             "en": "Take the filo cake out of the oven, pour the egg and milk custard over it and bake for 25 minutes.",
@@ -725,9 +859,16 @@
         {
           "id": "c7",
           "time": null,
-          "tools": [
-            "kleine Pfanne"
-          ],
+          "tools": {
+            "de": [
+              "kleine Pfanne"
+            ],
+            "en": [
+              "small pan"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "In dieser Zeit, koche aus dem restlichen Zucker und gleicher Menge Wasser ein einfaches Sirup — diesmal ohne Rosmarin, um die Geschmacksrichtungen klar zu trennen.",
             "en": "During this time, boil the remaining sugar and the same amount of water to make a simple syrup — this time without rosemary, to clearly separate the flavors.",
@@ -745,9 +886,16 @@
         {
           "id": "c8",
           "time": null,
-          "tools": [
-            "Reibe"
-          ],
+          "tools": {
+            "de": [
+              "Reibe"
+            ],
+            "en": [
+              "grater"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Wenn der Knitterkuchen fertig ist, giesst du den Sirup darüber und reibst eine Spur Tonkabohne darüber. Dann lässt du alles etwas abkühlen.",
             "en": "Once the crinkle cake is ready, pour the syrup over it and grate a little tonka bean on top. Then let it cool down a bit.",

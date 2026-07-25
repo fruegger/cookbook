@@ -69,6 +69,16 @@ function newIngredient() {
   };
 }
 
+/* Tools can be a legacy plain array or a per-language object. For editing
+   we want the *current* language's list only (no cross-language fallback),
+   so typing in EN never shows/overwrites DE's tools. Legacy plain arrays
+   are treated as German until the step is edited (see wireToolsInputs). */
+function toolsRawFor(tools, lang) {
+  if (!tools) return [];
+  if (Array.isArray(tools)) return lang === 'de' ? tools : [];
+  return tools[lang] || [];
+}
+
 /* ---------- Tiny helpers for nested form bindings ---------- */
 
 function get(obj, path) {
@@ -268,7 +278,7 @@ function methodsHtml() {
               <label>Foto-Pfad</label>
               <input type="text" data-path="methods.${mi}.steps.${si}.photo" />
               <label>Werkzeuge (Komma-getrennt)</label>
-              <input type="text" data-tools="${mi}.${si}" value="${escapeHtml((s.tools || []).join(', '))}" />
+              <input type="text" data-tools="${mi}.${si}" value="${escapeHtml(toolsRawFor(s.tools, state.lang).join(', '))}" />
             </div>
           `).join('')}
           <div class="row-actions">
@@ -457,12 +467,22 @@ function renderForm() {
 }
 
 function wireToolsInputs() {
-  // tools[] is stored as an array; render as comma-separated, parse on input.
+  // tools is stored per-language, like text/warning; render as comma-separated
+  // per active language, parse on input. Legacy plain-array tools are
+  // migrated to the per-language shape (as German) the first time they're edited.
   $$('[data-tools]').forEach(el => {
     el.addEventListener('input', () => {
       const [mi, si] = el.dataset.tools.split('.').map(Number);
-      const tools = el.value.split(',').map(s => s.trim()).filter(Boolean);
-      state.data.methods[mi].steps[si].tools = tools;
+      const parsed = el.value.split(',').map(s => s.trim()).filter(Boolean);
+      const step = state.data.methods[mi].steps[si];
+      if (Array.isArray(step.tools)) {
+        const legacy = step.tools;
+        step.tools = emptyI18nList();
+        step.tools.de = legacy;
+      } else if (!step.tools) {
+        step.tools = emptyI18nList();
+      }
+      step.tools[state.lang] = parsed;
       markDirty();
       renderPreview();
     });
@@ -523,7 +543,7 @@ function wireRepeatingActions() {
         d.methods.splice(Number(btn.dataset.idx), 1); break;
       case 'add-step': {
         const mi = Number(btn.dataset.mi);
-        d.methods[mi].steps.push({ id: '', time: null, tools: [], text: emptyI18n(), photo: '', warning: emptyI18n() });
+        d.methods[mi].steps.push({ id: '', time: null, tools: emptyI18nList(), text: emptyI18n(), photo: '', warning: emptyI18n() });
         break;
       }
       case 'remove-step':
