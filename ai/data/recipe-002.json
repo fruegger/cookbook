@@ -3,19 +3,19 @@
   "category": "soup",
   "servings": {
     "de": "für 2 Personen",
-    "en": "",
+    "en": "for 2 persons",
     "fr": "",
     "it": ""
   },
   "title": {
     "de": "Kaviar vom Feld auf Randenvelouté",
-    "en": "",
+    "en": "Japanese land caviar on beetroot velouté",
     "fr": "",
     "it": ""
   },
   "subtitle": {
     "de": "Randencrêmesuppe mit Tonburi und Miso-Butter-Toast",
-    "en": "",
+    "en": "Beetroot cream soup with tonburi and miso butter toast",
     "fr": "",
     "it": ""
   },
@@ -26,7 +26,14 @@
       "Weil ich zum ausserordentlichen Tonburi etwas genauso Aussergewöhnliches machen will, habe ich an eine Suppe gedacht … eine rote Suppe. Speziell daran ist … naja, alles: sie ist rot, erdig, warm, süsslich — nichts von dem scheint zu Kaviar zu passen, tut es aber doch. Insbesondere zu Feldkaviar.",
       "Suppe ohne Brot ist wie eine Violine ohne Bogen — vielleicht Backst du das Japan-inspirierte Milch-Toastbrot dazu?"
     ],
-    "en": [],
+    "en": [
+      "One of  the things that make caviar so special, in my opinion,  is the sensation of the grains bursting on one's tongue. Unfortunately, the other side of the coin is rather off-putting: aside from the hefty price, what troubles me is mostly my bad conscience—many a poor sturgeon meet an utterly awful end when the caviar is harvested.",
+      "I had been wishing this experience existed without the ruinous prices and brutality for quite some time. Then I discovered tonburi: you have to taste it to believe how well it replaces caviar!\nIf anything, tonburi is way more versatile, because it does not taste like seafood whatsoever.",
+      "Because tomburi is an extraordinary ingredient, I wanted to pair it with something rather humble. I thought of a soup… a red soup: it's red, earthy, warm, sweetish—none of which seems to go with caviar, but it does. Especially field caviar.",
+      "You may want to bake some of the Japanese shokupan-inspired milk bread from this book.",
+      "",
+      ""
+    ],
     "fr": [],
     "it": []
   },
@@ -35,7 +42,7 @@
       "id": "savoury",
       "title": {
         "de": "Suppe & Butter",
-        "en": "",
+        "en": "Soup & Butter",
         "fr": "",
         "it": ""
       },
@@ -51,7 +58,7 @@
           "x": 65,
           "y": 12
         },
-        "rahm-suppe" : {
+        "rahm-suppe": {
           "x": 35,
           "y": 30
         },
@@ -92,7 +99,7 @@
         "basket": "savoury",
         "name": {
           "de": "Für die Suppe",
-          "en": "",
+          "en": "For the Soup",
           "fr": "",
           "it": ""
         },
@@ -100,10 +107,15 @@
           {
             "id": "olivenoel",
             "ref": "olivenoel",
-            "qty": "1 TL",
+            "qty": {
+              "de": "1 Löffel",
+              "en": "1 spoon",
+              "fr": "",
+              "it": ""
+            },
             "name": {
               "de": "Olivenöl",
-              "en": "",
+              "en": "tablespoon olive oil",
               "fr": "",
               "it": ""
             }
@@ -114,7 +126,7 @@
             "qty": "1 dl",
             "name": {
               "de": "Rahm",
-              "en": "",
+              "en": "sauce cream",
               "fr": "",
               "it": ""
             }
@@ -122,10 +134,15 @@
           {
             "id": "tonburi",
             "ref": "tonburi",
-            "qty": "2 TL",
+            "qty": {
+              "de": "2 Teelöffel ",
+              "en": "1 spoon",
+              "fr": "",
+              "it": ""
+            },
             "name": {
               "de": "Tonburi",
-              "en": "",
+              "en": "tonburi",
               "fr": "",
               "it": ""
             }
@@ -133,10 +150,15 @@
           {
             "id": "creme-fraiche",
             "ref": "creme-fraiche",
-            "qty": "2 TL",
+            "qty": {
+              "de": "2 Teelöffel  ",
+              "en": "1 teaspoon",
+              "fr": "",
+              "it": ""
+            },
             "name": {
               "de": "Crème fraîche",
-              "en": "",
+              "en": "crême fraiche",
               "fr": "",
               "it": ""
             }
@@ -144,10 +166,10 @@
           {
             "id": "rote-bete",
             "ref": "rote-bete",
-            "qty": "1 mittelgross",
+            "qty": "1",
             "name": {
               "de": "Rote Bete",
-              "en": "",
+              "en": "middle sized beetroot",
               "fr": "",
               "it": ""
             }
@@ -155,10 +177,15 @@
           {
             "id": "thymian",
             "ref": "thymian",
-            "qty": "1 Zweig",
+            "qty": {
+              "de": "1 Zweig",
+              "en": "1 twig",
+              "fr": "",
+              "it": ""
+            },
             "name": {
               "de": "Thymian",
-              "en": "",
+              "en": "thyme",
               "fr": "",
               "it": ""
             }
@@ -169,7 +196,7 @@
         "basket": "savoury",
         "name": {
           "de": "Für die Miso-Shiitake-Butter",
-          "en": "",
+          "en": "For the miso - shiitake butter",
           "fr": "",
           "it": ""
         },
@@ -177,10 +204,15 @@
           {
             "id": "shiitake",
             "ref": "shiitake",
-            "qty": "2–3 getrocknet (oder 3–4 frisch)",
+            "qty": {
+              "de": "2–3  getrocknet (oder 3–4 frisch)",
+              "en": "2-3 dried (or 3-4 fresh)",
+              "fr": "",
+              "it": ""
+            },
             "name": {
               "de": "Shiitake-Pilze",
-              "en": "",
+              "en": "shiitake mushrooms",
               "fr": "",
               "it": ""
             }
@@ -188,10 +220,15 @@
           {
             "id": "miso",
             "ref": "miso",
-            "qty": "1 TL",
+            "qty": {
+              "de": "1 Teelöffel",
+              "en": "1 teaspoon",
+              "fr": "",
+              "it": ""
+            },
             "name": {
               "de": "Miso-Paste",
-              "en": "",
+              "en": "miso paste",
               "fr": "",
               "it": ""
             }
@@ -202,7 +239,7 @@
             "qty": "30 g",
             "name": {
               "de": "Butter",
-              "en": "",
+              "en": "butter",
               "fr": "",
               "it": ""
             }
@@ -215,7 +252,7 @@
     {
       "name": {
         "de": "Suppe",
-        "en": "",
+        "en": "Beetroot velouté",
         "fr": "",
         "it": ""
       },
@@ -223,13 +260,21 @@
         {
           "id": "s1",
           "time": null,
-          "tools": [
-            "Backblech",
-            "Alufolie"
-          ],
+          "tools": {
+            "de": [
+              "Backblech",
+              "Alufolie"
+            ],
+            "en": [
+              "baking sheet",
+              "tin foil"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Halbiere die Rote Bete und stelle sie mit der flachen Seite nach unten auf ein leicht eingeöltes Blech. Eine Lage Alufolie darunter hilft, dass nicht alles eingefärbt wird.",
-            "en": "",
+            "en": "Halve the beets and place them flat-side down on a lightly oiled baking sheet. A layer of tin foil underneath will help prevent the baking sheet from getting stained.",
             "fr": "",
             "it": ""
           },
@@ -244,12 +289,20 @@
         {
           "id": "s2",
           "time": "≈ 45 min",
-          "tools": [
-            "Ofen, 180 °C"
-          ],
+          "tools": {
+            "de": [
+              "Ofen, 180 °C"
+            ],
+            "en": [
+              "oven",
+              "180 °C"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Etwa 45 Minuten backen — die Knolle soll weich werden.",
-            "en": "",
+            "en": "Bake for about 45 minutes — the beetroot should become soft.",
             "fr": "",
             "it": ""
           },
@@ -264,12 +317,19 @@
         {
           "id": "s3",
           "time": null,
-          "tools": [
-            "Mixer"
-          ],
+          "tools": {
+            "de": [
+              "Mixer"
+            ],
+            "en": [
+              "blender"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Das Fleisch aus der Rande löffeln und mit etwas Wasser (oder Gemüsebouillon, Shiro Dashi …) im Mixer pürieren. Konsistenz wie Rahm: nicht ganz flüssig.",
-            "en": "",
+            "en": "Scoop the flesh from the beetroot and blend it with a little water (or vegetable broth, shiro dashi, etc.) in a blender. The consistency should be like cream: not completely liquid.",
             "fr": "",
             "it": ""
           },
@@ -284,12 +344,19 @@
         {
           "id": "s4",
           "time": null,
-          "tools": [
-            "Pfanne"
-          ],
+          "tools": {
+            "de": [
+              "Pfanne"
+            ],
+            "en": [
+              "pan"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Die pürierte Rande in eine Pfanne geben, mit Rahm und Thymian. Ein Zweigchen zur Seite stellen — die Blätter dienen später zur Dekoration.",
-            "en": "",
+            "en": "Place the pureed beetroot in a pan with cream and thyme. Set aside some of the thyme – the leaves will be used for decoration later.",
             "fr": "",
             "it": ""
           },
@@ -307,7 +374,7 @@
           "tools": [],
           "text": {
             "de": "Auf kleiner Flamme erwärmen (sie muss nicht mehr kochen) und mit Salz und Pfeffer abschmecken.",
-            "en": "",
+            "en": "Cook gently over low heat (it doesn't need to boil) and season with salt and pepper.",
             "fr": "",
             "it": ""
           },
@@ -325,13 +392,13 @@
           "tools": [],
           "text": {
             "de": "Währenddessen Tonburi mit Olivenöl, Salz und Pfeffer vermischen.",
-            "en": "",
+            "en": "Meanwhile, mix the tonburi with olive oil, salt and pepper.",
             "fr": "",
             "it": ""
           },
           "photo": "",
           "warning": {
-            "de": "Tonburi erst kurz vor dem Servieren würzen — das Geheimnis seiner Frische.",
+            "de": "",
             "en": "",
             "fr": "",
             "it": ""
@@ -343,7 +410,7 @@
           "tools": [],
           "text": {
             "de": "Suppe in Teller oder Schüsseln giessen, etwas Sauerrahm in die Mitte setzen und ein Quenelle Tonburi darüberlegen. Du kannst den Teller auch umgekehrt aufbauen: zuerst ein Sockel aus Crème fraîche, dann das Tonburi darauf, und am Schluss die Suppe drumherum giessen.",
-            "en": "",
+            "en": "Pour the soup into plates or bowls, place a dollop of sour cream in the center, and top with a quenelle of tonburi. Alternatively, you can arrange the dish in reverse: first a base of crème fraîche, then the tonburi, and finally pour the soup around it.",
             "fr": "",
             "it": ""
           },
@@ -360,20 +427,27 @@
     {
       "name": {
         "de": "Miso-Shiitake-Butter",
-        "en": "",
+        "en": "Miso-Shiitake butter",
         "fr": "",
         "it": ""
       },
       "steps": [
         {
           "id": "b1",
-          "time": "≈ 1 h (oder schneller, siehe Notiz)",
-          "tools": [
-            "kleine Schüssel"
-          ],
+          "time": "≈ 1 h ",
+          "tools": {
+            "de": [
+              "kleine Schüssel"
+            ],
+            "en": [
+              "small bowl"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Zuerst die Umami-Schicht: getrocknete Shiitake in kleine Stücke schneiden und in ½ dl warmem Wasser einweichen. Dauert eine Weile (ca. 1 Std.); alternativ kannst du die Pilze aufkochen — das geht schneller.",
-            "en": "",
+            "en": "First, the umami layer: cut the dried shiitake mushrooms into small pieces and soak them in 50 ml of warm water. This takes a while (about 1 hour); alternatively, you can boil the mushrooms—that's faster.",
             "fr": "",
             "it": ""
           },
@@ -388,13 +462,21 @@
         {
           "id": "b2",
           "time": null,
-          "tools": [
-            "Sieb",
-            "Saucenpfännchen"
-          ],
+          "tools": {
+            "de": [
+              "Sieb",
+              "Saucenpfännchen"
+            ],
+            "en": [
+              "sieve",
+              "sauce pan"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Den Pilzsud filtern und mit der Miso-Paste in ein Saucenpfännchen geben.",
-            "en": "",
+            "en": "Filter the mushroom broth and pour it into a saucepan along with the miso paste.",
             "fr": "",
             "it": ""
           },
@@ -412,7 +494,7 @@
           "tools": [],
           "text": {
             "de": "Reduzieren, bis es dickflüssig wird.",
-            "en": "",
+            "en": "Reduce until it reaches the consistency of honey or syrup.",
             "fr": "",
             "it": ""
           },
@@ -430,7 +512,7 @@
           "tools": [],
           "text": {
             "de": "Die Würze-Schicht dazu: Salz und Pfeffer (ich nehme gerne ein wenig MSG stattdessen). Du kannst auch etwas Sojasosse im Sud mit reduzieren, wenn dir das besser gefällt.",
-            "en": "",
+            "en": "The seasoning layer: salt and pepper (I like to use a little MSG instead). You can also reduce some soy sauce into the mushroom broth if you prefer.",
             "fr": "",
             "it": ""
           },
@@ -448,14 +530,14 @@
           "tools": [],
           "text": {
             "de": "Den Sirup etwas abkühlen lassen, dann mit der weichen Butter vermischen.",
-            "en": "",
+            "en": "Let the reduction cool, then mix it with the softened butter.",
             "fr": "",
             "it": ""
           },
           "photo": "",
           "warning": {
             "de": "Bitte wirklich abkühlen — sonst schmilzt die Butter.",
-            "en": "",
+            "en": "Please let it cool down completely — otherwise the butter will melt.",
             "fr": "",
             "it": ""
           }
@@ -463,12 +545,19 @@
         {
           "id": "b6",
           "time": "≥ 30 min",
-          "tools": [
-            "Kühlschrank"
-          ],
+          "tools": {
+            "de": [
+              "Kühlschrank"
+            ],
+            "en": [
+              "refrigerator"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Die Butter formen, wie es dir gefällt (Taler, Mödeli, in einer Kaffeetasse …) und mindestens 30 Minuten im Kühlschrank wieder fest werden lassen.",
-            "en": "",
+            "en": "Shape the butter however you fancy (coins, rounds, in a coffee cup…) and let it firm up again in the refrigerator for at least 30 minutes.",
             "fr": "",
             "it": ""
           },
@@ -498,7 +587,7 @@
       "type": "url",
       "label": {
         "de": "Eleven Madison Park (New York) — auf deren Online-Menükarte ich Tonburi zum ersten Mal entdeckt habe",
-        "en": "",
+        "en": "Eleven Madison Park (New York) — where I first discovered tonburi on their online menu",
         "fr": "",
         "it": ""
       },
@@ -510,7 +599,10 @@
       "Tonburi ist eine seltene Delikatesse: getrocknete Samen der Sommerzypresse (Bassia / Kochia scoparia), eine Spezialität der Präfektur Akita im Norden Honshus. Die Samen sind geschmacksneutral und funktionieren als „Geschmacksschwamm“ — sie nehmen alles auf, womit man sie kombiniert. Um sich dem Geschmack von Kaviar anzunähern, würde man vielleicht Kombu, Katsuobushi oder gar Seetang verwenden. Hier geht es mir um den Pop auf der Zunge, nicht um den Kaviargeschmack.",
       "Das Gericht braucht sehr viel Wartezeit. Definitiv etwas für einen ruhigen Tag. Klar, Brot und Butter kann man auf Vorrat vorbereiten — aber trotzdem: nichts für Ungeduldige."
     ],
-    "en": [],
+    "en": [
+      "Tonburi is a rare delicacy: dried seeds of the summer cypress (Bassia / Kochia scoparia), a specialty of Akita Prefecture in northern Honshu. The seeds are neutral in taste and act as a \"flavor sponge\"—absorbing everything they're combined with. To approximate the taste of caviar, one might use kombu, katsuobushi, or even seaweed. Here, I'm after the pop of flavor on the tongue, not the taste of caviar itself.",
+      "This dish requires a lot of waiting time. Definitely something for a quiet day. Sure, you can prepare the bread and butter in advance—but still: not for impatient people."
+    ],
     "fr": [],
     "it": []
   }

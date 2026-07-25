@@ -73,6 +73,16 @@ function newIngredient() {
    we want the *current* language's list only (no cross-language fallback),
    so typing in EN never shows/overwrites DE's tools. Legacy plain arrays
    are treated as German until the step is edited (see wireToolsInputs). */
+/* Same idea as toolsRawFor, generalized: a field that may be a legacy
+   plain string or a per-language object. Returns the current language's
+   value with no cross-language fallback (for editing), treating a legacy
+   plain string as German until the field is edited. */
+function i18nRawFor(field, lang) {
+  if (!field) return '';
+  if (typeof field === 'string') return lang === 'de' ? field : '';
+  return field[lang] || '';
+}
+
 function toolsRawFor(tools, lang) {
   if (!tools) return [];
   if (Array.isArray(tools)) return lang === 'de' ? tools : [];
@@ -216,8 +226,8 @@ function ingredientGroupsHtml() {
               </div>
               <div class="two-col">
                 <div>
-                  <label>Menge</label>
-                  <input type="text" data-path="ingredients.groups.${gi}.items.${ii}.qty" />
+                  <label>Menge (${state.lang.toUpperCase()})</label>
+                  <input type="text" data-qty="${gi}.${ii}" value="${escapeHtml(i18nRawFor(it.qty, state.lang))}" />
                 </div>
                 <div>
                   <label>ID (intern)</label>
@@ -402,6 +412,7 @@ function renderLangTabs() {
     el.querySelectorAll('button').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === state.lang));
     renderForm();
     renderPreview();
+    if (window.cookbook) window.cookbook.applyChrome(state.lang);
   }));
 }
 
@@ -463,7 +474,30 @@ function renderForm() {
   wireInputs();
   wireRepeatingActions();
   wireToolsInputs();
+  wireQtyInputs();
   wireParagraphInputs();
+}
+
+function wireQtyInputs() {
+  // qty is stored per-language, like name/text/warning. Legacy plain-string
+  // qty is migrated to the per-language shape (as German) the first time
+  // it's edited.
+  $$('[data-qty]').forEach(el => {
+    el.addEventListener('input', () => {
+      const [gi, ii] = el.dataset.qty.split('.').map(Number);
+      const item = state.data.ingredients.groups[gi].items[ii];
+      if (typeof item.qty === 'string') {
+        const legacy = item.qty;
+        item.qty = emptyI18n();
+        item.qty.de = legacy;
+      } else if (!item.qty) {
+        item.qty = emptyI18n();
+      }
+      item.qty[state.lang] = el.value;
+      markDirty();
+      renderPreview();
+    });
+  });
 }
 
 function wireToolsInputs() {
@@ -531,7 +565,7 @@ function wireRepeatingActions() {
         d.ingredients.groups.splice(Number(btn.dataset.idx), 1); break;
       case 'add-item': {
         const gi = Number(btn.dataset.gi);
-        d.ingredients.groups[gi].items.push({ id: '', ref: '', qty: '', name: emptyI18n() });
+        d.ingredients.groups[gi].items.push({ id: '', ref: '', qty: emptyI18n(), name: emptyI18n() });
         break;
       }
       case 'remove-item':
@@ -642,6 +676,7 @@ async function boot() {
 
   renderModeTabs();
   renderLangTabs();
+  if (window.cookbook) window.cookbook.applyChrome(state.lang);
   await populatePicker();
 
   if (initialId) {

@@ -3,19 +3,19 @@
   "category": "bread",
   "servings": {
     "de": "für 2 Personen",
-    "en": "",
+    "en": "for 2 persons",
     "fr": "",
     "it": ""
   },
   "title": {
     "de": "Toast- Milchbrot",
-    "en": "",
+    "en": "Milk bread",
     "fr": "",
     "it": ""
   },
   "subtitle": {
-    "de": "Alltäglich aber keinesfalls banal",
-    "en": "",
+    "de": "Shokupan - Alltäglich aber keinesfalls banal",
+    "en": "Shokupan - ordinary, but by no means boring",
     "fr": "",
     "it": ""
   },
@@ -26,7 +26,13 @@
       "Dieses Brot ist besonders fluffig und dank Tangzhong bleibt es sogar ziemlich lange frisch. Tangzhong ist einfach eine Gelatine aus Mehl, Wasser und Milch.",
       "Bitte drucke das Brot nicht zusammen."
     ],
-    "en": [],
+    "en": [
+      "One day, years ago,  while trying to select a loaf of  bread in a store in Chapel Hill, I received a 'valuable' tip: from a fellow customer: I should squeeze the package together.\n\n",
+      "Only if it were to spring back to its original size would the bread be fresh. Indeed, as I put a random package of bred to the test, it did pass: it sprang back (almost) to its size before the squeeze,  so I bought it. \nLater, on my drive back home, a doubt began to nag at me:  The bread package looked a bit loose towards the ends, did it not? What actually was the original size of the bread package before potentially having been pressed together many times?  Besides ... what was that bread made of ? Rubber would pass the test brilliantly, after all.",
+      "This bread does definitely not contain any elasticity-enhancing  substances, but it is particularly fluffy, and thanks to tangzhong, it even stays fresh for quite a long time. Tangzhong is simply a gelatin made from flour, water, and milk.",
+      "",
+      ""
+    ],
     "fr": [],
     "it": []
   },
@@ -35,7 +41,7 @@
       "id": "bread",
       "title": {
         "de": "Toastbrot",
-        "en": "",
+        "en": "Milk bread",
         "fr": "",
         "it": ""
       },
@@ -80,7 +86,7 @@
         "basket": "bread",
         "name": {
           "de": "Für das Toastbrot",
-          "en": "",
+          "en": "For the shokupan",
           "fr": "",
           "it": ""
         },
@@ -91,7 +97,7 @@
             "qty": "1 dl",
             "name": {
               "de": "Milch",
-              "en": "",
+              "en": "milk",
               "fr": "",
               "it": ""
             }
@@ -102,7 +108,7 @@
             "qty": "170 g",
             "name": {
               "de": "Mehl",
-              "en": "",
+              "en": "flour",
               "fr": "",
               "it": ""
             }
@@ -113,7 +119,7 @@
             "qty": "20 g",
             "name": {
               "de": "Butter",
-              "en": "",
+              "en": "butter",
               "fr": "",
               "it": ""
             }
@@ -124,7 +130,7 @@
             "qty": "3 g",
             "name": {
               "de": "Salz",
-              "en": "",
+              "en": "salt",
               "fr": "",
               "it": ""
             }
@@ -132,10 +138,15 @@
           {
             "id": "hefe",
             "ref": "trockenhefe",
-            "qty": "½ Päckchen",
+            "qty": {
+              "de": "½ Päckchen",
+              "en": "1/2 packet",
+              "fr": "",
+              "it": ""
+            },
             "name": {
               "de": "Trockenhefe",
-              "en": "",
+              "en": "dry yeast",
               "fr": "",
               "it": ""
             }
@@ -146,7 +157,7 @@
             "qty": "16 g",
             "name": {
               "de": "Zucker",
-              "en": "",
+              "en": "sugar",
               "fr": "",
               "it": ""
             }
@@ -159,7 +170,7 @@
     {
       "name": {
         "de": "Toastbrot",
-        "en": "",
+        "en": "Shokupan milk bread",
         "fr": "",
         "it": ""
       },
@@ -167,20 +178,28 @@
         {
           "id": "t1",
           "time": null,
-          "tools": [
-            "kleine Pfanne",
-            "Schwingbesen"
-          ],
+          "tools": {
+            "de": [
+              "kleine Pfanne",
+              "Schwingbesen"
+            ],
+            "en": [
+              "small pan",
+              "whisk"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Zuerst Tangzhong machen: 10 g Mehl, 30 g Milch und 15 g Wasser in einer kleinen Pfanne — auf mittlerer Hitze unter ständigem Rühren mit dem Schwingbesen aufkochen, bis ein Gel entsteht. Eine Weile passiert nichts, dann ziemlich plötzlich doch.",
-            "en": "",
+            "en": "First, make the tangzhong: 10 g flour, 30 g milk, and 15 g water in a small pan — bring to a boil over medium heat, stirring constantly with a whisk, until a gel forms. For a while, nothing happens, then quite suddenly it does.",
             "fr": "",
             "it": ""
           },
           "photo": "",
           "warning": {
             "de": "Nicht aufhören zu rühren, sonst klumpt es.",
-            "en": "",
+            "en": "Don't stop stirring, otherwise it will clump.",
             "fr": "",
             "it": ""
           }
@@ -188,19 +207,26 @@
         {
           "id": "t2",
           "time": "7–8 min",
-          "tools": [
-            "Schüssel"
-          ],
+          "tools": {
+            "de": [
+              "Schüssel"
+            ],
+            "en": [
+              "bowl"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Die restlichen 70 g Milch lauwarm machen, mit dem Zucker und der Trockenhefe verrühren. 7–8 Minuten warten, bis die Hefe aktiviert ist (am Schaum erkennbar).",
-            "en": "",
+            "en": "Warm the remaining 70g of milk until lukewarm, then stir in the sugar and dry yeast. Wait 7-8 minutes until the yeast is activated (recognizable by the foam).",
             "fr": "",
             "it": ""
           },
           "photo": "",
           "warning": {
             "de": "Wirklich nur lauwarm — heisse Milch tötet die Hefe.",
-            "en": "",
+            "en": "Really only lukewarm milk — hot milk kills the yeast.",
             "fr": "",
             "it": ""
           }
@@ -211,7 +237,7 @@
           "tools": [],
           "text": {
             "de": "Die Milch-Hefe-Zucker-Mischung mit dem Tangzhong-Gel verrühren.",
-            "en": "",
+            "en": "Mix the milk-yeast-sugar mixture with the Tangzhong gel.",
             "fr": "",
             "it": ""
           },
@@ -226,12 +252,19 @@
         {
           "id": "t4",
           "time": "≈ 10 min",
-          "tools": [
-            "Schüssel"
-          ],
+          "tools": {
+            "de": [
+              "Schüssel"
+            ],
+            "en": [
+              "bowl"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "In einer anderen Schüssel Mehl und Salz vermischen. Die Gel-Flüssigkeit dazugeben und etwa 10 Minuten zu einem geschmeidigen Teig kneten.",
-            "en": "",
+            "en": "In a separate bowl, mix the flour and salt. Add the gel liquid and knead for about 10 minutes until a smooth dough forms.",
             "fr": "",
             "it": ""
           },
@@ -249,7 +282,7 @@
           "tools": [],
           "text": {
             "de": "Stückchenweise die Butter in den Teig einarbeiten — ähnlich wie beim Brioche-Teig.",
-            "en": "",
+            "en": "Work the butter into the dough piece by piece — similarly to brioche dough.",
             "fr": "",
             "it": ""
           },
@@ -264,12 +297,19 @@
         {
           "id": "t6",
           "time": "1–2 h",
-          "tools": [
-            "Tuch"
-          ],
+          "tools": {
+            "de": [
+              "Tuch"
+            ],
+            "en": [
+              "cloth"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Wenn der Teig geschmeidig und elastisch ist, abgedeckt 1–2 Stunden ruhen lassen (oder bis sich das Volumen verdoppelt hat).",
-            "en": "",
+            "en": "When the dough is smooth and elastic, cover and let it rest for 1-2 hours (or until it has doubled in volume).",
             "fr": "",
             "it": ""
           },
@@ -284,12 +324,19 @@
         {
           "id": "t7",
           "time": null,
-          "tools": [
-            "Wallholz"
-          ],
+          "tools": {
+            "de": [
+              "Wallholz"
+            ],
+            "en": [
+              "rolling pin"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Vier gleich grosse Würste formen. Ich mache zuerst Bällchen, walle sie flach und rolle sie dann zu Würstchen auf.",
-            "en": "",
+            "en": "Form four 'sausage's of equal size. I first make balls, flatten them, and then roll them into sausages.",
             "fr": "",
             "it": ""
           },
@@ -304,13 +351,21 @@
         {
           "id": "t8",
           "time": "1–2 h",
-          "tools": [
-            "kleine Form",
-            "Tuch"
-          ],
+          "tools": {
+            "de": [
+              "kleine Form",
+              "Tuch"
+            ],
+            "en": [
+              "baking pan",
+              "cloth"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Die Teigröllchen in eine kleine, gebutterte Form legen — sie müssen sich berühren, kein Raum dazwischen — und nochmals abgedeckt 1–2 Stunden ruhen lassen.",
-            "en": "",
+            "en": "Place the dough rolls in a small, buttered baking pan — they must touch, with no space between them — and cover again and let rest for 1–2 hours.",
             "fr": "",
             "it": ""
           },
@@ -325,12 +380,19 @@
         {
           "id": "t9",
           "time": null,
-          "tools": [
-            "Pinsel"
-          ],
+          "tools": {
+            "de": [
+              "Pinsel"
+            ],
+            "en": [
+              "brush"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Inzwischen sollten die Röllchen zu einem Brot zusammengewachsen sein. Mit Eiguss bestreichen (ich mag etwas Sahne lieber).",
-            "en": "",
+            "en": "By now, the rolls should have fused together to form a loaf. Brush with egg custard (I prefer a little cream).",
             "fr": "",
             "it": ""
           },
@@ -345,12 +407,19 @@
         {
           "id": "t10",
           "time": "16–20 min",
-          "tools": [
-            "Ofen, 190 °C"
-          ],
+          "tools": {
+            "de": [
+              "Ofen, 190 °C"
+            ],
+            "en": [
+              "oven 190 °C"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Bei 190 °C 16–20 Minuten goldbraun backen.",
-            "en": "",
+            "en": "\nBake at 190 °C for 16–20 minutes until golden brown.",
             "fr": "",
             "it": ""
           },
@@ -368,7 +437,7 @@
           "tools": [],
           "text": {
             "de": "Ob du das Brot in Scheiben schneidest und toastest oder so aufträgst, ist Geschmacksache.",
-            "en": "",
+            "en": "Whether you slice and toast the bread or spread it as is, is a matter of taste.",
             "fr": "",
             "it": ""
           },
@@ -398,7 +467,7 @@
       "type": "url",
       "label": {
         "de": "Joshua Weissman — die Idee zum Tangzhong (und ein YouTube-Kanal mit Mengenangaben in Gramm und Liter, nicht in Pfund, Steinen, Tassen oder Parsec pro Ampère/Melone)",
-        "en": "",
+        "en": "Joshua Weissman — the idea for Tangzhong (and a YouTube channel with measurements in grams and liters, not pounds, stones, cups or parsecs per ampere/melon)",
         "fr": "",
         "it": ""
       },
@@ -408,9 +477,14 @@
   "notes": {
     "de": [
       "Die japanische Alchemie dieses Brote ist das Tangzhong. Es funktioniert wirklich: das Brot wird fluffiger und (etwas) länger haltbar.",
-      "Scheiben in doppelter Dicke können zwar nicht im normalen Toaster getoastet werden, sehen aber besonders gut aus."
+      "Scheiben in doppelter Dicke können zwar nicht im normalen Toaster getoastet werden, sehen aber besonders gut aus.",
+      "Shokupan (食パン) literally translates to \"meal bread\" or \"eating bread\", meaning plain white bread meant for daily meals"
     ],
-    "en": [],
+    "en": [
+      "he Japanese alchemy behind this bread is Tangzhong. It really works: the bread becomes fluffier and keeps (somewhat) longer.",
+      "Double-thick slices cannot be toasted in a normal toaster, but they look particularly good.",
+      "Shokupan (食パン) literally translates to \"meal bread\" or \"eating bread\", meaning plain white bread meant for daily meals"
+    ],
     "fr": [],
     "it": []
   }

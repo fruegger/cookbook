@@ -15,16 +15,17 @@
 const LANGS = ['de', 'en', 'fr', 'it'];
 const LANG_LABELS = { de: 'DE', en: 'EN', fr: 'FR', it: 'IT' };
 const CAT_LABELS = {
-  de: { entree: 'Vorspeise', main: 'Hauptgericht', dessert: 'Dessert', side: 'Beilage', soup: 'Suppe', breakfast: 'Frühstück' },
-  en: { entree: 'Starter', main: 'Main', dessert: 'Dessert', side: 'Side', soup: 'Soup', breakfast: 'Breakfast' },
-  fr: { entree: 'Entrée', main: 'Plat', dessert: 'Dessert', side: 'Accompagnement', soup: 'Soupe', breakfast: 'Petit-déjeuner' },
-  it: { entree: 'Antipasto', main: 'Piatto principale', dessert: 'Dolce', side: 'Contorno', soup: 'Zuppa', breakfast: 'Colazione' }
+  de: { entree: 'Vorspeise', main: 'Hauptgericht', dessert: 'Dessert', side: 'Beilage', soup: 'Suppe', breakfast: 'Frühstück', bread: 'Brot', sauce: 'Sosse' },
+  en: { entree: 'Starter', main: 'Main', dessert: 'Dessert', side: 'Side', soup: 'Soup', breakfast: 'Breakfast', bread: 'Bread', sauce: 'Sauce' },
+  fr: { entree: 'Entrée', main: 'Plat', dessert: 'Dessert', side: 'Accompagnement', soup: 'Soupe', breakfast: 'Petit-déjeuner', bread: 'Pain', sauce: 'Sauce' },
+  it: { entree: 'Antipasto', main: 'Piatto principale', dessert: 'Dolce', side: 'Contorno', soup: 'Zuppa', breakfast: 'Colazione', bread: 'Pane', sauce: 'Salsa' }
 };
 
 /* Interface chrome — section headings, labels, placeholders, status
    messages. Not recipe/ingredient content (that's all authored per-recipe
    in the JSON), just the fixed text the app itself prints around it. */
 const UI_LABELS = {
+  brandName:           { de: 'Dinner für zwei', en: 'Dinner for Two', fr: 'Dîner pour deux', it: 'Cena per due' },
   basketSection:      { de: 'Der Korb & die Zutaten', en: 'The Basket & Ingredients', fr: 'Le Panier & les Ingrédients', it: 'Il Cestino & gli Ingredienti' },
   prepSection:         { de: 'Zubereitung', en: 'Preparation', fr: 'Préparation', it: 'Preparazione' },
   sourcesTitle:        { de: 'Inspiration & Quellen', en: 'Inspiration & Sources', fr: 'Inspiration & Sources', it: 'Ispirazione & Fonti' },
@@ -46,7 +47,19 @@ const UI_LABELS = {
   backToOverview:      { de: 'Zur Übersicht', en: 'Back to overview', fr: "Retour à l'aperçu", it: 'Torna alla panoramica' },
   recipeNotFound:      { de: 'Rezept {id} nicht gefunden.', en: 'Recipe {id} not found.', fr: 'Recette {id} introuvable.', it: 'Ricetta {id} non trovata.' },
   noIngredientGiven:   { de: 'Keine Zutat angegeben.', en: 'No ingredient specified.', fr: 'Aucun ingrédient spécifié.', it: 'Nessun ingrediente specificato.' },
-  ingredientNotFound:  { de: 'Zutat {id} nicht gefunden.', en: 'Ingredient {id} not found.', fr: 'Ingrédient {id} introuvable.', it: 'Ingrediente {id} non trovato.' }
+  ingredientNotFound:  { de: 'Zutat {id} nicht gefunden.', en: 'Ingredient {id} not found.', fr: 'Ingrédient {id} introuvable.', it: 'Ingrediente {id} non trovato.' },
+  navRecipes:          { de: 'Rezepte', en: 'Recipes', fr: 'Recettes', it: 'Ricette' },
+  navIngredients:      { de: 'Zutaten', en: 'Ingredients', fr: 'Ingrédients', it: 'Ingredienti' },
+  navEditor:           { de: 'Editor', en: 'Editor', fr: 'Éditeur', it: 'Editor' },
+  navPrint:            { de: 'Drucken', en: 'Print', fr: 'Imprimer', it: 'Stampa' },
+  ctaToRecipes:        { de: 'Zu den Rezepten →', en: 'To the recipes →', fr: 'Aux recettes →', it: 'Alle ricette →' },
+  tagRecipes:          { de: 'Rezepte, gesammelt und mit Liebe weitergegeben.', en: 'Recipes, collected and passed on with love.', fr: 'Recettes, rassemblées et transmises avec amour.', it: 'Ricette, raccolte e tramandate con amore.' },
+  tagIngredients:      { de: 'Steckbriefe der Zutaten — Herkunft, Saison, Tricks.', en: 'Ingredient profiles — origin, season, tricks.', fr: 'Fiches des ingrédients — origine, saison, astuces.', it: 'Schede degli ingredienti — origine, stagionalità, trucchi.' },
+  noRecipesInCategory: { de: 'Keine Rezepte in dieser Kategorie.', en: 'No recipes in this category.', fr: 'Aucune recette dans cette catégorie.', it: 'Nessuna ricetta in questa categoria.' },
+  noIngredientsYet:    { de: 'Noch keine Zutaten erfasst.', en: 'No ingredients recorded yet.', fr: "Aucun ingrédient enregistré pour l'instant.", it: 'Nessun ingrediente ancora registrato.' },
+  allCategoriesLabel:  { de: 'Alle', en: 'All', fr: 'Tous', it: 'Tutti' },
+  recipeCountOne:      { de: '{n} Rezept', en: '{n} recipe', fr: '{n} recette', it: '{n} ricetta' },
+  recipeCountMany:     { de: '{n} Rezepte', en: '{n} recipes', fr: '{n} recettes', it: '{n} ricette' }
 };
 
 /* Looks up a UI_LABELS entry for lang (falling back through LANGS like
@@ -59,6 +72,10 @@ function t(key, lang, vars) {
     for (const k in vars) str = str.replace(`{${k}}`, vars[k]);
   }
   return str;
+}
+
+function recipeCountLabel(n, lang) {
+  return t(n === 1 ? 'recipeCountOne' : 'recipeCountMany', lang, { n });
 }
 
 /* ---------- Generic helpers ---------- */
@@ -150,7 +167,7 @@ function renderRecipe(recipe, lang, registry) {
           item.ref || '';
         return `
           <li data-ing-id="${escapeHtml(item.id)}">
-            <span class="qty">${escapeHtml(item.qty || '')}</span>
+            <span class="qty">${escapeHtml(pickLang(item.qty, lang))}</span>
             <span class="name">${
               item.ref
                 ? `<a href="ingredient.html?id=${encodeURIComponent(item.ref)}">${escapeHtml(itemName)}</a>`
@@ -276,7 +293,7 @@ function renderRecipe(recipe, lang, registry) {
     </article>
   `;
 
-  document.title = title + ' — Dinner für zwei';
+  document.title = title + ' — ' + t('brandName', lang);
 
   if (typeof requestAnimationFrame === 'function') {
     requestAnimationFrame(() => layoutBasketConnectors(root));
@@ -365,6 +382,28 @@ if (typeof window !== 'undefined') {
   window.addEventListener('afterprint', () => layoutBasketConnectors(document));
 }
 
+/* ---------- Site chrome (brand + nav) ----------
+   The header — brand name, nav links, print link — is static HTML
+   repeated in every page (not generated by this file), so it doesn't
+   update automatically on language switch. Call this whenever the
+   language changes to keep it in sync. */
+function applyChrome(lang) {
+  const brandLink = document.querySelector('.brand a');
+  if (brandLink) brandLink.textContent = t('brandName', lang);
+
+  const navKeyByHref = {
+    'recipes.html': 'navRecipes',
+    'ingredients.html': 'navIngredients',
+    'editor.html': 'navEditor'
+  };
+  document.querySelectorAll('.topnav nav a[href]').forEach(a => {
+    const key = navKeyByHref[a.getAttribute('href')];
+    if (key) a.textContent = t(key, lang);
+  });
+  const printLink = document.querySelector('.topnav nav a[onclick*="print"]');
+  if (printLink) printLink.textContent = t('navPrint', lang);
+}
+
 /* ---------- Language switcher ---------- */
 function mountLangSwitch(obj, currentLang, onChange, key = 'title') {
   const el = document.getElementById('lang-switch');
@@ -424,6 +463,7 @@ async function bootRecipe(arg) {
     localStorage.setItem('cookbook-lang', l);
     renderRecipe(recipe, l, registry);
     mountLangSwitch(recipe, l, draw);
+    applyChrome(l);
   };
   draw(lang);
 }
@@ -499,7 +539,7 @@ async function renderIngredient(ing, lang, registry) {
     </article>
   `;
 
-  document.title = name + ' — Dinner für zwei';
+  document.title = name + ' — ' + t('brandName', lang);
 }
 
 async function bootIngredient(arg) {
@@ -534,6 +574,7 @@ async function bootIngredient(arg) {
     localStorage.setItem('cookbook-lang', l);
     renderIngredient(ing, l, registry);
     mountLangSwitch(ing, l, draw, 'name');
+    applyChrome(l);
   };
   draw(lang);
 }
@@ -542,6 +583,6 @@ async function bootIngredient(arg) {
 window.bootRecipe = bootRecipe;
 window.bootIngredient = bootIngredient;
 window.cookbook = {
-  pickLang, pickTools, escapeHtml, LANGS, LANG_LABELS, CAT_LABELS, UI_LABELS, t,
+  pickLang, pickTools, escapeHtml, LANGS, LANG_LABELS, CAT_LABELS, UI_LABELS, t, applyChrome, recipeCountLabel,
   renderRecipe, renderIngredient, loadIngredientRegistry, layoutBasketConnectors
 };

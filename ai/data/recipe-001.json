@@ -100,10 +100,15 @@
           {
             "id": "cognac",
             "ref": "cognac",
-            "qty": "4 cl",
+            "qty": {
+              "de": "4 cl  (1 Shotgläschen)",
+              "en": "4 cl (1 Shot)",
+              "fr": "",
+              "it": ""
+            },
             "name": {
-              "de": "Cognac (1 Shotgläschen)",
-              "en": "brandy (1 shot)",
+              "de": "Cognac",
+              "en": "brandy",
               "fr": "",
               "it": ""
             }
@@ -133,10 +138,15 @@
           {
             "id": "salz",
             "ref": "salz",
-            "qty": "≈1 g",
+            "qty": {
+              "de": "1 Prise (≈1 g)",
+              "en": "1 pinch",
+              "fr": "",
+              "it": ""
+            },
             "name": {
-              "de": "Prise Salz",
-              "en": "pinch of salt",
+              "de": "Salz",
+              "en": "salt",
               "fr": "",
               "it": ""
             }
@@ -144,9 +154,14 @@
           {
             "id": "zucker-mousse",
             "ref": "zucker",
-            "qty": "20 g",
+            "qty": {
+              "de": "20 g  (1½ Löffel)",
+              "en": "20g (1 1/2 spoon)",
+              "fr": "",
+              "it": ""
+            },
             "name": {
-              "de": "Zucker (1½ Löffel)",
+              "de": "Zucker",
               "en": "sugar",
               "fr": "",
               "it": ""
@@ -155,7 +170,12 @@
           {
             "id": "ei-mousse",
             "ref": "ei",
-            "qty": "1",
+            "qty": {
+              "de": "1",
+              "en": "",
+              "fr": "",
+              "it": ""
+            },
             "name": {
               "de": "Ei",
               "en": "egg",
@@ -176,10 +196,15 @@
           {
             "id": "rosmarin",
             "ref": "rosmarin",
-            "qty": "1",
+            "qty": {
+              "de": "1",
+              "en": "1 twig",
+              "fr": "",
+              "it": ""
+            },
             "name": {
               "de": "Zweig Rosmarin",
-              "en": "twig of rosemary",
+              "en": "rosemary",
               "fr": "",
               "it": ""
             }
@@ -230,7 +255,12 @@
           {
             "id": "ei-cake",
             "ref": "ei",
-            "qty": "1",
+            "qty": {
+              "de": "1",
+              "en": "1",
+              "fr": "",
+              "it": ""
+            },
             "name": {
               "de": "Ei",
               "en": "egg",
@@ -274,7 +304,12 @@
           {
             "id": "tonka",
             "ref": "tonkabohne",
-            "qty": "¼",
+            "qty": {
+              "de": "¼",
+              "en": "1/4 bean",
+              "fr": "",
+              "it": ""
+            },
             "name": {
               "de": "Tonkabohne",
               "en": "tonka bean",

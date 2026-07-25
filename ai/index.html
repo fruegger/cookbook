@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dinner für zwei</title>
-  <link rel="stylesheet" href="css/cookbook.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinner für zwei</title>
+    <link rel="stylesheet" href="css/cookbook.css">
 </head>
 <body>
-  <header class="topnav print-hide">
+<header class="topnav print-hide">
     <div class="brand"><a href="index.html">Dinner für zwei</a></div>
     <nav>
-      <a href="recipes.html">Rezepte</a>
-      <a href="ingredients.html">Zutaten</a>
-      <a href="editor.html">Editor</a>
-      <a href="#" onclick="window.print();return false;">Drucken</a>
+        <a href="recipes.html">Rezepte</a>
+        <a href="ingredients.html">Zutaten</a>
+        <a href="editor.html">Editor</a>
+        <a href="#" onclick="window.print();return false;">Drucken</a>
     </nav>
     <div id="lang-switch" class="langswitch"></div>
-  </header>
+</header>
 
-  <main id="dedication-root"></main>
+<main id="dedication-root"></main>
 
-  <script>
-    const LANGS = ['de','en','fr','it'];
+<script src="js/cookbook.js"></script>
+<script>
     let lang = localStorage.getItem('cookbook-lang') || 'de';
     let data = null;
 
     function pick(field) {
       if (!field) return '';
       if (field[lang] && (Array.isArray(field[lang]) ? field[lang].length : field[lang])) return field[lang];
-      for (const l of LANGS) if (field[l] && (Array.isArray(field[l]) ? field[l].length : field[l])) return field[l];
+      for (const l of window.cookbook.LANGS) if (field[l] && (Array.isArray(field[l]) ? field[l].length : field[l])) return field[l];
       return '';
     }
     function escapeHtml(s) {
@@ -40,6 +40,7 @@
       data = await res.json();
       render();
       renderLangSwitch();
+      if (window.cookbook) window.cookbook.applyChrome(lang);
     }
 
     function render() {
@@ -48,6 +49,7 @@
       const salutation = pick(data.salutation);
       const body = (data.body && data.body[lang] && data.body[lang].length) ? data.body[lang] : (data.body?.de || []);
       const signoff = pick(data.signoff);
+      const cta = window.cookbook ? window.cookbook.t('ctaToRecipes', lang) : 'Zu den Rezepten →';
 
       const root = document.getElementById('dedication-root');
       root.innerHTML = `
@@ -61,7 +63,7 @@
           </div>
 
           <p class="dedication-enter print-hide">
-            <a href="recipes.html">Zu den Rezepten →</a>
+            <a href="recipes.html">${escapeHtml(cta)}</a>
           </p>
         </article>
       `;
@@ -70,7 +72,7 @@
 
     function renderLangSwitch() {
       const el = document.getElementById('lang-switch');
-      el.innerHTML = LANGS.map(l => {
+      el.innerHTML = window.cookbook.LANGS.map(l => {
         const has = data.title[l] && data.title[l].length;
         return `<button class="${l===lang?'active':''}" ${has?'':'disabled'} data-lang="${l}">${l.toUpperCase()}</button>`;
       }).join('');
@@ -80,10 +82,11 @@
         localStorage.setItem('cookbook-lang', lang);
         render();
         renderLangSwitch();
+        if (window.cookbook) window.cookbook.applyChrome(lang);
       }));
     }
 
     load();
-  </script>
+</script>
 </body>
 </html>

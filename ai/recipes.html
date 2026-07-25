@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rezepte — Dinner für zwei</title>
-  <link rel="stylesheet" href="css/cookbook.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezepte — Dinner für zwei</title>
+    <link rel="stylesheet" href="css/cookbook.css">
 </head>
 <body>
-  <header class="topnav">
+<header class="topnav">
     <div class="brand"><a href="index.html">Dinner für zwei</a></div>
     <nav>
-      <a href="recipes.html">Rezepte</a>
-      <a href="ingredients.html">Zutaten</a>
-      <a href="editor.html">Editor</a>
+        <a href="recipes.html">Rezepte</a>
+        <a href="ingredients.html">Zutaten</a>
+        <a href="editor.html">Editor</a>
     </nav>
     <div id="lang-switch" class="langswitch"></div>
-  </header>
+</header>
 
-  <section class="title-block">
-    <h1>Dinner für zwei</h1>
-    <p class="tagline">Rezepte, gesammelt und mit Liebe weitergegeben.</p>
-  </section>
+<section class="title-block">
+    <h1 id="brand-heading">Dinner für zwei</h1>
+    <p class="tagline" id="recipes-tagline">Rezepte, gesammelt und mit Liebe weitergegeben.</p>
+</section>
 
-  <div class="cat-filter" id="cat-filter"></div>
+<div class="cat-filter" id="cat-filter"></div>
 
-  <div class="index-grid" id="grid"></div>
+<div class="index-grid" id="grid"></div>
 
-  <script src="js/cookbook.js"></script>
-  <script>
+<script src="js/cookbook.js"></script>
+<script>
     const CATS = ['all', 'entree', 'main', 'dessert', 'side', 'soup', 'breakfast','bread','sauce'];
-    const CAT_LABEL_DE = { all:'Alle', entree:'Vorspeise', main:'Hauptgericht', dessert:'Dessert', side:'Beilage', soup:'Suppe', breakfast:'Frühstück',bread:'Brot',sauce:'Sosse' };
 
     let activeCat = 'all';
     let lang = localStorage.getItem('cookbook-lang') || 'de';
     let registry = null;
+
+    function catLabel(c) {
+      if (c === 'all') return window.cookbook.t('allCategoriesLabel', lang);
+      return window.cookbook.CAT_LABELS[lang]?.[c] || c;
+    }
 
     async function load() {
       const res = await fetch('data/recipes.json');
@@ -41,12 +45,19 @@
       renderFilter();
       renderGrid();
       renderLangSwitch();
+      applyPageChrome();
+    }
+
+    function applyPageChrome() {
+      window.cookbook.applyChrome(lang);
+      document.getElementById('brand-heading').textContent = window.cookbook.t('brandName', lang);
+      document.getElementById('recipes-tagline').textContent = window.cookbook.t('tagRecipes', lang);
     }
 
     function renderFilter() {
       const el = document.getElementById('cat-filter');
       el.innerHTML = CATS.map(c => `
-        <button class="${c === activeCat ? 'active' : ''}" data-cat="${c}">${CAT_LABEL_DE[c]}</button>
+        <button class="${c === activeCat ? 'active' : ''}" data-cat="${c}">${catLabel(c)}</button>
       `).join('');
       el.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
         activeCat = b.dataset.cat;
@@ -60,7 +71,7 @@
       const items = registry.recipes.filter(r => activeCat === 'all' || r.category === activeCat);
       grid.innerHTML = items.map(r => {
         const t = r.title[lang] || r.title.de || '';
-        const cat = CAT_LABEL_DE[r.category] || r.category;
+        const cat = window.cookbook.CAT_LABELS[lang]?.[r.category] || r.category;
         return `
           <a class="recipe-card" href="${r.href}">
             <div class="thumb"><img src="${r.thumb}" alt=""></div>
@@ -68,7 +79,7 @@
             <h2 class="name">${t}</h2>
           </a>
         `;
-      }).join('') || '<p style="grid-column:1/-1;text-align:center;color:var(--ink-faint)">Keine Rezepte in dieser Kategorie.</p>';
+      }).join('') || `<p style="grid-column:1/-1;text-align:center;color:var(--ink-faint)">${window.cookbook.t('noRecipesInCategory', lang)}</p>`;
     }
 
     function renderLangSwitch() {
@@ -79,12 +90,14 @@
       el.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
         lang = b.dataset.lang;
         localStorage.setItem('cookbook-lang', lang);
+        renderFilter();
         renderGrid();
         renderLangSwitch();
+        applyPageChrome();
       }));
     }
 
     load();
-  </script>
+</script>
 </body>
 </html>
