@@ -21,6 +21,46 @@ const CAT_LABELS = {
   it: { entree: 'Antipasto', main: 'Piatto principale', dessert: 'Dolce', side: 'Contorno', soup: 'Zuppa', breakfast: 'Colazione' }
 };
 
+/* Interface chrome — section headings, labels, placeholders, status
+   messages. Not recipe/ingredient content (that's all authored per-recipe
+   in the JSON), just the fixed text the app itself prints around it. */
+const UI_LABELS = {
+  basketSection:      { de: 'Der Korb & die Zutaten', en: 'The Basket & Ingredients', fr: 'Le Panier & les Ingrédients', it: 'Il Cestino & gli Ingredienti' },
+  prepSection:         { de: 'Zubereitung', en: 'Preparation', fr: 'Préparation', it: 'Preparazione' },
+  sourcesTitle:        { de: 'Inspiration & Quellen', en: 'Inspiration & Sources', fr: 'Inspiration & Sources', it: 'Ispirazione & Fonti' },
+  notesTitle:          { de: 'Notizen, Tricks, Trivia', en: 'Notes, Tricks & Trivia', fr: 'Notes, Astuces & Anecdotes', it: 'Note, Trucchi e Curiosità' },
+  photoSoon:           { de: 'Foto folgt', en: 'Photo coming soon', fr: 'Photo à venir', it: 'Foto in arrivo' },
+  ingredientTag:       { de: 'Zutat', en: 'Ingredient', fr: 'Ingrédient', it: 'Ingrediente' },
+  ingredientProfile:   { de: 'Steckbrief', en: 'Profile', fr: 'Fiche', it: 'Scheda' },
+  descriptionTitle:    { de: 'Beschreibung', en: 'Description', fr: 'Description', it: 'Descrizione' },
+  nutritionTitle:      { de: 'Nährwerte (pro {per})', en: 'Nutrition (per {per})', fr: 'Valeurs nutritionnelles (pour {per})', it: 'Valori nutrizionali (per {per})' },
+  originSeasonTitle:   { de: 'Herkunft & Saison', en: 'Origin & Season', fr: 'Origine & Saison', it: 'Origine & Stagionalità' },
+  usageTricksTitle:    { de: 'Verwendung & Tricks', en: 'Uses & Tricks', fr: 'Utilisation & Astuces', it: 'Utilizzo & Trucchi' },
+  usedInTitle:         { de: 'Verwendet in', en: 'Used in', fr: 'Utilisé dans', it: 'Utilizzato in' },
+  backToRecipes:       { de: '← Zu allen Rezepten', en: '← Back to all recipes', fr: '← Retour à toutes les recettes', it: '← Torna a tutte le ricette' },
+  nrgLabel:            { de: 'Energie', en: 'Energy', fr: 'Énergie', it: 'Energia' },
+  carbsLabel:          { de: 'Kohlenhydrate', en: 'Carbohydrates', fr: 'Glucides', it: 'Carboidrati' },
+  fatLabel:            { de: 'Fett', en: 'Fat', fr: 'Lipides', it: 'Grassi' },
+  proteinLabel:        { de: 'Eiweiss', en: 'Protein', fr: 'Protéines', it: 'Proteine' },
+  noRecipeGiven:       { de: 'Kein Rezept angegeben.', en: 'No recipe specified.', fr: 'Aucune recette spécifiée.', it: 'Nessuna ricetta specificata.' },
+  backToOverview:      { de: 'Zur Übersicht', en: 'Back to overview', fr: "Retour à l'aperçu", it: 'Torna alla panoramica' },
+  recipeNotFound:      { de: 'Rezept {id} nicht gefunden.', en: 'Recipe {id} not found.', fr: 'Recette {id} introuvable.', it: 'Ricetta {id} non trovata.' },
+  noIngredientGiven:   { de: 'Keine Zutat angegeben.', en: 'No ingredient specified.', fr: 'Aucun ingrédient spécifié.', it: 'Nessun ingrediente specificato.' },
+  ingredientNotFound:  { de: 'Zutat {id} nicht gefunden.', en: 'Ingredient {id} not found.', fr: 'Ingrédient {id} introuvable.', it: 'Ingrediente {id} non trovato.' }
+};
+
+/* Looks up a UI_LABELS entry for lang (falling back through LANGS like
+   pickLang), then substitutes any {placeholder} tokens from vars. */
+function t(key, lang, vars) {
+  const entry = UI_LABELS[key];
+  if (!entry) return key;
+  let str = entry[lang] || entry.de || '';
+  if (vars) {
+    for (const k in vars) str = str.replace(`{${k}}`, vars[k]);
+  }
+  return str;
+}
+
 /* ---------- Generic helpers ---------- */
 
 function pickLang(field, lang) {
@@ -142,7 +182,7 @@ function renderRecipe(recipe, lang, registry) {
         <figure class="basket-figure">
           ${b.image
             ? `<img src="${escapeHtml(b.image)}" alt="${escapeHtml(bAlt)}" onload="window.cookbook && window.cookbook.layoutBasketConnectors(this.closest('.basket-pair'))">`
-            : '<div class="basket-placeholder">Foto folgt</div>'}
+            : `<div class="basket-placeholder">${escapeHtml(t('photoSoon', lang))}</div>`}
         </figure>
         <div class="ingredient-list">
           ${bTitle ? `<div class="basket-label">${escapeHtml(bTitle)}</div>` : ''}
@@ -175,7 +215,7 @@ function renderRecipe(recipe, lang, registry) {
               <div class="photo">${
                 s.photo
                   ? `<img src="${escapeHtml(s.photo)}" alt="">`
-                  : '<span>Foto folgt</span>'
+                  : `<span>${escapeHtml(t('photoSoon', lang))}</span>`
               }</div>
             </li>
           `;
@@ -217,19 +257,19 @@ function renderRecipe(recipe, lang, registry) {
         ${moodArr.map(p => `<p>${escapeHtml(p)}</p>`).join('')}
       </div>
 
-      <div class="section-eyebrow">Der Korb &amp; die Zutaten</div>
+      <div class="section-eyebrow">${escapeHtml(t('basketSection', lang))}</div>
       ${basketPairsHtml}
 
-      <div class="section-eyebrow">Zubereitung</div>
+      <div class="section-eyebrow">${escapeHtml(t('prepSection', lang))}</div>
       <div class="methods">${methodsHtml}</div>
 
       <div class="colophon">
         <div>
-          <h2>Inspiration &amp; Quellen</h2>
+          <h2>${escapeHtml(t('sourcesTitle', lang))}</h2>
           <ul>${sourcesHtml}</ul>
         </div>
         <div>
-          <h2>Notizen, Tricks, Trivia</h2>
+          <h2>${escapeHtml(t('notesTitle', lang))}</h2>
           <ul>${notesHtml}</ul>
         </div>
       </div>
@@ -358,15 +398,16 @@ async function bootRecipe(arg) {
     recipe = await res.json();
   } else {
     const id = getQueryId();
+    const bootLang = localStorage.getItem('cookbook-lang') || 'de';
     if (!id) {
       document.getElementById('recipe-root').innerHTML =
-        '<p style="padding:2rem">Kein Rezept angegeben. <a href="recipes.html">Zur Übersicht</a></p>';
+        `<p style="padding:2rem">${escapeHtml(t('noRecipeGiven', bootLang))} <a href="recipes.html">${escapeHtml(t('backToOverview', bootLang))}</a></p>`;
       return;
     }
     const res = await fetch(`data/${id}.json`);
     if (!res.ok) {
       document.getElementById('recipe-root').innerHTML =
-        `<p style="padding:2rem">Rezept <code>${escapeHtml(id)}</code> nicht gefunden.</p>`;
+        `<p style="padding:2rem">${escapeHtml(t('recipeNotFound', bootLang, { id }))}</p>`;
       return;
     }
     recipe = await res.json();
@@ -413,10 +454,10 @@ async function renderIngredient(ing, lang, registry) {
     : '<p style="color:var(--ink-faint)">—</p>';
 
   const nutritionRows = [
-    ['Energie', ing.nutrition?.energy],
-    ['Kohlenhydrate', ing.nutrition?.carbs],
-    ['Fett', ing.nutrition?.fat],
-    ['Eiweiss', ing.nutrition?.protein]
+    [t('nrgLabel', lang), ing.nutrition?.energy],
+    [t('carbsLabel', lang), ing.nutrition?.carbs],
+    [t('fatLabel', lang), ing.nutrition?.fat],
+    [t('proteinLabel', lang), ing.nutrition?.protein]
   ].filter(([, v]) => v).map(([k, v]) =>
     `<li><span class="qty">${escapeHtml(k)}</span><span class="name">${escapeHtml(v)}</span></li>`
   ).join('') || '<li style="color:var(--ink-faint)">—</li>';
@@ -424,8 +465,8 @@ async function renderIngredient(ing, lang, registry) {
   root.innerHTML = `
     <article class="recipe-page">
       <div class="recipe-meta">
-        <span class="category">Zutat</span>
-        <span class="servings">Steckbrief</span>
+        <span class="category">${escapeHtml(t('ingredientTag', lang))}</span>
+        <span class="servings">${escapeHtml(t('ingredientProfile', lang))}</span>
       </div>
       <h1 class="recipe-title">${escapeHtml(name)}</h1>
       ${ing.latin ? `<p class="recipe-subtitle"><em>${escapeHtml(ing.latin)}</em></p>` : ''}
@@ -434,27 +475,27 @@ async function renderIngredient(ing, lang, registry) {
         <figure class="basket-figure">
           ${ing.image
             ? `<img src="${escapeHtml(ing.image)}" alt="${escapeHtml(imgAlt)}">`
-            : '<div class="basket-placeholder">Foto folgt</div>'}
+            : `<div class="basket-placeholder">${escapeHtml(t('photoSoon', lang))}</div>`}
         </figure>
         <div class="ingredient-list">
-          <h3>Beschreibung</h3>
+          <h3>${escapeHtml(t('descriptionTitle', lang))}</h3>
           <p style="font-family:var(--serif);font-size:1.05rem;line-height:1.5">${escapeHtml(desc) || '<span style="color:var(--ink-faint)">—</span>'}</p>
 
-          <h3>Nährwerte (pro ${escapeHtml(ing.nutrition?._per || '100 g')})</h3>
+          <h3>${escapeHtml(t('nutritionTitle', lang, { per: ing.nutrition?._per || '100 g' }))}</h3>
           <ul>${nutritionRows}</ul>
 
-          <h3>Herkunft &amp; Saison</h3>
+          <h3>${escapeHtml(t('originSeasonTitle', lang))}</h3>
           <p style="font-family:var(--serif);font-size:1.05rem">${escapeHtml(origin) || '<span style="color:var(--ink-faint)">—</span>'}<br>${escapeHtml(seasonality)}</p>
 
-          <h3>Verwendung &amp; Tricks</h3>
+          <h3>${escapeHtml(t('usageTricksTitle', lang))}</h3>
           <p style="font-family:var(--serif);font-size:1.05rem">${escapeHtml(tips) || '<span style="color:var(--ink-faint)">—</span>'}</p>
 
-          <h3>Verwendet in</h3>
+          <h3>${escapeHtml(t('usedInTitle', lang))}</h3>
           ${usedHtml}
         </div>
       </div>
 
-      <p style="margin-top:3rem"><a href="recipes.html">← Zu allen Rezepten</a></p>
+      <p style="margin-top:3rem"><a href="recipes.html">${escapeHtml(t('backToRecipes', lang))}</a></p>
     </article>
   `;
 
@@ -467,15 +508,16 @@ async function bootIngredient(arg) {
     ing = arg.data;
   } else {
     const id = getQueryId();
+    const bootLang = localStorage.getItem('cookbook-lang') || 'de';
     if (!id) {
       document.getElementById('ingredient-root').innerHTML =
-        '<p style="padding:2rem">Keine Zutat angegeben.</p>';
+        `<p style="padding:2rem">${escapeHtml(t('noIngredientGiven', bootLang))}</p>`;
       return;
     }
     const res = await fetch(`data/ingredients/${id}.json`);
     if (!res.ok) {
       document.getElementById('ingredient-root').innerHTML =
-        `<p style="padding:2rem">Zutat <code>${escapeHtml(id)}</code> nicht gefunden.</p>`;
+        `<p style="padding:2rem">${escapeHtml(t('ingredientNotFound', bootLang, { id }))}</p>`;
       return;
     }
     ing = await res.json();
@@ -500,6 +542,6 @@ async function bootIngredient(arg) {
 window.bootRecipe = bootRecipe;
 window.bootIngredient = bootIngredient;
 window.cookbook = {
-  pickLang, pickTools, escapeHtml, LANGS, LANG_LABELS, CAT_LABELS,
+  pickLang, pickTools, escapeHtml, LANGS, LANG_LABELS, CAT_LABELS, UI_LABELS, t,
   renderRecipe, renderIngredient, loadIngredientRegistry, layoutBasketConnectors
 };
