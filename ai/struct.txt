@@ -1,0 +1,79 @@
+Folder PATH listing for volume Acer
+Volume serial number is D2DA-E6B8
+C:.
+¦   editor.html
+¦   index.html
+¦   ingredient.html
+¦   ingredients.html
+¦   README.md
+¦   recipe.html
+¦   recipes.html
+¦   server.py
+¦   struct.txt
+¦   
++---assets
+¦   +---photos
+¦       +---recipe-001
+¦       ¦       basket001.jpeg
+¦       ¦       finished001.jpeg
+¦       ¦       
+¦       +---recipe-002
+¦       ¦       basket-bread.jpeg
+¦       ¦       basket-soup.jpeg
+¦       ¦       finished002.jpeg
+¦       ¦       
+¦       +---recipe-003
+¦               basket003.jpeg
+¦               finished003.jpeg
+¦               
++---css
+¦       cookbook.css
+¦       editor.css
+¦       
++---data
+¦   ¦   dedication.json
+¦   ¦   ingredients.json
+¦   ¦   recipe-001.json
+¦   ¦   recipe-002.json
+¦   ¦   recipe-003.json
+¦   ¦   recipes.json
+¦   ¦   
+¦   +---ingredients
+¦           beeren-mix.json
+¦           blumenkohl.json
+¦           butter.json
+¦           cognac.json
+¦           creme-fraiche.json
+¦           dunkle-schokolade.json
+¦           ei.json
+¦           estragon.json
+¦           filoteig.json
+¦           kartoffeln.json
+¦           kraeuter.json
+¦           kressi.json
+¦           mehl.json
+¦           milch.json
+¦           miso.json
+¦           olivenoel.json
+¦           panko.json
+¦           rosmarin.json
+¦           rote-bete.json
+¦           salz.json
+¦           schalotte.json
+¦           shiitake.json
+¦           thymian.json
+¦           tonburi.json
+¦           tonkabohne.json
+¦           trockenhefe.json
+¦           vollrahm.json
+¦           weisswein.json
+¦           zaatar.json
+¦           zucker.json
+¦           
++---js
+¦       cookbook.js
+¦       editor.js
+¦       
++---scripts
+        scaffold_ingredients.py
+        
