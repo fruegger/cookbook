@@ -1,0 +1,28 @@
+Setup steps
+Replace
+js/cookbook.js,
+js/editor.js,
+css/cookbook.css,
+editor.html,
+server.py,
+and the six existing HTML pages (
+ index.html,
+ recipe.html,
+ ingredient.html,
+ recipes.html,
+ ingredients.html — plus the two new ones).
+
+Append editor-books-addition.css's contents to your css/editor.css (styles the drag-and-drop recipe list).
+Run python3 migrate_dedication.py once from your project root — splits your existing data/dedication.json into data/dedications.json + data/dedication-001.json (with the new empty image/imageAlt fields). It leaves the old file untouched.
+Drop book-001.json into data/ — an example linking dedication-001 to your three existing recipes (recipe-001/002/003), matching what the dedication text itself says ("nur genau drei Rezepte").
+Restart python3 server.py — it'll pick up the new files and regenerate dedications.json/books.json automatically.
+What you get
+editor.html now has two more tabs, "Zueignung" and "Buch". The book tab: pick a dedication from a dropdown, add recipes with a button, reorder them by dragging or with ↑/↓ buttons, remove with ✕ — with a live paginated preview alongside.
+book.html?id=book-001 — the online viewer: one page at a time (dedication photo → dedication text → each recipe), Prev/Next buttons, arrow-key navigation, language switching that re-evaluates per page.
+books.html — a grid listing every book, same style as your recipes/ingredients grids.
+Printing a book prints every page back to back with a fresh page each time, dedication included.
+The dedication's photo page only appears once you actually set an image path (via the editor or by hand) — until then it's skipped automatically, so nothing breaks in the meantime.
+
+Also fixed a real bug I found while testing: the mode tabs in the editor (Rezept/Zutat/etc.) never visually updated which one was active after the first click — same class of bug as the language-tab issue you caught earlier, just never noticed with only two tabs.
+
+One thing I didn't touch: index.html still reads the old data/dedication.json directly, unchanged — so your existing site keeps working exactly as before, with books as a separate, additive feature.

@@ -51,15 +51,23 @@ const UI_LABELS = {
   navRecipes:          { de: 'Rezepte', en: 'Recipes', fr: 'Recettes', it: 'Ricette' },
   navIngredients:      { de: 'Zutaten', en: 'Ingredients', fr: 'Ingrédients', it: 'Ingredienti' },
   navEditor:           { de: 'Editor', en: 'Editor', fr: 'Éditeur', it: 'Editor' },
+  navBooks:            { de: 'Bücher', en: 'Books', fr: 'Livres', it: 'Libri' },
   navPrint:            { de: 'Drucken', en: 'Print', fr: 'Imprimer', it: 'Stampa' },
   ctaToRecipes:        { de: 'Zu den Rezepten →', en: 'To the recipes →', fr: 'Aux recettes →', it: 'Alle ricette →' },
   tagRecipes:          { de: 'Rezepte, gesammelt und mit Liebe weitergegeben.', en: 'Recipes, collected and passed on with love.', fr: 'Recettes, rassemblées et transmises avec amour.', it: 'Ricette, raccolte e tramandate con amore.' },
   tagIngredients:      { de: 'Steckbriefe der Zutaten — Herkunft, Saison, Tricks.', en: 'Ingredient profiles — origin, season, tricks.', fr: 'Fiches des ingrédients — origine, saison, astuces.', it: 'Schede degli ingredienti — origine, stagionalità, trucchi.' },
+  tagBooks:            { de: 'Personalisierte Kochbücher — eine Zueignung, ausgewählte Rezepte.', en: 'Personalized cookbooks — one dedication, chosen recipes.', fr: 'Livres de cuisine personnalisés — une dédicace, des recettes choisies.', it: 'Libri di cucina personalizzati — una dedica, ricette scelte.' },
+  noBooksYet:          { de: 'Noch keine Bücher erfasst.', en: 'No books created yet.', fr: 'Aucun livre créé pour le moment.', it: 'Nessun libro creato ancora.' },
   noRecipesInCategory: { de: 'Keine Rezepte in dieser Kategorie.', en: 'No recipes in this category.', fr: 'Aucune recette dans cette catégorie.', it: 'Nessuna ricetta in questa categoria.' },
   noIngredientsYet:    { de: 'Noch keine Zutaten erfasst.', en: 'No ingredients recorded yet.', fr: "Aucun ingrédient enregistré pour l'instant.", it: 'Nessun ingrediente ancora registrato.' },
   allCategoriesLabel:  { de: 'Alle', en: 'All', fr: 'Tous', it: 'Tutti' },
   recipeCountOne:      { de: '{n} Rezept', en: '{n} recipe', fr: '{n} recette', it: '{n} ricetta' },
-  recipeCountMany:     { de: '{n} Rezepte', en: '{n} recipes', fr: '{n} recettes', it: '{n} ricette' }
+  recipeCountMany:     { de: '{n} Rezepte', en: '{n} recipes', fr: '{n} recettes', it: '{n} ricette' },
+  noBookGiven:         { de: 'Kein Buch angegeben.', en: 'No book specified.', fr: 'Aucun livre spécifié.', it: 'Nessun libro specificato.' },
+  bookNotFound:        { de: 'Buch {id} nicht gefunden.', en: 'Book {id} not found.', fr: 'Livre {id} introuvable.', it: 'Libro {id} non trovato.' },
+  bookEmpty:           { de: 'Dieses Buch enthält noch keine Seiten.', en: 'This book has no pages yet.', fr: "Ce livre ne contient encore aucune page.", it: 'Questo libro non contiene ancora pagine.' },
+  pagerPrev:           { de: '← Zurück', en: '← Back', fr: '← Précédent', it: '← Indietro' },
+  pagerNext:           { de: 'Weiter →', en: 'Next →', fr: 'Suivant →', it: 'Avanti →' }
 };
 
 /* Looks up a UI_LABELS entry for lang (falling back through LANGS like
@@ -135,6 +143,26 @@ function loadIngredientRegistry() {
   return _ingredientRegistryPromise;
 }
 
+let _dedicationRegistryPromise = null;
+function loadDedicationRegistry() {
+  if (!_dedicationRegistryPromise) {
+    _dedicationRegistryPromise = fetch('data/dedications.json')
+      .then(r => r.ok ? r.json() : { dedications: [] })
+      .catch(() => ({ dedications: [] }));
+  }
+  return _dedicationRegistryPromise;
+}
+
+let _bookRegistryPromise = null;
+function loadBookRegistry() {
+  if (!_bookRegistryPromise) {
+    _bookRegistryPromise = fetch('data/books.json')
+      .then(r => r.ok ? r.json() : { books: [] })
+      .catch(() => ({ books: [] }));
+  }
+  return _bookRegistryPromise;
+}
+
 function ingredientNameFromRegistry(registry, ref, lang) {
   const entry = registry?.ingredients?.find(i => i.id === ref);
   return entry ? pickLang(entry.name, lang) : '';
@@ -144,8 +172,8 @@ function ingredientNameFromRegistry(registry, ref, lang) {
    RECIPE PAGE RENDERER
    ============================================================ */
 
-function renderRecipe(recipe, lang, registry) {
-  const root = document.getElementById('recipe-root');
+function renderRecipe(recipe, lang, registry, rootEl) {
+  const root = rootEl || document.getElementById('recipe-root');
   if (!root) return;
 
   const cat = CAT_LABELS[lang]?.[recipe.category] || recipe.category;
@@ -394,6 +422,7 @@ function applyChrome(lang) {
   const navKeyByHref = {
     'recipes.html': 'navRecipes',
     'ingredients.html': 'navIngredients',
+    'books.html': 'navBooks',
     'editor.html': 'navEditor'
   };
   document.querySelectorAll('.topnav nav a[href]').forEach(a => {
@@ -542,6 +571,186 @@ async function renderIngredient(ing, lang, registry) {
   document.title = name + ' — ' + t('brandName', lang);
 }
 
+/* ============================================================
+   DEDICATION PAGES
+   A dedication is printed as two pages: a full photo, then the text.
+   Both renderers are used directly by index.html (the site's default
+   dedication) and by book.html (one dedication per personalized book).
+   ============================================================ */
+
+function renderDedicationImagePage(dedication, lang, rootEl) {
+  const root = rootEl || document.getElementById('dedication-root');
+  if (!root || !dedication.image) return;
+  const alt = pickLang(dedication.imageAlt, lang) || pickLang(dedication.title, lang);
+  root.innerHTML = `
+    <article class="recipe-page dedication-image-page">
+      <figure class="dedication-figure">
+        <img src="${escapeHtml(dedication.image)}" alt="${escapeHtml(alt)}">
+      </figure>
+    </article>
+  `;
+}
+
+function renderDedicationTextPage(dedication, lang, rootEl) {
+  const root = rootEl || document.getElementById('dedication-root');
+  if (!root) return;
+  const title = pickLang(dedication.title, lang);
+  const salutation = pickLang(dedication.salutation, lang);
+  const body = (dedication.body && dedication.body[lang] && dedication.body[lang].length)
+    ? dedication.body[lang] : (dedication.body?.de || []);
+  const signoff = pickLang(dedication.signoff, lang);
+
+  root.innerHTML = `
+    <article class="recipe-page dedication-page">
+      <h1 class="recipe-title">${escapeHtml(title)}</h1>
+      ${salutation ? `<p class="recipe-subtitle">${escapeHtml(salutation)}</p>` : ''}
+      <div class="mood">
+        ${body.map(p => `<p>${escapeHtml(p)}</p>`).join('')}
+        ${signoff ? `<p class="dedication-signoff">${escapeHtml(signoff)}</p>` : ''}
+      </div>
+    </article>
+  `;
+  document.title = (title || t('brandName', lang)) + ' — ' + t('brandName', lang);
+}
+
+/* ============================================================
+   BOOKS
+   A book = one dedication + an ordered list of recipes, viewed one
+   page at a time on screen, or printed as one continuous document
+   with a fresh page per section.
+   ============================================================ */
+
+/* Assembles the ordered list of "pages" a book consists of: the
+   dedication's photo (if it has one), the dedication's text, then each
+   recipe in the order the book specifies. recipesById maps recipeId ->
+   full recipe object (already fetched). */
+function buildBookPages(book, dedication, recipesById) {
+  const pages = [];
+  if (dedication) {
+    if (dedication.image) pages.push({ type: 'dedication-image', data: dedication });
+    pages.push({ type: 'dedication-text', data: dedication });
+  }
+  (book.recipeIds || []).forEach(rid => {
+    const r = recipesById[rid];
+    if (r) pages.push({ type: 'recipe', data: r });
+  });
+  return pages;
+}
+
+function bookPageAvailLangs(page) {
+  if (page.type === 'recipe') return availableLangs(page.data, 'title');
+  return availableLangs(page.data, 'title');
+}
+
+function renderBookPage(page, lang, rootEl, ingredientRegistry) {
+  if (page.type === 'dedication-image') return renderDedicationImagePage(page.data, lang, rootEl);
+  if (page.type === 'dedication-text') return renderDedicationTextPage(page.data, lang, rootEl);
+  if (page.type === 'recipe') return renderRecipe(page.data, lang, ingredientRegistry, rootEl);
+}
+
+/* Boots book.html: fetches the book, its dedication, and every recipe
+   it references, then drives a one-page-at-a-time viewer with Prev/Next.
+   For printing, all pages are rendered at once into a separate, normally
+   hidden container (#book-print-root) right before the print dialog
+   opens, since a printed document needs every page present at once. */
+async function bootBook() {
+  const id = getQueryId();
+  const bootLang = localStorage.getItem('cookbook-lang') || 'de';
+  const screenRoot = document.getElementById('book-page-root');
+  const printRoot = document.getElementById('book-print-root');
+
+  if (!id) {
+    if (screenRoot) screenRoot.innerHTML = `<p style="padding:2rem">${escapeHtml(t('noBookGiven', bootLang))}</p>`;
+    return;
+  }
+  const res = await fetch(`data/${id}.json`);
+  if (!res.ok) {
+    if (screenRoot) screenRoot.innerHTML = `<p style="padding:2rem">${escapeHtml(t('bookNotFound', bootLang, { id }))}</p>`;
+    return;
+  }
+  const book = await res.json();
+
+  const [dedication, ingredientRegistry] = await Promise.all([
+    book.dedicationId
+      ? fetch(`data/${book.dedicationId}.json`).then(r => r.ok ? r.json() : null).catch(() => null)
+      : Promise.resolve(null),
+    loadIngredientRegistry()
+  ]);
+
+  const recipeIds = book.recipeIds || [];
+  const recipeDetails = await Promise.all(
+    recipeIds.map(rid => fetch(`data/${rid}.json`).then(r => r.ok ? r.json() : null).catch(() => null))
+  );
+  const recipesById = {};
+  recipeIds.forEach((rid, i) => { if (recipeDetails[i]) recipesById[rid] = recipeDetails[i]; });
+
+  const pages = buildBookPages(book, dedication, recipesById);
+  if (!pages.length) {
+    if (screenRoot) screenRoot.innerHTML = `<p style="padding:2rem">${escapeHtml(t('bookEmpty', bootLang))}</p>`;
+    return;
+  }
+
+  let lang = bootLang;
+  let pageIndex = 0;
+
+  function updatePagerUI() {
+    const indicator = document.getElementById('book-page-indicator');
+    if (indicator) indicator.textContent = `${pageIndex + 1} / ${pages.length}`;
+    const prevBtn = document.getElementById('book-prev');
+    const nextBtn = document.getElementById('book-next');
+    if (prevBtn) prevBtn.disabled = pageIndex === 0;
+    if (nextBtn) nextBtn.disabled = pageIndex === pages.length - 1;
+    if (prevBtn) prevBtn.textContent = t('pagerPrev', lang);
+    if (nextBtn) nextBtn.textContent = t('pagerNext', lang);
+  }
+
+  function draw() {
+    const avail = bookPageAvailLangs(pages[pageIndex]);
+    if (!avail.includes(lang)) lang = avail[0] || 'de';
+    renderBookPage(pages[pageIndex], lang, screenRoot, ingredientRegistry);
+    mountLangSwitch(pages[pageIndex].data, lang, (l) => {
+      lang = l;
+      localStorage.setItem('cookbook-lang', l);
+      draw();
+    }, 'title');
+    applyChrome(lang);
+    updatePagerUI();
+    if (typeof requestAnimationFrame === 'function') {
+      requestAnimationFrame(() => layoutBasketConnectors(screenRoot));
+    }
+  }
+
+  document.getElementById('book-prev')?.addEventListener('click', () => {
+    if (pageIndex > 0) { pageIndex--; draw(); window.scrollTo(0, 0); }
+  });
+  document.getElementById('book-next')?.addEventListener('click', () => {
+    if (pageIndex < pages.length - 1) { pageIndex++; draw(); window.scrollTo(0, 0); }
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.target && ['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
+    if (e.key === 'ArrowLeft') document.getElementById('book-prev')?.click();
+    if (e.key === 'ArrowRight') document.getElementById('book-next')?.click();
+  });
+
+  function renderAllForPrint() {
+    if (!printRoot) return;
+    printRoot.innerHTML = '';
+    pages.forEach(p => {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'book-print-page';
+      printRoot.appendChild(wrapper);
+      const avail = bookPageAvailLangs(p);
+      const pageLang = avail.includes(lang) ? lang : (avail[0] || 'de');
+      renderBookPage(p, pageLang, wrapper, ingredientRegistry);
+      layoutBasketConnectors(wrapper);
+    });
+  }
+  window.addEventListener('beforeprint', renderAllForPrint);
+  window.addEventListener('afterprint', () => { if (printRoot) printRoot.innerHTML = ''; });
+
+  draw();
+}
+
 async function bootIngredient(arg) {
   let ing;
   if (arg && typeof arg === 'object' && arg.data) {
@@ -582,7 +791,10 @@ async function bootIngredient(arg) {
 /* ---------- Public API ---------- */
 window.bootRecipe = bootRecipe;
 window.bootIngredient = bootIngredient;
+window.bootBook = bootBook;
 window.cookbook = {
   pickLang, pickTools, escapeHtml, LANGS, LANG_LABELS, CAT_LABELS, UI_LABELS, t, applyChrome, recipeCountLabel,
-  renderRecipe, renderIngredient, loadIngredientRegistry, layoutBasketConnectors
+  renderRecipe, renderIngredient, loadIngredientRegistry, layoutBasketConnectors,
+  loadDedicationRegistry, loadBookRegistry, renderDedicationImagePage, renderDedicationTextPage,
+  buildBookPages, renderBookPage, bootBook, availableLangs, mountLangSwitch
 };

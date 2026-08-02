@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rezepte — Dinner für zwei</title>
-    <link rel="stylesheet" href="css/cookbook.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rezepte — Dinner für zwei</title>
+  <link rel="stylesheet" href="css/cookbook.css">
 </head>
 <body>
-<header class="topnav">
+  <header class="topnav">
     <div class="brand"><a href="index.html">Dinner für zwei</a></div>
     <nav>
-        <a href="recipes.html">Rezepte</a>
-        <a href="ingredients.html">Zutaten</a>
-        <a href="editor.html">Editor</a>
+      <a href="recipes.html">Rezepte</a>
+      <a href="ingredients.html">Zutaten</a>
+      <a href="books.html">Bücher</a>
+      <a href="editor.html">Editor</a>
     </nav>
     <div id="lang-switch" class="langswitch"></div>
-</header>
+  </header>
 
-<section class="title-block">
+  <section class="title-block">
     <h1 id="brand-heading">Dinner für zwei</h1>
     <p class="tagline" id="recipes-tagline">Rezepte, gesammelt und mit Liebe weitergegeben.</p>
-</section>
+  </section>
 
-<div class="cat-filter" id="cat-filter"></div>
+  <div class="cat-filter" id="cat-filter"></div>
 
-<div class="index-grid" id="grid"></div>
+  <div class="index-grid" id="grid"></div>
 
-<script src="js/cookbook.js"></script>
-<script>
+  <script src="js/cookbook.js"></script>
+  <script>
     const CATS = ['all', 'entree', 'main', 'dessert', 'side', 'soup', 'breakfast','bread','sauce'];
 
     let activeCat = 'all';
@@ -98,6 +99,6 @@
     }
 
     load();
-</script>
+  </script>
 </body>
 </html>

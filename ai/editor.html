@@ -13,6 +13,7 @@
     <nav>
       <a href="recipes.html">Rezepte</a>
       <a href="ingredients.html">Zutaten</a>
+      <a href="books.html">Bücher</a>
       <a href="editor.html">Editor</a>
     </nav>
     <div class="editor-actions">
@@ -27,6 +28,8 @@
       <div class="editor-mode-tabs">
         <button class="active" data-type="recipe">Rezept</button>
         <button data-type="ingredient">Zutat</button>
+        <button data-type="dedication">Zueignung</button>
+        <button data-type="book">Buch</button>
       </div>
 
       <div class="editor-pick">
@@ -43,6 +46,15 @@
       <div class="preview-frame">
         <div id="recipe-root"></div>
         <div id="ingredient-root"></div>
+        <div id="dedication-root"></div>
+        <div>
+          <nav id="book-preview-pager" class="book-pager" style="display:none">
+            <button id="book-preview-prev" type="button">← Zurück</button>
+            <span id="book-preview-indicator" class="book-page-indicator"></span>
+            <button id="book-preview-next" type="button">Weiter →</button>
+          </nav>
+          <div id="book-root"></div>
+        </div>
       </div>
     </main>
   </div>

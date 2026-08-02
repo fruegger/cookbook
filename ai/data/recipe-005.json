@@ -3,34 +3,44 @@
   "category": "sauce",
   "servings": {
     "de": "für 2 Personen",
-    "en": "",
+    "en": "for 2 people",
     "fr": "",
     "it": ""
   },
   "title": {
     "de": "Sauce Hollandaise",
-    "en": "",
+    "en": "Hollandaise Sauce",
     "fr": "",
     "it": ""
   },
   "subtitle": {
-    "de": "und zwei Variationen: Béarnaise und Maltaise",
-    "en": "",
+    "de": "und Variationen: Béarnaise, Maltaise und die Unbenannte.",
+    "en": "and some variations: Béarnaise, Maltaise and 'The one with no name'.",
     "fr": "",
     "it": ""
   },
   "mood": {
     "de": [
       "Ernährungstechnisch ist die Hollandaise ein Desaster: stell dir vor ich würde dich am Tisch bitten, mir die 'Ei-Fett-Emulsion' über zu reichen...",
-      "Tatsache ist aber, dass die Familie der Hollandaise Sossen schon sehr lecker ist; etwa zu Spargel oder zu Ei Benedict. ",
-      "Es gibt eine ganze Reihe mehr oder weniger extravagante Ableitungen der Hollandaise: Mousseline, Choron, Mikado... Die, die ich hier beschreiben will, sind die Béarnaise und die Maltaise.",
-      "Schalotten und Estragon definieren die Béarnaise: sie passt gut zu Steaks, Kartoffeln und Bratkartoffeln.",
+      "Tatsache ist aber, dass die Familie der Hollandaise Sossen schon sehr lecker ist; etwa zu Spargel oder zu Ei Benedict. Ehrlich gesagt, sind diese Gerichte aber oft nur Vorwände damit Hollandaise(und seiner kalten Variation- die Mayonnaise)  konsumiert werden darf ",
+      "Es gibt eine ganze Reihe mehr oder weniger extravagante Ableitungen der Hollandaise: Mousseline, Choron, Mikado... Die, die ich hier beschreiben will, sind die Béarnaise, die Maltaise und sehr kurz, diejenige, die kein Name trägt.",
+      "Schalotten und Estragon definieren die Béarnaise: sie passt gut zu Steaks, Gemüse und Bratkartoffeln.",
       "Die Geschichte der Béarnaise ist etwas kompliziert: der Name kommt aus 'Béarn' und nicht aus Bern, wie ich es einst gemeint habe. Die Sosse selber stammt aber nicht aus Béarn, sondern aus Saint Germain-en-Laye bei Paris.",
       "Dort gibt es ein Restaurant namens 'Pavillon Henri IV', wo Chef Collinet die Sosse erfand. Was aber hat das mit Béarn zu tun? Naja, König Henri de Navarre war auch 'le grand Béarnais' benannt.",
       "Die Sauce Maltaise wurde ganz einfach nach ihrer definierenden Zutat benannt: die Blutorangen, eine Sorte davon war die Maltesische Orange. Populär ist sie durch Escoffier geworden.",
-      "Die Maltaise ist nicht jedermanns / jederfraus Sache: der Zitrusgeschmack (Schale und Saft) ist schon recht intensiv. Ich persönlich mag sie sehr zu Frühlingsgemüse oder Fisch."
+      "Die Maltaise ist nicht jedermanns / jederfraus Sache: der Zitrusgeschmack (Schale und Saft) ist schon recht intensiv. Ich persönlich mag sie sehr zu Frühlingsgemüse oder Fisch.",
+      "Geschmacklich noch anspruchsvoller, ist die Variante, die kein Name trägt (von der ich glauben möchte, ich hätte die erfunden): es handelt sich ganz einfach um einer Variation der Maltaise, wo die Orange durch Bergamotte ersetzt wird. "
     ],
-    "en": [],
+    "en": [
+      "From a nutritional point of view, hollandaise sauce is a disaster: imagine if I were to ask you at the table to hand me the 'egg-fat emulsion' over... I'd have described it quite accurately,  yet you' d probably pull a face at the unflatteringly named condiment. \n",
+      "The fact is, however, that the family of hollandaise sauces is absolutely delicious; classically with asparagus or eggs Benedict, but honestly those are just excuses to have some Hollandaise (or its cold counterpart - Mayonnaise for that matter). ",
+      "There are a whole range of more or less extravagant variations of Hollandaise: Mousseline, Choron, Mikado... The ones I care to describe here are Béarnaise, Maltaise and very briefly the one with no name.",
+      "Shallots and tarragon define Béarnaise: it goes well with steaks, veggies and fried potatoes.",
+      "The history of Béarnaise is somewhat intricate: the name comes from 'Béarn' and not from Bern, as I once thought. The sauce itself, however, does not originate in Béarn, but in Saint Germain-en-Laye near Paris.\nThere's a restaurant there called 'Pavillon Henri IV', where Chef Collinet invented the sauce. But what does that have to do with Béarn? Well, King Henri de Navarre was also known as 'le grand Béarnais'.",
+      "Sauce Maltaise was simply named after its defining ingredient: blood oranges, one variety of which was the Maltese orange. It was popularized by Escoffier.\nMaltaise isn't for everyone: the citrus flavor (zest and juice) is quite intense. I personally like it very much with spring vegetables or fish.",
+      "Even less accessible is 'The sauce with no name' which is ... just Maltaise in which bergamot is substituted for the orange.\nBergamot zest has a very characteristic intense essence. Since it is widely used in perfumes, its aroma has been dissociated from food for the last century or so, hence it often is disliked.\nThe other issue with both bergamot and red oranges is the unobtainability: you'll only find them during winter in specialized organic markets or in Calabria. ",
+      "Anyways, if you want to try the sauce with no name (which I like to think I invented) more power to you!! Beware however, that it is an odd one, people may not like so much."
+    ],
     "fr": [],
     "it": []
   },
@@ -82,7 +92,7 @@
       {
         "name": {
           "de": "Für die Hollandaise",
-          "en": "",
+          "en": "For the Hollandaise",
           "fr": "",
           "it": ""
         },
@@ -93,7 +103,7 @@
             "qty": "30 g",
             "name": {
               "de": "Butter",
-              "en": "",
+              "en": "butter",
               "fr": "",
               "it": ""
             }
@@ -104,7 +114,7 @@
             "qty": "1",
             "name": {
               "de": "Eigelb",
-              "en": "",
+              "en": "egg yolk",
               "fr": "",
               "it": ""
             }
@@ -112,10 +122,15 @@
           {
             "id": "zitronensaft",
             "ref": "zitronensaft",
-            "qty": "1 Esslöffel",
+            "qty": {
+              "de": "1 Esslöffel",
+              "en": "1 spoon",
+              "fr": "",
+              "it": ""
+            },
             "name": {
               "de": "Zitronensaft (nur für Hollandaise und Maltaise)",
-              "en": "",
+              "en": "lemmon juice",
               "fr": "",
               "it": ""
             }
@@ -125,7 +140,7 @@
       {
         "name": {
           "de": "für die Béarnaise",
-          "en": "",
+          "en": "for the Béarnaise",
           "fr": "",
           "it": ""
         },
@@ -133,10 +148,15 @@
           {
             "id": "essig",
             "ref": "kressi",
-            "qty": "1 EL",
+            "qty": {
+              "de": "1 EL",
+              "en": "1 spoon",
+              "fr": "",
+              "it": ""
+            },
             "name": {
               "de": "Kräuteressig (z. B. Kressi)",
-              "en": "",
+              "en": "herbs vinegar",
               "fr": "",
               "it": ""
             }
@@ -144,10 +164,15 @@
           {
             "id": "weisswein",
             "ref": "weisswein",
-            "qty": "2 EL",
+            "qty": {
+              "de": "2 EL",
+              "en": "2 spoons",
+              "fr": "",
+              "it": ""
+            },
             "name": {
               "de": "Weisswein",
-              "en": "",
+              "en": "white wine",
               "fr": "",
               "it": ""
             }
@@ -155,10 +180,15 @@
           {
             "id": "schalotte",
             "ref": "schalotte",
-            "qty": "1 klein",
+            "qty": {
+              "de": "1 klein",
+              "en": "1 small",
+              "fr": "",
+              "it": ""
+            },
             "name": {
               "de": "Schalotte",
-              "en": "",
+              "en": "shallot",
               "fr": "",
               "it": ""
             }
@@ -166,10 +196,15 @@
           {
             "id": "estragon",
             "ref": "estragon",
-            "qty": "ein paar Blätter",
+            "qty": {
+              "de": "ein paar Blätter",
+              "en": "a few leaves",
+              "fr": "",
+              "it": ""
+            },
             "name": {
               "de": "Estragon",
-              "en": "",
+              "en": "tarragon",
               "fr": "",
               "it": ""
             }
@@ -179,7 +214,7 @@
       {
         "name": {
           "de": "für die Maltaise",
-          "en": "",
+          "en": "for the Maltaise",
           "fr": "",
           "it": ""
         },
@@ -190,14 +225,38 @@
             "qty": "1",
             "name": {
               "de": "Blutorange",
-              "en": "",
+              "en": "blood orange",
               "fr": "",
               "it": ""
             }
           }
-
         ]
-
+      },
+      {
+        "name": {
+          "de": "Für die Sosse, die kein Name trägt",
+          "en": "for the Sauce With  No Name",
+          "fr": "",
+          "it": ""
+        },
+        "items": [
+          {
+            "id": "",
+            "ref": "",
+            "qty": {
+              "de": "1/2 Teelöffel",
+              "en": "1/2 teaspoon",
+              "fr": "",
+              "it": ""
+            },
+            "name": {
+              "de": "Bergamottenschale",
+              "en": "bergamot zest",
+              "fr": "",
+              "it": ""
+            }
+          }
+        ]
       }
     ]
   },
@@ -213,12 +272,19 @@
         {
           "id": "be1",
           "time": null,
-          "tools": [
-            "Messer"
-          ],
+          "tools": {
+            "de": [
+              "Messer"
+            ],
+            "en": [
+              "knife"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Hacke Schalotte und Estragon fein.",
-            "en": "",
+            "en": "Finely chop the shallot and tarragon.",
             "fr": "",
             "it": ""
           },
@@ -233,12 +299,19 @@
         {
           "id": "be2",
           "time": null,
-          "tools": [
-            "kleine Pfanne"
-          ],
+          "tools": {
+            "de": [
+              "kleine Pfanne"
+            ],
+            "en": [
+              "small pan"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Gebe Weisswein, Essig, Schalotte und Estragon in eine kleine Pfanne.",
-            "en": "",
+            "en": "Put white wine, vinegar, shallot and tarragon into a small pan.",
             "fr": "",
             "it": ""
           },
@@ -255,8 +328,8 @@
           "time": "≈ 5 min",
           "tools": [],
           "text": {
-            "de": "Redutiere auf die Hälfte (etwa 5 Minuten).",
-            "en": "",
+            "de": "Reduziere auf die Hälfte (etwa 5 Minuten).",
+            "en": "gently cook to reduce to half (about 5 minutes)",
             "fr": "",
             "it": ""
           },
@@ -271,12 +344,19 @@
         {
           "id": "be4",
           "time": null,
-          "tools": [
-            "feines Sieb"
-          ],
+          "tools": {
+            "de": [
+              "feines Sieb"
+            ],
+            "en": [
+              "fine sieve"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Filtere die Reduktion durch ein feines Sieb.",
-            "en": "",
+            "en": "Filter the reduction through a fine sieve.",
             "fr": "",
             "it": ""
           },
@@ -293,7 +373,7 @@
     {
       "name": {
         "de": "Maltaise",
-        "en": "",
+        "en": "Maltaise",
         "fr": "",
         "it": ""
       },
@@ -301,12 +381,19 @@
         {
           "id": "ma1",
           "time": null,
-          "tools": [
-            "Messer, Saftpresse, Feinreibe"
-          ],
+          "tools": {
+            "de": [
+              "Messer, Saftpresse, Feinreibe"
+            ],
+            "en": [
+              "fine grater"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Reibe je nach gewünschte Intensität etwas mehr oder weniger Schale ab der Blutorange (1/4 Orange reicht für mich).",
-            "en": "",
+            "en": "Depending on the desired intensity, grate a little more or less zest from the blood orange (1/4 orange is enough for me).",
             "fr": "",
             "it": ""
           },
@@ -321,12 +408,20 @@
         {
           "id": "ma2",
           "time": null,
-          "tools": [
-            "Messer, Saftpresse"
-          ],
+          "tools": {
+            "de": [
+              "Messer, Saftpresse"
+            ],
+            "en": [
+              "knife",
+              "juicer"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Presse den Saft der Blutorange.",
-            "en": "",
+            "en": "Squeeze the juice from the blood orange.",
             "fr": "",
             "it": ""
           },
@@ -341,12 +436,19 @@
         {
           "id": "ma3",
           "time": null,
-          "tools": [
-            "kleine Pfanne"
-          ],
+          "tools": {
+            "de": [
+              "kleine Pfanne"
+            ],
+            "en": [
+              "small pan"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Gebe 3 bis 4 Esslöffel Orangensaft in eine kleine Pfanne.",
-            "en": "",
+            "en": "Put 3 to 4 tablespoons of orange juice into a small pan.",
             "fr": "",
             "it": ""
           },
@@ -364,7 +466,7 @@
           "tools": [],
           "text": {
             "de": "reduziere den Saft auf die Hälfte (etwa 5 Minuten).",
-            "en": "",
+            "en": "Reduce the juice by half (about 5 minutes).",
             "fr": "",
             "it": ""
           },
@@ -384,7 +486,7 @@
           ],
           "text": {
             "de": "Jetzt kannst du Orangenschale und Saft zusammenmischen.",
-            "en": "",
+            "en": "Now you can mix the orange zest and juice together.",
             "fr": "",
             "it": ""
           },
@@ -400,8 +502,145 @@
     },
     {
       "name": {
-        "de": "Hollandaise, Béarnaise, Maltaise",
-        "en": "",
+        "de": "Sosse, die kein Name trägt",
+        "en": "Sauce with no name",
+        "fr": "",
+        "it": ""
+      },
+      "steps": [
+        {
+          "id": "ma1",
+          "time": null,
+          "tools": {
+            "de": [
+              "Reibe"
+            ],
+            "en": [
+              "grater"
+            ],
+            "fr": [],
+            "it": []
+          },
+          "text": {
+            "de": "Reibe eine kleine Menge Schale ab der Bergamotte (1/8 Schale reicht für mich).",
+            "en": "Grate a small amount of zest from the bergamot (1/8 fruit is really enough for me).",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "Die Schale der Bergamotte ist sehr duftintensiv!, Bitte sei sparsam!",
+            "en": "The zest is very intense, use it sparingly.",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "ma2",
+          "time": null,
+          "tools": {
+            "de": [
+              "Messer, Saftpresse"
+            ],
+            "en": [
+              "knife",
+              "juicer"
+            ],
+            "fr": [],
+            "it": []
+          },
+          "text": {
+            "de": "Presse den Saft der Bergamotte.",
+            "en": "Squeeze some juice from the bergamot.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "Bergamottensaft ist besonders säurlich; für die Reduktion ist das absolut kein Problem, aber solltest du entscheiden, am Schluss  etwas dazuzugeben, sei sehr vorsichtig oder verwende Zitzone stattdessen.",
+            "en": "The juice is very acidic; for the reduction it will be fine, but if you decide to add citrus juice at the end, then you may want to be frugal or use lemmon instead.",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "ma3",
+          "time": null,
+          "tools": {
+            "de": [
+              "kleine Pfanne"
+            ],
+            "en": [
+              "small pan"
+            ],
+            "fr": [],
+            "it": []
+          },
+          "text": {
+            "de": "Gebe Saft und Schale in eine kleine Pfanne.",
+            "en": "Put the juice and zest of the bergamot into a small pan.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "ma4",
+          "time": "≈ 5 min",
+          "tools": [],
+          "text": {
+            "de": "reduziere den Saft auf die Hälfte (etwa 5 Minuten).",
+            "en": "Reduce by half (about 5 minutes).",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "",
+          "time": null,
+          "tools": {
+            "de": [
+              "Sieb"
+            ],
+            "en": [
+              "sieve"
+            ],
+            "fr": [],
+            "it": []
+          },
+          "text": {
+            "de": "Filtere die Reduktion",
+            "en": "Strain the reduction",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "de": "Hollandaise, Béarnaise, Maltaise, Sosse ohne Name",
+        "en": "Hollandaise, Béarnaise, Maltaise, Sauce With No Name",
         "fr": "",
         "it": ""
       },
@@ -409,12 +648,19 @@
         {
           "id": "ho1",
           "time": null,
-          "tools": [
-            "kleiner Topf"
-          ],
+          "tools": {
+            "de": [
+              "kleiner Topf"
+            ],
+            "en": [
+              "small pot"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Schmelze die Butter, entferne den Schaum an der Oberfläche und giesse die klare Butter vorsichtig um — die weisse Flüssigkeit am Boden bleibt zurück.",
-            "en": "",
+            "en": "Make some clarified butter - Melt the butter, remove the foam from the surface and carefully pour the clear butter over — the white liquid at the bottom will remain.",
             "fr": "",
             "it": ""
           },
@@ -429,12 +675,19 @@
         {
           "id": "ho2",
           "time": null,
-          "tools": [
-            "Schüssel"
-          ],
+          "tools": {
+            "de": [
+              "Schüssel"
+            ],
+            "en": [
+              "bowl"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
-            "de": "Gebe für Maltaise die Orangenreduktion, für Béarnaise die Estragon-Schalottenreduktion und für Hollandaise einfach Wasser und das Eigelb in eine Schüssel.",
-            "en": "",
+            "de": "Gebe für Maltaise und für die SOsse ohne Name die Zitrusreduktion, für Béarnaise die Estragon-Schalottenreduktion und für Hollandaise einfach Wasser und das Eigelb in eine Schüssel.",
+            "en": "For Maltaise and Sauce with no name, put the citrus reduction in a bowl; for Béarnaise, put the tarragon and shallot reduction in a bowl; and for Hollandaise, simply put water and the egg yolk in a bowl.",
             "fr": "",
             "it": ""
           },
@@ -449,12 +702,19 @@
         {
           "id": "ho3",
           "time": null,
-          "tools": [
-            "Schwingbesen"
-          ],
+          "tools": {
+            "de": [
+              "Schwingbesen"
+            ],
+            "en": [
+              "hand whisk"
+            ],
+            "fr": [],
+            "it": []
+          },
           "text": {
             "de": "Schlage die Mischung mit dem Schwingbesen schaumig.",
-            "en": "",
+            "en": "Whisk the mixture until it is foamy.",
             "fr": "",
             "it": ""
           },
@@ -474,14 +734,14 @@
           ],
           "text": {
             "de": "Halte die Schüssel über kochendes Wasser und arbeite unter ständigem Rühren die geschmolzene Butter langsam ein. Temperaturkontrolle ist hier essentiell — vielleicht musst du die Schüssel zeitweise von der Hitze nehmen.",
-            "en": "",
+            "en": "Hold the bowl over boiling water and slowly incorporate the melted butter while stirring constantly. Temperature control is essential here—you may need to remove the bowl from the heat temporarily.",
             "fr": "",
             "it": ""
           },
           "photo": "",
           "warning": {
             "de": "Zu heiss → das Eigelb stockt und die Sosse gerinnt. Im Zweifel lieber kurz vom Feuer.",
-            "en": "",
+            "en": "Too hot → the egg yolk will curdle and the sauce will set. If in doubt, remove from the heat briefly.",
             "fr": "",
             "it": ""
           }
@@ -491,8 +751,8 @@
           "time": null,
           "tools": [],
           "text": {
-            "de": "Wie immer: mit Salz und Pfeffer abschmecken. Zu Hollandaise und Maltaise kannst du ein Teelöffel Zitronensaft hinzufügen",
-            "en": "",
+            "de": "Wie immer: mit Salz und Pfeffer abschmecken. Zu Hollandaise,  Maltaise und Sosse ohne Name kannst du ein Teelöffel Zitronensaft hinzufügen",
+            "en": "As always: season with salt and pepper. You can add a teaspoon of lemon juice.",
             "fr": "",
             "it": ""
           },
@@ -522,7 +782,7 @@
       "type": "url",
       "label": {
         "de": "Fallow — Jack Croft und Will Murray, die Chefs des ikonischen Londoner Fallow,  haben ein sehr unterhanlsames und informatives you tube Kanal.",
-        "en": "",
+        "en": "Fallow — Jack Croft andWill Murray, the Chefs at the iconic London Fallow, have a very entertaining and informative YouTube channel.",
         "fr": "",
         "it": ""
       },
@@ -532,8 +792,12 @@
   "notes": {
     "de": [
       "Die Zitrone am Schluss ist optional, für Hollandaise kannst du auch etwas neutralerer Essig stattdessen nehme. Bei Maltaise gehr die Säure der Orange beim reduzieren verloren, die Zitrone stellt sie wieder her.",
-      "Mein Lieblingsweisswein für die Reduktion bei Béarnaise ist Sauvignon Blanc — frisch und kräutrig, das passt zum Estragon."    ],
-    "en": [],
+      "Mein Lieblingsweisswein für die Reduktion bei Béarnaise ist Sauvignon Blanc — frisch und kräutrig, das passt zum Estragon."
+    ],
+    "en": [
+      "The lemon at the end is optional; for hollandaise, you can also use a more neutral vinegar instead. In the other sauce variants, the acidity of the citrus is lost during reduction, and the lemon restores it.",
+      "My favorite white wine for reducing Béarnaise sauce is Sauvignon Blanc — fresh and herbaceous, it goes well with tarragon."
+    ],
     "fr": [],
     "it": []
   }

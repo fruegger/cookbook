@@ -1,0 +1,37 @@
+{
+  "id": "dedication-001",
+  "title": {
+    "de": "Dinner für zwei",
+    "en": "Dinner for two",
+    "fr": "",
+    "it": ""
+  },
+  "salutation": {
+    "de": "Cara Auri, caro Gianni,",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+  "image": "assets/photos/book-002/dedication002.png",
+  "imageAlt": {
+    "de": "",
+    "en": "",
+    "fr": "",
+    "it": ""
+  },
+  "body": {
+    "de": [],
+    "en": [
+      "",
+      ""
+    ],
+    "fr": [],
+    "it": []
+  },
+  "signoff": {
+    "de": "",
+    "en": "",
+    "fr": "un qualsiasi zio.",
+    "it": ""
+  }
+}
