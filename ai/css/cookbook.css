@@ -521,31 +521,9 @@ h1.recipe-title {
   color: var(--accent);
 }
 
-/* =========================================================
-   Dedication photo page (own page, printed before the text page)
-   ========================================================= */
-.dedication-image-page {
-  padding: 0;
-  max-width: none;
-}
-.dedication-figure {
-  margin: 0;
-}
-.dedication-figure img {
-  width: 100%;
-  height: 80vh;
-  object-fit: cover;
-  display: block;
-}
-@media print {
-  .dedication-image-page { padding: 0; }
-  .dedication-figure img {
-    width: 100%;
-    height: 100%;
-    max-height: none;
-    object-fit: cover;
-  }
-}
+/* Dedication's photo now reuses .hero (same treatment as a recipe's
+   finished-dish photo) — see the "Hero: finished dish" rules above.
+   No dedication-specific image styling needed. */
 
 /* =========================================================
    Book pager (book.html) — one page at a time on screen

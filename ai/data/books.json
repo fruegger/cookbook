@@ -15,12 +15,12 @@
     {
       "id": "book-002",
       "title": {
-        "de": "",
+        "de": "Per Auri e Gianni",
         "en": "Per Auri e Gianni",
         "fr": "",
         "it": ""
       },
-      "dedicationId": "",
+      "dedicationId": "dedication-002",
       "recipeCount": 3,
       "href": "book.html?id=book-002"
     }

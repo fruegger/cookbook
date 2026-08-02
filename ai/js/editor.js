@@ -858,7 +858,7 @@ async function renderPreview() {
   } else if (type === 'ingredient') {
     window.cookbook.renderIngredient(state.data, state.lang, registry);
   } else if (type === 'dedication') {
-    window.cookbook.renderDedicationTextPage(state.data, state.lang, $('#dedication-root'));
+    window.cookbook.renderDedicationPage(state.data, state.lang, $('#dedication-root'));
   } else if (type === 'book') {
     await renderBookPreview(registry);
   }

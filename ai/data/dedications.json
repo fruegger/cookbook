@@ -3,12 +3,22 @@
     {
       "id": "dedication-001",
       "title": {
-        "de": "Dinner für zwei",
-        "en": "",
+        "de": "Dinner für zwei - Steffi & Martin",
+        "en": "Dinner for two - Steffi & Martin",
         "fr": "",
         "it": ""
       },
       "thumb": ""
+    },
+    {
+      "id": "dedication-002",
+      "title": {
+        "de": "Dinner für zwei - Auri & Gianni",
+        "en": "Dinner for two - Auri & Gianni",
+        "fr": "",
+        "it": ""
+      },
+      "thumb": "assets/photos/book-002/dedication002.png"
     }
   ]
 }

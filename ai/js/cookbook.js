@@ -572,26 +572,14 @@ async function renderIngredient(ing, lang, registry) {
 }
 
 /* ============================================================
-   DEDICATION PAGES
-   A dedication is printed as two pages: a full photo, then the text.
-   Both renderers are used directly by index.html (the site's default
-   dedication) and by book.html (one dedication per personalized book).
+   DEDICATION PAGE
+   Title/salutation, then the photo (styled exactly like a recipe's
+   hero image), then the dedication text — all as one page. Used by
+   book.html (one dedication per personalized book) and reusable
+   wherever else a dedication needs rendering (e.g. the editor preview).
    ============================================================ */
 
-function renderDedicationImagePage(dedication, lang, rootEl) {
-  const root = rootEl || document.getElementById('dedication-root');
-  if (!root || !dedication.image) return;
-  const alt = pickLang(dedication.imageAlt, lang) || pickLang(dedication.title, lang);
-  root.innerHTML = `
-    <article class="recipe-page dedication-image-page">
-      <figure class="dedication-figure">
-        <img src="${escapeHtml(dedication.image)}" alt="${escapeHtml(alt)}">
-      </figure>
-    </article>
-  `;
-}
-
-function renderDedicationTextPage(dedication, lang, rootEl) {
+function renderDedicationPage(dedication, lang, rootEl) {
   const root = rootEl || document.getElementById('dedication-root');
   if (!root) return;
   const title = pickLang(dedication.title, lang);
@@ -599,11 +587,19 @@ function renderDedicationTextPage(dedication, lang, rootEl) {
   const body = (dedication.body && dedication.body[lang] && dedication.body[lang].length)
     ? dedication.body[lang] : (dedication.body?.de || []);
   const signoff = pickLang(dedication.signoff, lang);
+  const imageAlt = pickLang(dedication.imageAlt, lang) || title;
 
   root.innerHTML = `
     <article class="recipe-page dedication-page">
-      <h1 class="recipe-title">${escapeHtml(title)}</h1>
-      ${salutation ? `<p class="recipe-subtitle">${escapeHtml(salutation)}</p>` : ''}
+      <header>
+        <h1 class="recipe-title">${escapeHtml(title)}</h1>
+        ${salutation ? `<p class="recipe-subtitle">${escapeHtml(salutation)}</p>` : ''}
+      </header>
+      ${dedication.image ? `
+        <figure class="hero">
+          <img src="${escapeHtml(dedication.image)}" alt="${escapeHtml(imageAlt)}">
+        </figure>
+      ` : ''}
       <div class="mood">
         ${body.map(p => `<p>${escapeHtml(p)}</p>`).join('')}
         ${signoff ? `<p class="dedication-signoff">${escapeHtml(signoff)}</p>` : ''}
@@ -621,15 +617,12 @@ function renderDedicationTextPage(dedication, lang, rootEl) {
    ============================================================ */
 
 /* Assembles the ordered list of "pages" a book consists of: the
-   dedication's photo (if it has one), the dedication's text, then each
-   recipe in the order the book specifies. recipesById maps recipeId ->
-   full recipe object (already fetched). */
+   dedication (photo + text together, if it has one), then each recipe
+   in the order the book specifies. recipesById maps recipeId -> full
+   recipe object (already fetched). */
 function buildBookPages(book, dedication, recipesById) {
   const pages = [];
-  if (dedication) {
-    if (dedication.image) pages.push({ type: 'dedication-image', data: dedication });
-    pages.push({ type: 'dedication-text', data: dedication });
-  }
+  if (dedication) pages.push({ type: 'dedication', data: dedication });
   (book.recipeIds || []).forEach(rid => {
     const r = recipesById[rid];
     if (r) pages.push({ type: 'recipe', data: r });
@@ -638,13 +631,11 @@ function buildBookPages(book, dedication, recipesById) {
 }
 
 function bookPageAvailLangs(page) {
-  if (page.type === 'recipe') return availableLangs(page.data, 'title');
   return availableLangs(page.data, 'title');
 }
 
 function renderBookPage(page, lang, rootEl, ingredientRegistry) {
-  if (page.type === 'dedication-image') return renderDedicationImagePage(page.data, lang, rootEl);
-  if (page.type === 'dedication-text') return renderDedicationTextPage(page.data, lang, rootEl);
+  if (page.type === 'dedication') return renderDedicationPage(page.data, lang, rootEl);
   if (page.type === 'recipe') return renderRecipe(page.data, lang, ingredientRegistry, rootEl);
 }
 
@@ -795,6 +786,6 @@ window.bootBook = bootBook;
 window.cookbook = {
   pickLang, pickTools, escapeHtml, LANGS, LANG_LABELS, CAT_LABELS, UI_LABELS, t, applyChrome, recipeCountLabel,
   renderRecipe, renderIngredient, loadIngredientRegistry, layoutBasketConnectors,
-  loadDedicationRegistry, loadBookRegistry, renderDedicationImagePage, renderDedicationTextPage,
+  loadDedicationRegistry, loadBookRegistry, renderDedicationPage,
   buildBookPages, renderBookPage, bootBook, availableLangs, mountLangSwitch
 };
