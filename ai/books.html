@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zutaten — Dinner für zwei</title>
+  <title>Bücher — Dinner für zwei</title>
   <link rel="stylesheet" href="css/cookbook.css">
 </head>
 <body>
@@ -19,8 +19,8 @@
   </header>
 
   <section class="title-block">
-    <h1 id="ing-heading">Zutaten</h1>
-    <p class="tagline" id="ing-tagline">Steckbriefe der Zutaten — Herkunft, Saison, Tricks.</p>
+    <h1 id="books-heading">Bücher</h1>
+    <p class="tagline" id="books-tagline">Personalisierte Kochbücher — eine Zueignung, ausgewählte Rezepte.</p>
   </section>
 
   <div class="index-grid" id="grid"></div>
@@ -29,13 +29,9 @@
   <script>
     let lang = localStorage.getItem('cookbook-lang') || 'de';
     let registry = null;
-    let recipeRegistry = null;
 
     async function load() {
-      [registry, recipeRegistry] = await Promise.all([
-        fetch('data/ingredients.json').then(r => r.json()),
-        fetch('data/recipes.json').then(r => r.json())
-      ]);
+      registry = await window.cookbook.loadBookRegistry();
       renderGrid();
       renderLangSwitch();
       applyPageChrome();
@@ -43,28 +39,22 @@
 
     function applyPageChrome() {
       window.cookbook.applyChrome(lang);
-      document.getElementById('ing-heading').textContent = window.cookbook.t('navIngredients', lang);
-      document.getElementById('ing-tagline').textContent = window.cookbook.t('tagIngredients', lang);
+      document.getElementById('books-heading').textContent = window.cookbook.t('navBooks', lang);
+      document.getElementById('books-tagline').textContent = window.cookbook.t('tagBooks', lang);
     }
 
     function renderGrid() {
       const grid = document.getElementById('grid');
-      const items = (registry.ingredients || []).slice().sort((a, b) =>
-        (a.name[lang] || a.name.de || a.id).localeCompare(b.name[lang] || b.name.de || b.id, lang)
-      );
-      grid.innerHTML = items.map(i => {
-        const n = i.name[lang] || i.name.de || i.id;
-        const used = (i.usedIn || []).length;
-        const photoSoon = window.cookbook.t('photoSoon', lang);
-        const usedLabel = used ? window.cookbook.recipeCountLabel(used, lang) : '—';
+      const items = registry.books || [];
+      grid.innerHTML = items.map(b => {
+        const title = b.title[lang] || b.title.de || b.id;
         return `
-          <a class="recipe-card" href="${i.href}">
-            <div class="thumb" style="background:var(--paper-deep);display:flex;align-items:center;justify-content:center;color:var(--ink-faint);font-size:.75rem;letter-spacing:.15em;text-transform:uppercase">${photoSoon}</div>
-            <div class="cat">${usedLabel}</div>
-            <h2 class="name">${n}</h2>
+          <a class="recipe-card" href="book.html?id=${encodeURIComponent(b.id)}">
+            <div class="thumb" style="background:var(--paper-deep);display:flex;align-items:center;justify-content:center;color:var(--ink-faint);font-size:.75rem;letter-spacing:.15em;text-transform:uppercase">${window.cookbook.t('navBooks', lang)}</div>
+            <h2 class="name">${title}</h2>
           </a>
         `;
-      }).join('') || `<p style="grid-column:1/-1;text-align:center;color:var(--ink-faint)">${window.cookbook.t('noIngredientsYet', lang)}</p>`;
+      }).join('') || `<p style="grid-column:1/-1;text-align:center;color:var(--ink-faint)">${window.cookbook.t('noBooksYet', lang)}</p>`;
     }
 
     function renderLangSwitch() {

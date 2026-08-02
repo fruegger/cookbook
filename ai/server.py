@@ -13,8 +13,12 @@ What this does:
       PUT  /api/recipes/<id>         → writes data/<id>.json (and rebuilds index)
       GET  /api/ingredients/<id>     → returns data/ingredients/<id>.json
       PUT  /api/ingredients/<id>     → writes data/ingredients/<id>.json
-  - On any PUT, regenerates data/recipes.json and data/ingredients.json
-    so the indexes stay in sync.
+      GET  /api/dedications/<id>     → returns data/<id>.json
+      PUT  /api/dedications/<id>     → writes data/<id>.json (and rebuilds index)
+      GET  /api/books/<id>           → returns data/<id>.json
+      PUT  /api/books/<id>           → writes data/<id>.json (and rebuilds index)
+  - On any PUT, regenerates data/recipes.json, data/ingredients.json,
+    data/dedications.json, and data/books.json so the indexes stay in sync.
 
 What this is NOT:
   - Not for production. No auth. Bind to localhost only.
@@ -36,9 +40,24 @@ ING_DIR = os.path.join(DATA_DIR, "ingredients")
 # Slug must look like a slug — guards against path traversal.
 SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 
+# recipes/dedications/books all live directly in DATA_DIR, distinguished
+# by filename prefix. Requiring the slug to match its kind's prefix stops
+# an accidental id collision (e.g. saving a book as "recipe-001") from
+# silently overwriting an unrelated file.
+KIND_PREFIX = {
+    "recipes": "recipe-",
+    "dedications": "dedication-",
+    "books": "book-",
+}
+
 
 def is_valid_slug(s):
     return bool(s) and bool(SLUG_RE.match(s)) and ".." not in s
+
+
+def slug_matches_kind(kind, slug):
+    prefix = KIND_PREFIX.get(kind)
+    return prefix is None or slug.startswith(prefix)
 
 
 def read_json(path):
@@ -71,6 +90,44 @@ def rebuild_recipes_index():
             "href": f"recipe.html?id={r.get('id', fn[:-5])}"
         })
     write_json(os.path.join(DATA_DIR, "recipes.json"), {"recipes": recipes})
+
+
+def rebuild_dedications_index():
+    """Regenerate data/dedications.json from every data/dedication-*.json."""
+    dedications = []
+    for fn in sorted(os.listdir(DATA_DIR)):
+        if not (fn.startswith("dedication-") and fn.endswith(".json")):
+            continue
+        try:
+            d = read_json(os.path.join(DATA_DIR, fn))
+        except Exception:
+            continue
+        dedications.append({
+            "id": d.get("id", fn[:-5]),
+            "title": d.get("title", {"de": "", "en": "", "fr": "", "it": ""}),
+            "thumb": d.get("image", "")
+        })
+    write_json(os.path.join(DATA_DIR, "dedications.json"), {"dedications": dedications})
+
+
+def rebuild_books_index():
+    """Regenerate data/books.json from every data/book-*.json."""
+    books = []
+    for fn in sorted(os.listdir(DATA_DIR)):
+        if not (fn.startswith("book-") and fn.endswith(".json")):
+            continue
+        try:
+            b = read_json(os.path.join(DATA_DIR, fn))
+        except Exception:
+            continue
+        books.append({
+            "id": b.get("id", fn[:-5]),
+            "title": b.get("title", {"de": "", "en": "", "fr": "", "it": ""}),
+            "dedicationId": b.get("dedicationId", ""),
+            "recipeCount": len(b.get("recipeIds") or []),
+            "href": f"book.html?id={b.get('id', fn[:-5])}"
+        })
+    write_json(os.path.join(DATA_DIR, "books.json"), {"books": books})
 
 
 def rebuild_ingredients_index():
@@ -133,8 +190,9 @@ class Handler(SimpleHTTPRequestHandler):
     # ----- API routing -----
 
     def _api_match(self):
-        """Return (kind, slug) if the path is /api/(recipes|ingredients)/<slug>."""
-        m = re.match(r"^/api/(recipes|ingredients)/([^/]+)$",
+        """Return (kind, slug) if the path is
+        /api/(recipes|ingredients|dedications|books)/<slug>."""
+        m = re.match(r"^/api/(recipes|ingredients|dedications|books)/([^/]+)$",
                      urlparse(self.path).path)
         if not m:
             return None
@@ -158,8 +216,10 @@ class Handler(SimpleHTTPRequestHandler):
             kind, slug = api
             if not is_valid_slug(slug):
                 return self._send_error_json(400, "invalid slug")
-            path = (os.path.join(DATA_DIR, f"{slug}.json") if kind == "recipes"
-                    else os.path.join(ING_DIR, f"{slug}.json"))
+            if kind in KIND_PREFIX and not slug_matches_kind(kind, slug):
+                return self._send_error_json(400, f"{kind} id should start with '{KIND_PREFIX[kind]}'")
+            path = (os.path.join(ING_DIR, f"{slug}.json") if kind == "ingredients"
+                    else os.path.join(DATA_DIR, f"{slug}.json"))
             if not os.path.isfile(path):
                 return self._send_error_json(404, "not found")
             return self._send_json(200, read_json(path))
@@ -172,6 +232,8 @@ class Handler(SimpleHTTPRequestHandler):
         kind, slug = api
         if not is_valid_slug(slug):
             return self._send_error_json(400, "invalid slug")
+        if kind in KIND_PREFIX and not slug_matches_kind(kind, slug):
+            return self._send_error_json(400, f"{kind} id should start with '{KIND_PREFIX[kind]}'")
         length = int(self.headers.get("Content-Length", "0"))
         try:
             body = self.rfile.read(length)
@@ -182,14 +244,14 @@ class Handler(SimpleHTTPRequestHandler):
         # Sanity: the body's id should match the URL slug; if not, prefer URL.
         obj["id"] = slug
 
-        if kind == "recipes":
-            path = os.path.join(DATA_DIR, f"{slug}.json")
-        else:
-            path = os.path.join(ING_DIR, f"{slug}.json")
+        path = (os.path.join(ING_DIR, f"{slug}.json") if kind == "ingredients"
+                else os.path.join(DATA_DIR, f"{slug}.json"))
 
         write_json(path, obj)
         rebuild_recipes_index()
         rebuild_ingredients_index()
+        rebuild_dedications_index()
+        rebuild_books_index()
         return self._send_json(200, {"ok": True, "id": slug})
 
 
@@ -199,6 +261,8 @@ def main():
     try:
         rebuild_recipes_index()
         rebuild_ingredients_index()
+        rebuild_dedications_index()
+        rebuild_books_index()
     except Exception as e:
         print(f"Warning: could not rebuild registries: {e}", file=sys.stderr)
 
@@ -206,6 +270,7 @@ def main():
     print(f"Serving cookbook on http://localhost:{port}/")
     print(f"  Editor:    http://localhost:{port}/editor.html")
     print(f"  Recipes:   http://localhost:{port}/recipes.html")
+    print(f"  Books:     http://localhost:{port}/books.html")
     print(f"  Press Ctrl-C to stop.")
     try:
         httpd.serve_forever()

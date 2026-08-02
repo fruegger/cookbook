@@ -1,0 +1,11 @@
+{
+  "id": "book-001",
+  "title": {
+    "de": "Für Steffi & Martin",
+    "en": "For Steffi & Martin",
+    "fr": "",
+    "it": ""
+  },
+  "dedicationId": "dedication-001",
+  "recipeIds": ["recipe-001", "recipe-002", "recipe-003"]
+}

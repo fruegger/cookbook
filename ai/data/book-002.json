@@ -1,0 +1,15 @@
+{
+  "id": "book-002",
+  "title": {
+    "de": "",
+    "en": "Per Auri e Gianni",
+    "fr": "",
+    "it": ""
+  },
+  "dedicationId": "dedication-002",
+  "recipeIds": [
+    "recipe-001",
+    "recipe-002",
+    "recipe-004"
+  ]
+}

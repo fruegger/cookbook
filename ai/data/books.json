@@ -1,0 +1,28 @@
+{
+  "books": [
+    {
+      "id": "book-001",
+      "title": {
+        "de": "Für Steffi & Martin",
+        "en": "For Steffi & Martin",
+        "fr": "",
+        "it": ""
+      },
+      "dedicationId": "dedication-001",
+      "recipeCount": 3,
+      "href": "book.html?id=book-001"
+    },
+    {
+      "id": "book-002",
+      "title": {
+        "de": "",
+        "en": "Per Auri e Gianni",
+        "fr": "",
+        "it": ""
+      },
+      "dedicationId": "",
+      "recipeCount": 3,
+      "href": "book.html?id=book-002"
+    }
+  ]
+}

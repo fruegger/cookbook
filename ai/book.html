@@ -19,9 +19,19 @@
     <div id="lang-switch" class="langswitch"></div>
   </header>
 
-  <main id="recipe-root"></main>
+  <nav class="book-pager print-hide">
+    <button id="book-prev" type="button">← Zurück</button>
+    <span id="book-page-indicator" class="book-page-indicator"></span>
+    <button id="book-next" type="button">Weiter →</button>
+  </nav>
+
+  <main id="book-page-root"></main>
+
+  <!-- Populated with every page of the book right before printing
+       (see bootBook in cookbook.js); stays empty/hidden otherwise. -->
+  <div id="book-print-root"></div>
 
   <script src="js/cookbook.js"></script>
-  <script>bootRecipe();</script>
+  <script>bootBook();</script>
 </body>
 </html>
