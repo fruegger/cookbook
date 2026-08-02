@@ -1,5 +1,5 @@
 {
-  "id": "dedication-001",
+  "id": "dedication-002",
   "title": {
     "de": "Dinner für zwei",
     "en": "Dinner for two",
@@ -7,8 +7,8 @@
     "it": ""
   },
   "salutation": {
-    "de": "Cara Auri, caro Gianni,",
-    "en": "",
+    "de": "",
+    "en": "Cara Auri, caro Gianni,",
     "fr": "",
     "it": ""
   },
@@ -31,7 +31,7 @@
   "signoff": {
     "de": "",
     "en": "",
-    "fr": "un qualsiasi zio.",
+    "fr": "",
     "it": ""
   }
 }

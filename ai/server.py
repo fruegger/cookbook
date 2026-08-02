@@ -80,7 +80,8 @@ def rebuild_recipes_index():
             continue
         try:
             r = read_json(os.path.join(DATA_DIR, fn))
-        except Exception:
+        except Exception as e:
+            print(f"Warning: skipping {fn} while rebuilding recipes.json — {e}", file=sys.stderr)
             continue
         recipes.append({
             "id": r.get("id", fn[:-5]),
@@ -100,7 +101,8 @@ def rebuild_dedications_index():
             continue
         try:
             d = read_json(os.path.join(DATA_DIR, fn))
-        except Exception:
+        except Exception as e:
+            print(f"Warning: skipping {fn} while rebuilding dedications.json — {e}", file=sys.stderr)
             continue
         dedications.append({
             "id": d.get("id", fn[:-5]),
@@ -118,7 +120,8 @@ def rebuild_books_index():
             continue
         try:
             b = read_json(os.path.join(DATA_DIR, fn))
-        except Exception:
+        except Exception as e:
+            print(f"Warning: skipping {fn} while rebuilding books.json — {e}", file=sys.stderr)
             continue
         books.append({
             "id": b.get("id", fn[:-5]),
@@ -143,7 +146,8 @@ def rebuild_ingredients_index():
             continue
         try:
             r = read_json(os.path.join(DATA_DIR, fn))
-        except Exception:
+        except Exception as e:
+            print(f"Warning: skipping {fn} while scanning ingredient usage — {e}", file=sys.stderr)
             continue
         rid = r.get("id", fn[:-5])
         seen = set()
@@ -160,7 +164,8 @@ def rebuild_ingredients_index():
             continue
         try:
             ing = read_json(os.path.join(ING_DIR, fn))
-        except Exception:
+        except Exception as e:
+            print(f"Warning: skipping {fn} while rebuilding ingredients.json — {e}", file=sys.stderr)
             continue
         slug = ing.get("id", fn[:-5])
         # Refresh usedIn on the ingredient JSON itself too, so it's not stale.
