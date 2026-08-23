@@ -40,7 +40,8 @@
         "recipe-002",
         "recipe-003",
         "recipe-004",
-        "recipe-005"
+        "recipe-005",
+        "recipe-007"
       ]
     },
     {
@@ -93,7 +94,8 @@
       "href": "ingredient.html?id=ei",
       "usedIn": [
         "recipe-001",
-        "recipe-005"
+        "recipe-005",
+        "recipe-007"
       ]
     },
     {
@@ -145,7 +147,8 @@
       },
       "href": "ingredient.html?id=kraeuter",
       "usedIn": [
-        "recipe-003"
+        "recipe-003",
+        "recipe-007"
       ]
     },
     {
@@ -213,7 +216,8 @@
       "usedIn": [
         "recipe-002",
         "recipe-003",
-        "recipe-006"
+        "recipe-006",
+        "recipe-007"
       ]
     },
     {
@@ -384,7 +388,8 @@
       },
       "href": "ingredient.html?id=zaatar",
       "usedIn": [
-        "recipe-003"
+        "recipe-003",
+        "recipe-007"
       ]
     },
     {

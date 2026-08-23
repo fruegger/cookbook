@@ -192,6 +192,20 @@ class Handler(SimpleHTTPRequestHandler):
     def log_message(self, fmt, *args):
         sys.stderr.write("%s - %s\n" % (self.address_string(), fmt % args))
 
+    # This is a local editing tool where data/*.json and js/*.js change
+    # constantly during a session — a cached stale response (browser or
+    # disk cache) has repeatedly looked like a real bug ("only one
+    # dedication shows up", "still on German", etc.) when the data was
+    # actually fine. Simplest fix: tell the browser never to cache
+    # anything from this server at all. Applies to every response,
+    # static files and the JSON API alike, since both go through
+    # end_headers().
+    def end_headers(self):
+        self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
+        self.send_header("Pragma", "no-cache")
+        self.send_header("Expires", "0")
+        super().end_headers()
+
     # ----- API routing -----
 
     def _api_match(self):

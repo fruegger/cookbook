@@ -1,0 +1,318 @@
+{
+  "id": "recipe-007",
+  "category": "main",
+  "servings": {
+    "de": "für 2 Personen",
+    "en": "serves 2",
+    "fr": "pour 2 personnes",
+    "it": "per 2 persone"
+  },
+  "title": {
+    "de": "Zucchini gefüllt",
+    "en": "Stuffed zucchini",
+    "fr": "",
+    "it": ""
+  },
+  "subtitle": {
+    "de": "mit Amaretti-füllung, Za'atar kartoffeln ",
+    "en": "with Amaretti stuffing, Za'atar potatoes.",
+    "fr": "",
+    "it": ""
+  },
+  "mood": {
+    "de": [
+      "Dieses gefüllte Gemüse wäre an sich wirklich nichts merkwürdiges, wäre es nicht für die spezielle Zutat : Amaretti.\nLässt man diese weg, so ist das Gericht eine recht konventionelle mediterrane Beilage; mit Amaretti wirkt es doch weit weniger alltäglich; es war lange Zeit Claudias Lieblingsgemüse.",
+      "Bei uns zuhause werden Amaretti vorwiegend dann eingekauft, wenn Brotkuchen gebacken wird oder aber um diese gefüllte Zucchini zuzubereiten. ",
+      "Dafür brauche ich nicht die bekannte Amaretti di Saronno (das sind die härtere, deren Geschmack  aus Aprikosenkerne stammt und nicht aus Mandeln, wie man oft denkt) sondern Amaretti morbidi: diese sind nicht so lange haltbar, aber sie sind meiner Meinung nach viel delikater und leckerer.\n",
+      "Amaretti sind auch ziemlich einfach eigenhändig zu backen, man kann sie sogar ohne grosse Umstände vegan machen… Aber für mich sind sie, zusammen mit Panettone, Formaggella, Nocino und selbstverständlich die Besuchs-runde der Familie, eines der letzten Vorwände, um ab und zu einen Abstecher südlich der Alpen zu unternehmen.   "
+    ],
+    "en": [
+      "This stuffed vegetable dish wouldn't be anything unusual in itself, were it not for the special ingredient: amaretti. Without them, the dish is a fairly conventional Mediterranean side dish; with amaretti, it's far less commonplace; it was Claudia's favorite vegetable for a long time.\n",
+      "At our house, we mainly buy amaretti when we're baking 'Torta di pane' or to prepare these stuffed zucchini.\n",
+      "For this I do not use the well-known Amaretti di Saronno (these are the harder ones, whose flavor comes from apricot kernels and not from almonds, as is often thought) but Amaretti morbidi: these do not keep as long, but in my opinion they are much more delicate and delicious.\n",
+      "Amaretti are also quite easy to bake yourself, you can even make them vegan without much trouble… But for me, along with panettone, formaggella, nocino and of course the family visit, they are one of the last excuses to occasionally go on a  trip south of the Alps.\n"
+    ],
+    "fr": [],
+    "it": []
+  },
+  "basket": {
+    "image": "/assets/photos/recipe-007/basket007.png",
+    "alt": {
+      "de": "",
+      "en": "",
+      "fr": "",
+      "it": ""
+    },
+    "connectors": {}
+  },
+  "ingredients": {
+    "groups": [
+      {
+        "name": {
+          "de": "Für die Zucchini",
+          "en": "For the zucchini",
+          "fr": "",
+          "it": ""
+        },
+        "items": [
+          {
+            "id": "zucchini",
+            "ref": "zucchini",
+            "qty": {
+              "de": "1 mittelgross",
+              "en": "1 middle sized",
+              "fr": "",
+              "it": ""
+            },
+            "name": {
+              "de": "Zucchini (ca. 250g)",
+              "en": "zucchini (~250 g)",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "ciabatta",
+            "ref": "ciabatta",
+            "qty": {
+              "de": "1 Scheibe",
+              "en": "1 slice ",
+              "fr": "",
+              "it": ""
+            },
+            "name": {
+              "de": "Ciabattabrot (ca. 20g)",
+              "en": "ciabatta bread (~20 g)",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "olivenoel",
+            "ref": "olivenoel",
+            "qty": {
+              "de": "1 Löffel",
+              "en": "1 spoon",
+              "fr": "",
+              "it": ""
+            },
+            "name": {
+              "de": "Olivenöl",
+              "en": "olive oil",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "kraeuter",
+            "ref": "kraeuter",
+            "qty": {
+              "de": "je 1 Zweig",
+              "en": "1 sprig each",
+              "fr": "",
+              "it": ""
+            },
+            "name": {
+              "de": "Origano, Thymian",
+              "en": "oregano, thyme",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "ei",
+            "ref": "ei",
+            "qty": {
+              "de": "1",
+              "en": "",
+              "fr": "",
+              "it": ""
+            },
+            "name": {
+              "de": "Ei",
+              "en": "egg",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "knoblauch",
+            "ref": "knoblauch",
+            "qty": {
+              "de": "1/2 Zähe",
+              "en": "1/2 clove",
+              "fr": "",
+              "it": ""
+            },
+            "name": {
+              "de": "Knoblauch",
+              "en": "garlic",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "parmesan",
+            "ref": "parmesan",
+            "qty": {
+              "de": "20 g",
+              "en": "",
+              "fr": "",
+              "it": ""
+            },
+            "name": {
+              "de": "Parmesan",
+              "en": "parmesan",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "amaretti",
+            "ref": "amaretti",
+            "qty": {
+              "de": "2",
+              "en": "",
+              "fr": "",
+              "it": ""
+            },
+            "name": {
+              "de": "Amaretti",
+              "en": "amaretti",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "zitrone",
+            "ref": "zitzone",
+            "qty": {
+              "de": "1",
+              "en": "",
+              "fr": "",
+              "it": ""
+            },
+            "name": {
+              "de": "Zitrone (optional)",
+              "en": "lemmon",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "pinienkerne",
+            "ref": "pinienkerne",
+            "qty": {
+              "de": "1 TL",
+              "en": "1 tea spoon",
+              "fr": "",
+              "it": ""
+            },
+            "name": {
+              "de": "Pinienkerne (optional)",
+              "en": "pine nuts",
+              "fr": "",
+              "it": ""
+            }
+          }
+        ]
+      },
+      {
+        "name": {
+          "de": "Für die Kartoffel",
+          "en": "For the potatoes",
+          "fr": "",
+          "it": ""
+        },
+        "items": [
+          {
+            "id": "kartoffel",
+            "ref": "kartoffel",
+            "qty": {
+              "de": "3 mittlere (300g)",
+              "en": "1 middle sized",
+              "fr": "",
+              "it": ""
+            },
+            "name": {
+              "de": "festkochende Kartoffeln",
+              "en": "waxy potatoes (~300 g)",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "butter",
+            "ref": "butter",
+            "qty": {
+              "de": "1 EL",
+              "en": "1 spool",
+              "fr": "",
+              "it": ""
+            },
+            "name": {
+              "de": "Butter oder Gheee (zum Braten)",
+              "en": "butter or ghee (for pan frying)",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
+            "id": "zaatar",
+            "ref": "zaatar",
+            "qty": {
+              "de": "1 Prise",
+              "en": "1 pinch",
+              "fr": "",
+              "it": ""
+            },
+            "name": {
+              "de": "Za'atar",
+              "en": "za'atar",
+              "fr": "",
+              "it": ""
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "methods": [
+    {
+      "name": {
+        "de": "",
+        "en": "",
+        "fr": "",
+        "it": ""
+      },
+      "steps": []
+    }
+  ],
+  "finished": {
+    "image": "/assets/photos/recipe-007/finished007.png",
+    "alt": {
+      "de": "",
+      "en": "",
+      "fr": "",
+      "it": ""
+    }
+  },
+  "sources": [
+    {
+      "type": "url",
+      "url": "https://ottolenghi.co.uk/",
+      "label": {
+        "de": "Yotam Ottolenghi — die Bratkartoffeln mit Za'atar sowie die sehr ähnliche Rezept im Buch 'Simple'  zeigen sein unverkennbarer Einfluss.",
+        "en": "",
+        "fr": "",
+        "it": ""
+      }
+    }
+  ],
+  "notes": {
+    "de": [],
+    "en": [],
+    "fr": [],
+    "it": []
+  }
+}

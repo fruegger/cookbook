@@ -71,6 +71,18 @@
       },
       "thumb": "assets/photos/recipe-006/finished006.jpeg",
       "href": "recipe.html?id=recipe-006"
+    },
+    {
+      "id": "recipe-007",
+      "category": "main",
+      "title": {
+        "de": "Zucchini gefüllt",
+        "en": "Stuffed zucchini",
+        "fr": "",
+        "it": ""
+      },
+      "thumb": "/assets/photos/recipe-007/finished007.png",
+      "href": "recipe.html?id=recipe-007"
     }
   ]
 }

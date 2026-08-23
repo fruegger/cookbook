@@ -47,6 +47,7 @@
   },
   "usedIn": [
     "recipe-001",
-    "recipe-005"
+    "recipe-005",
+    "recipe-007"
   ]
 }
