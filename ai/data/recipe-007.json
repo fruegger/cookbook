@@ -43,7 +43,52 @@
       "fr": "",
       "it": ""
     },
-    "connectors": {}
+    "connectors": {
+      "zucchini": {
+        "x": 30,
+        "y": 30
+      },
+      "ciabatta": {
+        "x": 76,
+        "y": 29
+      },
+      "olivenoel": {
+        "x": 56,
+        "y": 37
+      },
+      "kraeuter": {
+        "x": 40,
+        "y": 45
+      },
+      "ei": {
+        "x": 12,
+        "y": 50
+      },
+      "knoblauch": {
+        "x": 47,
+        "y": 52
+      },
+      "parmesan": {
+        "x": 20,
+        "y": 75
+      },
+      "amaretti": {
+        "x": 50,
+        "y": 80
+      },
+      "kartoffel": {
+        "x": 80,
+        "y": 75
+      },
+      "zaatar": {
+        "x": 40,
+        "y": 60
+      },
+      "butter": {
+        "x": 80,
+        "y": 85
+      }
+    }
   },
   "ingredients": {
     "groups": [
@@ -226,6 +271,22 @@
         },
         "items": [
           {
+            "id": "zaatar",
+            "ref": "zaatar",
+            "qty": {
+              "de": "1 Prise",
+              "en": "1 pinch",
+              "fr": "",
+              "it": ""
+            },
+            "name": {
+              "de": "Za'atar",
+              "en": "za'atar",
+              "fr": "",
+              "it": ""
+            }
+          },
+          {
             "id": "kartoffel",
             "ref": "kartoffel",
             "qty": {
@@ -253,22 +314,6 @@
             "name": {
               "de": "Butter oder Gheee (zum Braten)",
               "en": "butter or ghee (for pan frying)",
-              "fr": "",
-              "it": ""
-            }
-          },
-          {
-            "id": "zaatar",
-            "ref": "zaatar",
-            "qty": {
-              "de": "1 Prise",
-              "en": "1 pinch",
-              "fr": "",
-              "it": ""
-            },
-            "name": {
-              "de": "Za'atar",
-              "en": "za'atar",
               "fr": "",
               "it": ""
             }
