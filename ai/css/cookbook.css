@@ -135,7 +135,7 @@ h1.recipe-title {
   line-height: 0.98;
   letter-spacing: -.01em;
   margin: .15em 0 .1em;
-  max-width: 30ch;
+  text-wrap: balance; /* if a title genuinely needs two lines, split it evenly rather than one long line + one short one */
 }
 .recipe-subtitle {
   font-family: var(--serif);
