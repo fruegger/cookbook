@@ -132,8 +132,8 @@ ein {x, y} in Prozent setzen. Die `id` muss mit der `id` im Zutaten-Item
 
 ```json
 "connectors": {
-  "schokolade": { "x": 28, "y": 35 },
-  "rosmarin":   { "x": 60, "y": 50 }
+"schokolade": { "x": 28, "y": 35 },
+"rosmarin":   { "x": 60, "y": 50 }
 }
 ```
 
@@ -142,16 +142,43 @@ ein {x, y} in Prozent setzen. Die `id` muss mit der `id` im Zutaten-Item
 Auf einer Rezept- oder Zutatenseite Cmd/Ctrl-P. Das Druck-Stylesheet
 versteckt Navigation und packt den Inhalt auf eine A4-Seite.
 
+## Eine leere Seite in ein Buch einfügen
+
+In gedruckten, gebundenen Büchern bilden Seiten Doppelseiten:
+(links, rechts) = (gerade, ungerade). Ein Rezept lässt sich nur dann als
+Doppelseite am Stück lesen, wenn es auf einer linken (geraden) Seite
+beginnt. Läuft ein Rezept z. B. auf 3 Seiten statt der üblichen 1–2,
+kann eine Leerseite davor eingefügt werden, damit das nächste Rezept
+wieder links beginnt.
+
+Dazu in `book.json` in `recipeIds` einfach den String `"blankPage"` an
+der gewünschten Stelle einfügen:
+
+```json
+"recipeIds": ["recipe-001", "blankPage", "recipe-002"]
+```
+
+Das fügt eine komplett leere Seite ein — sowohl im Bildschirm-Pager
+(book.html) als auch im zusammenhängenden Druck. Es gibt aktuell keine
+automatische Erkennung, wie viele Seiten ein Rezept braucht oder ob es
+links/rechts beginnt — das Einfügen ist bewusst manuell, einfach im
+Druck-Vorschau prüfen und bei Bedarf `"blankPage"` ergänzen.
+
+`"blankPage"` ist als eigener String-Eintrag (statt z. B. eines Feldes
+am Rezept) bewusst so gehalten, dass an derselben Stelle im Array
+später auch andere Seitentypen stehen könnten (ein ganzseitiges Bild,
+eine Textseite) — siehe `SPECIAL_PAGE_IDS` in `cookbook.js`.
+
 ## Backend (server.py)
 
 Ein winziger lokaler Server (~80 Zeilen Python, keine Abhängigkeiten):
 
 - Statisch-Hosting wie `python3 -m http.server`
 - Plus eine kleine JSON-API:
-  - `GET  /api/recipes/<id>` → liest `data/<id>.json`
-  - `PUT  /api/recipes/<id>` → schreibt `data/<id>.json`
-  - `GET  /api/ingredients/<id>` → liest `data/ingredients/<id>.json`
-  - `PUT  /api/ingredients/<id>` → schreibt `data/ingredients/<id>.json`
+    - `GET  /api/recipes/<id>` → liest `data/<id>.json`
+    - `PUT  /api/recipes/<id>` → schreibt `data/<id>.json`
+    - `GET  /api/ingredients/<id>` → liest `data/ingredients/<id>.json`
+    - `PUT  /api/ingredients/<id>` → schreibt `data/ingredients/<id>.json`
 - Bei jedem PUT werden `recipes.json` und `ingredients.json` automatisch neu
   gebaut, plus `usedIn`-Backlinks auf Zutaten.
 

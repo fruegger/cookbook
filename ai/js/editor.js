@@ -18,7 +18,7 @@
    ========================================================= */
 
 const TYPES = ['recipe', 'ingredient', 'dedication', 'book'];
-const CATEGORIES = ['entree', 'main', 'dessert', 'side', 'soup', 'breakfast'];
+const CATEGORIES = ['entree', 'main', 'dessert', 'side', 'soup', 'breakfast', 'bread', 'sauce'];
 
 const state = {
   type: 'recipe',
@@ -481,6 +481,15 @@ function dedicationFormHtml() {
 
 /* ---------- Book form ---------- */
 
+/* Label for a recipeIds entry that isn't a real recipe id — currently
+   just 'blankPage', but SPECIAL_PAGE_IDS (shared with cookbook.js) is a
+   lookup table specifically so a future second sentinel needs only a
+   case here, not a rethink of how the list renders. */
+function specialPageLabel(id) {
+  if (id === 'blankPage') return '— Leere Seite —';
+  return `— Spezialseite: ${id} —`;
+}
+
 function bookFormHtml() {
   const d = state.data;
   const dedications = _dedicationsCache?.dedications || [];
@@ -514,18 +523,24 @@ function bookFormHtml() {
       <legend>Rezepte im Buch — Reihenfolge per Drag &amp; Drop oder Pfeilen</legend>
       <div id="book-recipe-list">
         ${recipeIds.length ? recipeIds.map((rid, i) => {
+          const isSpecial = !!(window.cookbook?.SPECIAL_PAGE_IDS?.[rid]);
           const r = byId[rid];
-          const label = r ? (r.title?.de || rid) : `${rid} (nicht gefunden)`;
+          const label = isSpecial
+            ? escapeHtml(specialPageLabel(rid))
+            : escapeHtml(r ? (r.title?.de || rid) : `${rid} (nicht gefunden)`);
           return `
-            <div class="repeating-row book-recipe-row" draggable="true" data-book-idx="${i}">
+            <div class="repeating-row book-recipe-row${isSpecial ? ' book-recipe-row-special' : ''}" draggable="true" data-book-idx="${i}">
               <span class="drag-handle" title="Ziehen zum Umsortieren" aria-hidden="true">⠿</span>
-              <span class="book-recipe-title">${i + 1}. ${escapeHtml(label)}</span>
+              <span class="book-recipe-title">${i + 1}. ${isSpecial ? `<em>${label}</em>` : label}</span>
               <button type="button" data-action="book-move-up" data-idx="${i}" title="Nach oben" ${i === 0 ? 'disabled' : ''}>↑</button>
               <button type="button" data-action="book-move-down" data-idx="${i}" title="Nach unten" ${i === recipeIds.length - 1 ? 'disabled' : ''}>↓</button>
               <button type="button" data-action="book-remove-recipe" data-idx="${i}" title="Entfernen">✕</button>
             </div>
           `;
         }).join('') : '<p style="color:var(--ink-faint,#978c80);font-size:.85rem">Noch keine Rezepte ausgewählt.</p>'}
+      </div>
+      <div class="row-actions">
+        <button type="button" data-action="book-add-blank" title="Fügt eine leere Seite ans Ende der Liste an — danach mit den Pfeilen oder per Drag & Drop an die gewünschte Stelle verschieben.">+ Leere Seite einfügen</button>
       </div>
     </fieldset>
 
@@ -832,6 +847,8 @@ function wireRepeatingActions() {
         d.recipeIds.splice(Number(btn.dataset.idx), 1); break;
       case 'book-add-recipe':
         (d.recipeIds = d.recipeIds || []).push(btn.dataset.rid); break;
+      case 'book-add-blank':
+        (d.recipeIds = d.recipeIds || []).push('blankPage'); break;
     }
     markDirty();
     await renderForm();
@@ -877,11 +894,12 @@ async function renderBookPreview(registry) {
   const dedication = d.dedicationId
     ? await fetch(`data/${d.dedicationId}.json`).then(r => r.ok ? r.json() : null).catch(() => null)
     : null;
-  const recipeDetails = await Promise.all((d.recipeIds || []).map(rid =>
+  const realRecipeIds = (d.recipeIds || []).filter(rid => !window.cookbook?.SPECIAL_PAGE_IDS?.[rid]);
+  const recipeDetails = await Promise.all(realRecipeIds.map(rid =>
     fetch(`data/${rid}.json`).then(r => r.ok ? r.json() : null).catch(() => null)
   ));
   const recipesById = {};
-  (d.recipeIds || []).forEach((rid, i) => { if (recipeDetails[i]) recipesById[rid] = recipeDetails[i]; });
+  realRecipeIds.forEach((rid, i) => { if (recipeDetails[i]) recipesById[rid] = recipeDetails[i]; });
 
   const pages = window.cookbook.buildBookPages(d, dedication, recipesById);
   if (!pages.length) {

@@ -438,7 +438,7 @@ function applyChrome(lang) {
 function mountLangSwitch(obj, currentLang, onChange, key = 'title') {
   const el = document.getElementById('lang-switch');
   if (!el) return;
-  const avail = availableLangs(obj, key);
+  const avail = obj ? availableLangs(obj, key) : LANGS.slice();
   el.innerHTML = LANGS.map(l => {
     const active = l === currentLang ? 'active' : '';
     const disabled = avail.includes(l) ? '' : 'disabled';
@@ -619,13 +619,26 @@ function renderDedicationPage(dedication, lang, rootEl) {
    ============================================================ */
 
 /* Assembles the ordered list of "pages" a book consists of: the
-   dedication (photo + text together, if it has one), then each recipe
-   in the order the book specifies. recipesById maps recipeId -> full
-   recipe object (already fetched). */
+   dedication (photo + text together, if it has one), then each entry in
+   book.recipeIds in order. Most entries are recipe ids, resolved via
+   recipesById (recipeId -> full recipe object, already fetched); the
+   literal string 'blankPage' instead inserts an empty page — useful for
+   forcing the next recipe to start on a fresh spread, e.g. before a
+   recipe that runs long enough to need its own left-hand start. Kept as
+   a plain string sentinel (rather than, say, {id, blankPageBefore:true})
+   so the same slot in the array can later hold other special page kinds
+   (a full-page image, a text page) without changing recipeIds' shape
+   again — see SPECIAL_PAGE_IDS below. */
+const SPECIAL_PAGE_IDS = { blankPage: 'blank' };
+
 function buildBookPages(book, dedication, recipesById) {
   const pages = [];
   if (dedication) pages.push({ type: 'dedication', data: dedication });
   (book.recipeIds || []).forEach(rid => {
+    if (SPECIAL_PAGE_IDS[rid]) {
+      pages.push({ type: SPECIAL_PAGE_IDS[rid] });
+      return;
+    }
     const r = recipesById[rid];
     if (r) pages.push({ type: 'recipe', data: r });
   });
@@ -643,12 +656,19 @@ function bookPageAvailLangs(page) {
   // of body text. Checking 'body' instead reflects what actually has
   // content.
   if (page.type === 'dedication') return availableLangs(page.data, 'body');
+  if (page.type === 'blank') return LANGS.slice();
   return availableLangs(page.data, 'title');
 }
 
 function renderBookPage(page, lang, rootEl, ingredientRegistry) {
   if (page.type === 'dedication') return renderDedicationPage(page.data, lang, rootEl);
   if (page.type === 'recipe') return renderRecipe(page.data, lang, ingredientRegistry, rootEl);
+  if (page.type === 'blank') return renderBlankPage(rootEl);
+}
+
+function renderBlankPage(rootEl) {
+  if (!rootEl) return;
+  rootEl.innerHTML = '<article class="recipe-page book-blank-page"></article>';
 }
 
 /* Boots book.html: fetches the book, its dedication, and every recipe
@@ -680,7 +700,7 @@ async function bootBook() {
     loadIngredientRegistry()
   ]);
 
-  const recipeIds = book.recipeIds || [];
+  const recipeIds = (book.recipeIds || []).filter(rid => !SPECIAL_PAGE_IDS[rid]);
   const recipeDetails = await Promise.all(
     recipeIds.map(rid => fetch(`data/${rid}.json`).then(r => r.ok ? r.json() : null).catch(() => null))
   );
@@ -851,5 +871,6 @@ window.cookbook = {
   pickLang, pickTools, escapeHtml, LANGS, LANG_LABELS, CAT_LABELS, UI_LABELS, t, applyChrome, recipeCountLabel,
   renderRecipe, renderIngredient, loadIngredientRegistry, layoutBasketConnectors,
   loadDedicationRegistry, loadBookRegistry, renderDedicationPage,
-  buildBookPages, renderBookPage, bootBook, availableLangs, mountLangSwitch
+  buildBookPages, renderBookPage, bootBook, availableLangs, mountLangSwitch,
+  SPECIAL_PAGE_IDS
 };
