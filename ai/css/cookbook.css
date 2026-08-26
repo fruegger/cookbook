@@ -158,6 +158,13 @@ h1.recipe-title {
   filter: contrast(1.02) saturate(1.02);
 }
 
+/* The dedication's photo reuses .hero (same treatment as a recipe's
+   finished-dish photo) but reads a bit taller — width and everything
+   else about the layout stay identical, only the crop ratio changes. */
+.dedication-page .hero img {
+  aspect-ratio: 5 / 4;
+}
+
 /* Mood text */
 .mood {
   max-width: var(--measure);
@@ -621,6 +628,11 @@ h1.recipe-title {
 
   .hero { margin: 0 0 4mm; }
   .hero img { aspect-ratio: 16/8; max-height: 55mm; object-fit: cover; }
+
+  /* Dedication page has no basket/methods/colophon sections competing for
+     space, so its photo can afford to run taller than a recipe's — same
+     width, same position, just more of the page height. */
+  .dedication-page .hero img { max-height: 90mm; }
 
   .mood {
     font-size: 9pt;

@@ -598,7 +598,8 @@ function renderDedicationPage(dedication, lang, rootEl) {
       </header>
       ${dedication.image ? `
         <figure class="hero">
-          <img src="${escapeHtml(dedication.image)}" alt="${escapeHtml(imageAlt)}">
+          <img src="${escapeHtml(dedication.image)}" alt="${escapeHtml(imageAlt)}"
+               style="object-position: ${escapeHtml(dedication.imageFocal || 'center center')}">
         </figure>
       ` : ''}
       <div class="mood">
@@ -816,24 +817,24 @@ async function bootIngredient(arg) {
   draw(lang);
 }
 
-/* ---------- Print entry point ----------
-   Used by every "Drucken" link. On book.html, window.printBook (set up in
-   bootBook) rebuilds the concatenated print copy and waits for its photos
-   to load before printing — see the comment in bootBook for why that
-   matters. Plain recipe/ingredient/dedication pages have no such
-   injected-at-the-last-moment images (their photos are part of the
-   normal page render), so a plain window.print() is enough there. */
-function printCookbook() {
-  if (typeof window.printBook === 'function') {
-    window.printBook();
-  } else {
-    window.print();
-  }
-}
-window.printCookbook = printCookbook;
+    /* ---------- Print entry point ----------
+       Used by every "Drucken" link. On book.html, window.printBook (set up in
+       bootBook) rebuilds the concatenated print copy and waits for its photos
+       to load before printing — see the comment in bootBook for why that
+       matters. Plain recipe/ingredient/dedication pages have no such
+       injected-at-the-last-moment images (their photos are part of the
+       normal page render), so a plain window.print() is enough there. */
+    function printCookbook() {
+      if (typeof window.printBook === 'function') {
+        window.printBook();
+      } else {
+        window.print();
+      }
+    }
+    window.printCookbook = printCookbook;
 
-/* ---------- Public API ---------- */
-window.bootRecipe = bootRecipe;
+    /* ---------- Public API ---------- */
+    window.bootRecipe = bootRecipe;
 window.bootIngredient = bootIngredient;
 window.bootBook = bootBook;
 window.cookbook = {
