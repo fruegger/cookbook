@@ -1,93 +1,75 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dinner für zwei</title>
-  <link rel="stylesheet" href="css/cookbook.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinner für zwei</title>
+    <link rel="stylesheet" href="css/cookbook.css">
 </head>
 <body>
-  <header class="topnav print-hide">
+<header class="topnav">
     <div class="brand"><a href="index.html">Dinner für zwei</a></div>
     <nav>
-      <a href="recipes.html">Rezepte</a>
-      <a href="ingredients.html">Zutaten</a>
-      <a href="books.html">Bücher</a>
-      <a href="editor.html">Editor</a>
-      <a href="#" onclick="window.print();return false;">Drucken</a>
+        <a href="recipes.html">Rezepte</a>
+        <a href="ingredients.html">Zutaten</a>
+        <a href="books.html">Bücher</a>
+        <a href="editor.html">Editor</a>
     </nav>
     <div id="lang-switch" class="langswitch"></div>
-  </header>
+</header>
 
-  <main id="dedication-root"></main>
+<section class="title-block">
+    <h1 id="brand-heading">Dinner für zwei</h1>
+    <p class="tagline" id="home-tagline">Ein digitales Kochbuch — Rezepte, Zutaten und persönliche Bücher.</p>
+</section>
 
-  <script src="js/cookbook.js"></script>
-  <script>
+<!-- Plain welcome page: three doorways into the site. No dedication is
+     rendered here — dedications now belong to individual books
+     (book.html?id=…), not to the homepage. -->
+<div class="index-grid" id="home-grid"></div>
+
+<script src="js/cookbook.js"></script>
+<script>
     let lang = localStorage.getItem('cookbook-lang') || 'de';
-    let data = null;
 
-    function pick(field) {
-      if (!field) return '';
-      if (field[lang] && (Array.isArray(field[lang]) ? field[lang].length : field[lang])) return field[lang];
-      for (const l of window.cookbook.LANGS) if (field[l] && (Array.isArray(field[l]) ? field[l].length : field[l])) return field[l];
-      return '';
-    }
-    function escapeHtml(s) {
-      return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-    }
-
-    async function load() {
-      const res = await fetch('data/dedication.json');
-      data = await res.json();
-      render();
-      renderLangSwitch();
-      if (window.cookbook) window.cookbook.applyChrome(lang);
-    }
+    const DOORS = [
+      { href: 'recipes.html',     navKey: 'navRecipes',     tagKey: 'tagRecipes' },
+      { href: 'ingredients.html', navKey: 'navIngredients', tagKey: 'tagIngredients' },
+      { href: 'books.html',       navKey: 'navBooks',       tagKey: 'tagBooks' }
+    ];
 
     function render() {
-      const title = pick(data.title);
-      const tagline = pick(data.tagline);
-      const salutation = pick(data.salutation);
-      const body = (data.body && data.body[lang] && data.body[lang].length) ? data.body[lang] : (data.body?.de || []);
-      const signoff = pick(data.signoff);
-      const cta = window.cookbook ? window.cookbook.t('ctaToRecipes', lang) : 'Zu den Rezepten →';
+      const t = window.cookbook.t;
+      document.getElementById('brand-heading').textContent = t('brandName', lang);
+      document.getElementById('home-tagline').textContent = t('tagHome', lang);
 
-      const root = document.getElementById('dedication-root');
-      root.innerHTML = `
-        <article class="recipe-page dedication-page">
-          <h1 class="recipe-title">${escapeHtml(title)}</h1>
-          ${salutation ? `<p class="recipe-subtitle">${escapeHtml(salutation)}</p>` : ''}
+      const grid = document.getElementById('home-grid');
+      grid.innerHTML = DOORS.map(d => `
+        <a class="recipe-card" href="${d.href}">
+          <div class="thumb" style="background:var(--paper-deep);display:flex;align-items:center;justify-content:center;padding:1.5rem;text-align:center;color:var(--ink-soft);font-family:var(--serif);font-style:italic;font-size:1.05rem;line-height:1.4">${t(d.tagKey, lang)}</div>
+          <h2 class="name">${t(d.navKey, lang)}</h2>
+        </a>
+      `).join('');
 
-          <div class="mood">
-            ${body.map(p => `<p>${escapeHtml(p)}</p>`).join('')}
-            ${signoff ? `<p class="dedication-signoff">${escapeHtml(signoff)}</p>` : ''}
-          </div>
-
-          <p class="dedication-enter print-hide">
-            <a href="recipes.html">${escapeHtml(cta)}</a>
-          </p>
-        </article>
-      `;
-      document.title = title;
+      window.cookbook.applyChrome(lang);
+      document.title = t('brandName', lang);
     }
 
     function renderLangSwitch() {
       const el = document.getElementById('lang-switch');
-      el.innerHTML = window.cookbook.LANGS.map(l => {
-        const has = data.title[l] && data.title[l].length;
-        return `<button class="${l===lang?'active':''}" ${has?'':'disabled'} data-lang="${l}">${l.toUpperCase()}</button>`;
-      }).join('');
+      el.innerHTML = window.cookbook.LANGS.map(l => `
+        <button class="${l===lang?'active':''}" data-lang="${l}">${l.toUpperCase()}</button>
+      `).join('');
       el.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
-        if (b.disabled) return;
         lang = b.dataset.lang;
         localStorage.setItem('cookbook-lang', lang);
         render();
         renderLangSwitch();
-        if (window.cookbook) window.cookbook.applyChrome(lang);
       }));
     }
 
-    load();
-  </script>
+    render();
+    renderLangSwitch();
+</script>
 </body>
 </html>

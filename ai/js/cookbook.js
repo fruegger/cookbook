@@ -57,6 +57,7 @@ const UI_LABELS = {
   tagRecipes:          { de: 'Rezepte, gesammelt und mit Liebe weitergegeben.', en: 'Recipes, collected and passed on with love.', fr: 'Recettes, rassemblées et transmises avec amour.', it: 'Ricette, raccolte e tramandate con amore.' },
   tagIngredients:      { de: 'Steckbriefe der Zutaten — Herkunft, Saison, Tricks.', en: 'Ingredient profiles — origin, season, tricks.', fr: 'Fiches des ingrédients — origine, saison, astuces.', it: 'Schede degli ingredienti — origine, stagionalità, trucchi.' },
   tagBooks:            { de: 'Personalisierte Kochbücher — eine Zueignung, ausgewählte Rezepte.', en: 'Personalized cookbooks — one dedication, chosen recipes.', fr: 'Livres de cuisine personnalisés — une dédicace, des recettes choisies.', it: 'Libri di cucina personalizzati — una dedica, ricette scelte.' },
+  tagHome:             { de: 'Ein digitales Kochbuch — Rezepte, Zutaten und persönliche Bücher.', en: 'A digital cookbook — recipes, ingredients, and personal books.', fr: 'Un livre de cuisine numérique — recettes, ingrédients et livres personnels.', it: 'Un ricettario digitale — ricette, ingredienti e libri personali.' },
   noBooksYet:          { de: 'Noch keine Bücher erfasst.', en: 'No books created yet.', fr: 'Aucun livre créé pour le moment.', it: 'Nessun libro creato ancora.' },
   noRecipesInCategory: { de: 'Keine Rezepte in dieser Kategorie.', en: 'No recipes in this category.', fr: 'Aucune recette dans cette catégorie.', it: 'Nessuna ricetta in questa categoria.' },
   noIngredientsYet:    { de: 'Noch keine Zutaten erfasst.', en: 'No ingredients recorded yet.', fr: "Aucun ingrédient enregistré pour l'instant.", it: 'Nessun ingrediente ancora registrato.' },
@@ -736,10 +737,46 @@ async function bootBook() {
       layoutBasketConnectors(wrapper);
     });
   }
+
+  // renderAllForPrint() injects fresh <img> tags into (normally hidden)
+  // printRoot. If that only happens inside the 'beforeprint' handler, the
+  // browser can rasterize the page before those images have finished
+  // downloading — they come out blank in the printed/PDF output. Only an
+  // image the browser happened to have cached already (e.g. the
+  // dedication photo, if page 1 was already viewed on screen) would
+  // reliably show up, everything else was a race. Two changes fix this:
+  //  1. Build printRoot right away, in the background, as soon as the
+  //     book has loaded — so every photo starts downloading long before
+  //     anyone actually prints, not at the last possible moment.
+  //  2. Route the "Drucken" link through printBook() (below), which
+  //     rebuilds printRoot and *waits* for every image in it to finish
+  //     loading before calling window.print(). beforeprint/afterprint
+  //     stay as a fallback for the browser's own print shortcut
+  //     (Cmd/Ctrl-P) — by then the images are normally already cached
+  //     from step 1, so the rebuild is effectively instant.
+  function waitForImages(container) {
+    const imgs = Array.from(container.querySelectorAll('img'));
+    return Promise.all(imgs.map(img => {
+      if (img.complete && img.naturalWidth > 0) return Promise.resolve();
+      return new Promise(resolve => {
+        img.addEventListener('load', resolve, { once: true });
+        img.addEventListener('error', resolve, { once: true }); // don't block printing on a broken photo
+      });
+    }));
+  }
+
+  async function printBook() {
+    renderAllForPrint();
+    await waitForImages(printRoot || document.createElement('div'));
+    window.print();
+  }
+  window.printBook = printBook;
+
   window.addEventListener('beforeprint', renderAllForPrint);
   window.addEventListener('afterprint', () => { if (printRoot) printRoot.innerHTML = ''; });
 
   draw();
+  renderAllForPrint(); // warm the print copy's images in the background, see note above
 }
 
 async function bootIngredient(arg) {
@@ -778,6 +815,22 @@ async function bootIngredient(arg) {
   };
   draw(lang);
 }
+
+/* ---------- Print entry point ----------
+   Used by every "Drucken" link. On book.html, window.printBook (set up in
+   bootBook) rebuilds the concatenated print copy and waits for its photos
+   to load before printing — see the comment in bootBook for why that
+   matters. Plain recipe/ingredient/dedication pages have no such
+   injected-at-the-last-moment images (their photos are part of the
+   normal page render), so a plain window.print() is enough there. */
+function printCookbook() {
+  if (typeof window.printBook === 'function') {
+    window.printBook();
+  } else {
+    window.print();
+  }
+}
+window.printCookbook = printCookbook;
 
 /* ---------- Public API ---------- */
 window.bootRecipe = bootRecipe;

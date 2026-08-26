@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dinner für zwei</title>
-  <link rel="stylesheet" href="css/cookbook.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinner für zwei</title>
+    <link rel="stylesheet" href="css/cookbook.css">
 </head>
 <body>
-  <header class="topnav print-hide">
+<header class="topnav print-hide">
     <div class="brand"><a href="index.html">Dinner für zwei</a></div>
     <nav>
-      <a href="recipes.html">Rezepte</a>
-      <a href="ingredients.html">Zutaten</a>
-      <a href="books.html">Bücher</a>
-      <a href="editor.html">Editor</a>
-      <a href="#" onclick="window.print();return false;">Drucken</a>
+        <a href="recipes.html">Rezepte</a>
+        <a href="ingredients.html">Zutaten</a>
+        <a href="books.html">Bücher</a>
+        <a href="editor.html">Editor</a>
+        <a href="#" onclick="printCookbook();return false;">Drucken</a>
     </nav>
     <div id="lang-switch" class="langswitch"></div>
-  </header>
+</header>
 
-  <nav class="book-pager print-hide">
+<nav class="book-pager print-hide">
     <button id="book-prev" type="button">← Zurück</button>
     <span id="book-page-indicator" class="book-page-indicator"></span>
     <button id="book-next" type="button">Weiter →</button>
-  </nav>
+</nav>
 
-  <main id="book-page-root"></main>
+<main id="book-page-root"></main>
 
-  <!-- Populated with every page of the book right before printing
-       (see bootBook in cookbook.js); stays empty/hidden otherwise. -->
-  <div id="book-print-root"></div>
+<!-- Populated with every page of the book right before printing
+     (see bootBook in cookbook.js); stays empty/hidden otherwise. -->
+<div id="book-print-root"></div>
 
-  <script src="js/cookbook.js"></script>
-  <script>bootBook();</script>
+<script src="js/cookbook.js"></script>
+<script>bootBook();</script>
 </body>
 </html>

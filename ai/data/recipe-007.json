@@ -9,13 +9,13 @@
   },
   "title": {
     "de": "Zucchini gefüllt",
-    "en": "Stuffed zucchini",
+    "en": "Zucchini with amaretti stuffing",
     "fr": "",
     "it": ""
   },
   "subtitle": {
     "de": "mit Amaretti-füllung, Za'atar kartoffeln ",
-    "en": "with Amaretti stuffing, Za'atar potatoes.",
+    "en": "and Za'atar potatoes.",
     "fr": "",
     "it": ""
   },
@@ -27,7 +27,7 @@
       "Amaretti sind auch ziemlich einfach eigenhändig zu backen, man kann sie sogar ohne grosse Umstände vegan machen… Aber für mich sind sie, zusammen mit Panettone, Formaggella, Nocino und selbstverständlich die Besuchs-runde der Familie, eines der letzten Vorwände, um ab und zu einen Abstecher südlich der Alpen zu unternehmen.   "
     ],
     "en": [
-      "This stuffed vegetable dish wouldn't be anything unusual in itself, were it not for the special ingredient: amaretti. Without them, the dish is a fairly conventional Mediterranean side dish; with amaretti, it's far less commonplace; it was Claudia's favorite vegetable for a long time.\n",
+      "This stuffed vegetable wouldn't be anything unusual in itself, were it not for the special ingredient: amaretti. Without them, the dish is a fairly conventional Mediterranean side; with amaretti, it's far less commonplace; it was Claudia's favorite vegetable for a long time.\n",
       "At our house, we mainly buy amaretti when we're baking 'Torta di pane' or to prepare these stuffed zucchini.\n",
       "For this I do not use the well-known Amaretti di Saronno (these are the harder ones, whose flavor comes from apricot kernels and not from almonds, as is often thought) but Amaretti morbidi: these do not keep as long, but in my opinion they are much more delicate and delicious.\n",
       "Amaretti are also quite easy to bake yourself, you can even make them vegan without much trouble… But for me, along with panettone, formaggella, nocino and of course the family visit, they are one of the last excuses to occasionally go on a  trip south of the Alps.\n"
@@ -326,11 +326,360 @@
     {
       "name": {
         "de": "",
-        "en": "",
+        "en": "Stuffed zucchini",
         "fr": "",
         "it": ""
       },
-      "steps": []
+      "steps": [
+        {
+          "id": "z1",
+          "time": null,
+          "tools": {
+            "de": [],
+            "en": [],
+            "fr": [],
+            "it": []
+          },
+          "text": {
+            "de": "",
+            "en": "Cut the zucchini in half lengthwise (and in bite sized shells like the ones in the picture, if you are brave). Salt the insides lightly.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "z2",
+          "time": null,
+          "tools": {
+            "de": [],
+            "en": [
+              "spoon"
+            ],
+            "fr": [],
+            "it": []
+          },
+          "text": {
+            "de": "",
+            "en": "Scoop out the flesh of the zucchini with a tea spoon. Do not discard the flesh, you'll need it in a minute",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "To obtain nice shells you will have to score the edges with a knife before scooping the flesh out.",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "z3",
+          "time": "10'",
+          "tools": {
+            "de": [],
+            "en": [
+              "knife or blender",
+              "small bowl"
+            ],
+            "fr": [],
+            "it": []
+          },
+          "text": {
+            "de": "",
+            "en": "cut the flesh of the zucchini to a tartare (or blitz it in a blender), place it in a small bowl with a pinch of salt; let it sit for 10 minutes.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "z4",
+          "time": null,
+          "tools": {
+            "de": [],
+            "en": [],
+            "fr": [],
+            "it": []
+          },
+          "text": {
+            "de": "",
+            "en": "pass the zucchini flesh through a sieve (or press the water out of it with your hands or a paper towel). ",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "How the water is shed does not really matter: the idea is to prevent the stuffing from becoming soggy.",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "z5",
+          "time": null,
+          "tools": {
+            "de": [],
+            "en": [],
+            "fr": [],
+            "it": []
+          },
+          "text": {
+            "de": "",
+            "en": "Blitz the bread and amaretti for a few seconds to soft bread crumbs.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "you can also just cut the bread in small cubes, if you like a more rustic stuffing.",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "z6",
+          "time": null,
+          "tools": {
+            "de": [],
+            "en": [],
+            "fr": [],
+            "it": []
+          },
+          "text": {
+            "de": "",
+            "en": "mix the bread and amaretti crumbs, the zucchini flesh, the parmesan and the egg in a bowl.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "z7",
+          "time": null,
+          "tools": {
+            "de": [],
+            "en": [],
+            "fr": [],
+            "it": []
+          },
+          "text": {
+            "de": "",
+            "en": "hack the garlic and herbs, add them in to the mixture, season with salt and pepper. Preserve some of the herbs for the garnishing oil.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "z8",
+          "time": null,
+          "tools": {
+            "de": [],
+            "en": [],
+            "fr": [],
+            "it": []
+          },
+          "text": {
+            "de": "",
+            "en": "Spoon the mixture back into the zucchini shells (or pipe it in with a patisserie bag if it is smooth enough)  and place them on a baking sheet.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "z9",
+          "time": "15'",
+          "tools": {
+            "de": [],
+            "en": [
+              "oven - 210°C"
+            ],
+            "fr": [],
+            "it": []
+          },
+          "text": {
+            "de": "",
+            "en": "Bake in the oven at 210 degrees for about 15 minutes.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "z10",
+          "time": null,
+          "tools": {
+            "de": [],
+            "en": [],
+            "fr": [],
+            "it": []
+          },
+          "text": {
+            "de": "",
+            "en": "Optionally grate some lemon zest, add it to the preserved herbs, add some olive oil and sprinkle over the zucchine.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        }
+      ]
+    },
+    {
+      "name": {
+        "de": "Bratkartoffeln",
+        "en": "Roast potatoes",
+        "fr": "",
+        "it": ""
+      },
+      "steps": [
+        {
+          "id": "bk1",
+          "time": null,
+          "tools": {
+            "de": [
+              "Sparschäler",
+              "Messer"
+            ],
+            "en": [
+              "potato peeler",
+              "knife"
+            ],
+            "fr": [],
+            "it": []
+          },
+          "text": {
+            "de": "Schäle die Kartoffeln und schneide sie in Würfel.",
+            "en": "Peel the potatoes and cut them into wedges.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "bk2",
+          "time": "10 min",
+          "tools": {
+            "de": [
+              "Topf",
+              "Sieb"            ],
+            "en": [
+              "pan",
+              "sieve"
+            ],
+            "fr": [],
+            "it": []
+          },
+          "text": {
+            "de": "Koche die Kartoffel 10 Minuten in Salzwasser, dann giesse sie ab. Lasse sie ein paar Minuten stehen, damit sie abtropfen und etwas trocknen.",
+            "en": "Cook the potatoes in salty water for 10 minutes, then turn them over and let them cool down a bit. Let them rest for a few minutes to allow them to dry out.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "Das Trocknen ist wichtig — sonst spriztz die heisse Fett umher, wenn du die Kartoffen in die Pfanne gibst. Bei Butter ist das weniger problemnatisch als bei Öl, aber trotzdem wichtig.",
+            "en": "Letting the potatoes dry is important - otherwise, the hot oil may spatter around when you put the potatoes in the pan.",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "bk3",
+          "time": "5–10 min",
+          "tools": {
+            "de": [
+              "Bratpfanne"            ],
+            "en": [
+              "frying pan"
+            ],
+            "fr": [],
+            "it": []
+          },
+          "text": {
+            "de": "Erhitze die Butter (oder Ghee) in einer Bratpfanne und brate die Kartoffelwürfel bei mittlerer Hitze goldbraun an.",
+            "en": "Heat the butter (or ghee) in a frying pan and fry the potatoes over medium heat until golden brown.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        },
+        {
+          "id": "bk4",
+          "time": "1 min",
+          "tools": [],
+          "text": {
+            "de": "Zum Schluss streust du Za'atar, Salz und Pfeffer nach belieben darüber und bratest eine Minute weiter.",
+            "en": "Finally, sprinkle za'atar, salt, and pepper to taste over it and fry for another minute.",
+            "fr": "",
+            "it": ""
+          },
+          "photo": "",
+          "warning": {
+            "de": "",
+            "en": "",
+            "fr": "",
+            "it": ""
+          }
+        }
+      ]
     }
   ],
   "finished": {
@@ -356,7 +705,9 @@
   ],
   "notes": {
     "de": [],
-    "en": [],
+    "en": [
+      "if you like chunks of garlic as little as I do, then you may want to make garlic paste: hack it, add a bit of salt and press-rub it with a knife on a board."
+    ],
     "fr": [],
     "it": []
   }
