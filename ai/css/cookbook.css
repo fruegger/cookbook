@@ -162,7 +162,10 @@ h1.recipe-title {
    finished-dish photo) but reads a bit taller — width and everything
    else about the layout stay identical, only the crop ratio changes. */
 .dedication-page .hero img {
-  aspect-ratio: 5 / 4;
+  aspect-ratio: 6 / 5;
+}
+.dedication-page .hero {
+  margin-bottom: 3.4rem; /* a bit more air before the dedication text than a recipe gets before its mood text */
 }
 
 /* Mood text */
@@ -511,6 +514,16 @@ h1.recipe-title {
   text-align: right;
 }
 
+/* A small closing rule under the whole dedication text (body + signoff),
+   for a tidier finish to the page. */
+.dedication-page .mood::after {
+  content: '';
+  display: block;
+  width: 4em;
+  margin: 2.4em auto 0;
+  border-top: 1px solid var(--rule);
+}
+
 .dedication-enter {
   margin-top: 3rem;
   text-align: center;
@@ -632,7 +645,8 @@ h1.recipe-title {
   /* Dedication page has no basket/methods/colophon sections competing for
      space, so its photo can afford to run taller than a recipe's — same
      width, same position, just more of the page height. */
-  .dedication-page .hero img { max-height: 90mm; }
+  .dedication-page .hero img { max-height: 98mm; }
+  .dedication-page .hero { margin-bottom: 8mm; }
 
   .mood {
     font-size: 9pt;
@@ -646,6 +660,10 @@ h1.recipe-title {
   .mood p:first-child::first-letter { font-size: 2.8em; color: black; }
 
   .section-eyebrow { font-size: 7pt; padding-top: 3mm; margin-bottom: 3mm; }
+  /* This heading can land alone at the bottom of a page, right before its
+     section continues on the next one, where the label reads oddly. Drop
+     just the word — keep the divider line/spacing exactly as-is. */
+  .section-eyebrow-prep { font-size: 0; }
 
   /* Basket + list: side by side, compact */
   .basket-pair {
@@ -730,6 +748,13 @@ h1.recipe-title {
     margin-top: 22mm;
     text-align: right;
     text-indent: 0;
+  }
+  .dedication-page .mood::after {
+    width: 18mm;
+    margin: 6mm auto 0;
+    column-span: all; /* .mood is 2-column in print — without this the rule
+                          renders inside whichever column has room left,
+                          instead of centered under both */
   }
   .dedication-enter { display: none; }
 }
