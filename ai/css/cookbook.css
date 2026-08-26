@@ -505,6 +505,10 @@ h1.recipe-title {
    matches recipes exactly. Only the signoff and the doorway
    link need their own treatment.
    ========================================================= */
+.dedication-page .mood {
+  margin-bottom: 0; /* nothing follows .mood here but the closing rule below —
+                        its own margin-top is the only spacing that should count */
+}
 .dedication-page .mood .dedication-signoff {
   font-family: var(--serif);
   font-style: italic;
@@ -514,13 +518,15 @@ h1.recipe-title {
   text-align: right;
 }
 
-/* A small closing rule under the whole dedication text (body + signoff),
-   for a tidier finish to the page. */
-.dedication-page .mood::after {
+/* A closing rule under the dedication text, for a tidier finish to the
+   page. Placed on .dedication-page rather than .mood, since .mood is
+   capped to the narrower measure/reading width — this way the rule spans
+   the full page width, matching .colophon's border and the other
+   section dividers. */
+.dedication-page::after {
   content: '';
   display: block;
-  width: 4em;
-  margin: 2.4em auto 0;
+  margin-top: 3rem;
   border-top: 1px solid var(--rule);
 }
 
@@ -743,18 +749,29 @@ h1.recipe-title {
   a { color: black; border-bottom: none; }
 
   /* Dedication printable — most rules inherited from .recipe-page and .mood */
+  .dedication-page .mood {
+    margin-bottom: 0; /* nothing follows .mood here but the closing rule below —
+                          its own margin-top is the only spacing that should count */
+  }
   .dedication-page .mood .dedication-signoff {
     font-size: 10pt;
     margin-top: 22mm;
     text-align: right;
     text-indent: 0;
+    /* .mood is 2 columns in print, and its content (including this
+       element's own margin-top) feeds into the browser's column-balancing
+       calculation. A large margin attached to a short trailing line throws
+       that balance off — one column ends up noticeably taller than the
+       other, and the shortfall shows up as dead space stranded right
+       below the signoff (since the divider below always sits at the
+       bottom of the taller column). Spanning both columns removes the
+       signoff from that calculation entirely: the body text alone
+       balances evenly, and the signoff sits below it as its own
+       full-width line, the way a letter's closing line should. */
+    column-span: all;
   }
-  .dedication-page .mood::after {
-    width: 18mm;
-    margin: 6mm auto 0;
-    column-span: all; /* .mood is 2-column in print — without this the rule
-                          renders inside whichever column has room left,
-                          instead of centered under both */
+  .dedication-page::after {
+    margin-top: 6mm;
   }
   .dedication-enter { display: none; }
 }

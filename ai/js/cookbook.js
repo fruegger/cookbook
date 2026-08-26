@@ -633,6 +633,16 @@ function buildBookPages(book, dedication, recipesById) {
 }
 
 function bookPageAvailLangs(page) {
+  // A dedication's title is often filled in for every language as a
+  // generic label, while the actual letter (body/signoff) may only ever
+  // be written in one. Checking 'title' here would report a language as
+  // "available" even though its body is empty — the page would then
+  // render with no body text at all, and pickLang's own per-field
+  // fallback would pull in, say, the English signoff on its own, where
+  // it wrongly inherits the drop-cap styling meant for the opening line
+  // of body text. Checking 'body' instead reflects what actually has
+  // content.
+  if (page.type === 'dedication') return availableLangs(page.data, 'body');
   return availableLangs(page.data, 'title');
 }
 
@@ -705,7 +715,7 @@ async function bootBook() {
       lang = l;
       localStorage.setItem('cookbook-lang', l);
       draw();
-    }, 'title');
+    }, pages[pageIndex].type === 'dedication' ? 'body' : 'title');
     applyChrome(lang);
     updatePagerUI();
     if (typeof requestAnimationFrame === 'function') {
