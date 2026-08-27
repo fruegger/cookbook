@@ -741,6 +741,11 @@ async function bootBook() {
     if (typeof requestAnimationFrame === 'function') {
       requestAnimationFrame(() => layoutBasketConnectors(screenRoot));
     }
+    // Keep the hidden print copy in sync with whatever's now on screen
+    // (page, language) — see the long comment above renderAllForPrint's
+    // definition for why this needs to happen well ahead of any actual
+    // print action, not right as it starts.
+    renderAllForPrint();
   }
 
   document.getElementById('book-prev')?.addEventListener('click', () => {
@@ -770,21 +775,31 @@ async function bootBook() {
   }
 
   // renderAllForPrint() injects fresh <img> tags into (normally hidden)
-  // printRoot. If that only happens inside the 'beforeprint' handler, the
-  // browser can rasterize the page before those images have finished
-  // downloading — they come out blank in the printed/PDF output. Only an
-  // image the browser happened to have cached already (e.g. the
-  // dedication photo, if page 1 was already viewed on screen) would
-  // reliably show up, everything else was a race. Two changes fix this:
-  //  1. Build printRoot right away, in the background, as soon as the
-  //     book has loaded — so every photo starts downloading long before
-  //     anyone actually prints, not at the last possible moment.
-  //  2. Route the "Drucken" link through printBook() (below), which
-  //     rebuilds printRoot and *waits* for every image in it to finish
-  //     loading before calling window.print(). beforeprint/afterprint
-  //     stay as a fallback for the browser's own print shortcut
-  //     (Cmd/Ctrl-P) — by then the images are normally already cached
-  //     from step 1, so the rebuild is effectively instant.
+  // printRoot. If that only happens right as printing starts, two things
+  // can go wrong: (1) the browser can rasterize the page before those
+  // images have finished downloading — they come out blank; (2) even a
+  // cached image assigned to a brand-new <img> element needs at least one
+  // more tick before its natural size is available, and a basket photo's
+  // print-mode box (aspect-ratio: auto, sized from the real image, unlike
+  // screen's fixed ratio) collapses to zero height until then — so any
+  // connector dots/lines computed at that instant collapse to a single
+  // point. The .basket-pair container itself doesn't reliably catch this,
+  // since the ingredient list alone can give it a non-zero measured size
+  // even while the photo box is still collapsed.
+  //
+  // Fix: build printRoot (and keep it in sync — see draw() above) well
+  // before anyone actually prints, so images have real time to load, and
+  // never rebuild it again right as printing starts:
+  //  1. draw() calls renderAllForPrint() on every navigation/language
+  //     change, so the hidden copy is always close to current and its
+  //     images have had time to load in the background.
+  //  2. The "Drucken" link goes through printBook() (below), which
+  //     rebuilds once more and explicitly *waits* for every image to
+  //     finish loading before calling window.print() — covering the
+  //     case where the person prints within a frame or two of a change.
+  //  3. Cmd/Ctrl-P bypasses printBook() entirely, so it relies solely on
+  //     whatever draw() last prepared — another reason not to wipe
+  //     printRoot on 'afterprint': it needs to stay ready for next time.
   function waitForImages(container) {
     const imgs = Array.from(container.querySelectorAll('img'));
     return Promise.all(imgs.map(img => {
@@ -803,11 +818,7 @@ async function bootBook() {
   }
   window.printBook = printBook;
 
-  window.addEventListener('beforeprint', renderAllForPrint);
-  window.addEventListener('afterprint', () => { if (printRoot) printRoot.innerHTML = ''; });
-
   draw();
-  renderAllForPrint(); // warm the print copy's images in the background, see note above
 }
 
 async function bootIngredient(arg) {

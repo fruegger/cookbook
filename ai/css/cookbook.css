@@ -595,14 +595,32 @@ h1.recipe-title {
 
 /* =========================================================
    PRINT — whole book, concatenated
-   #book-print-root is only populated right before printing
-   (see bootBook in cookbook.js) and holds every page of the book
-   back to back; each one needs to start on its own printed page.
+   #book-print-root is kept in sync with the current page/language on
+   every navigation (see draw() in cookbook.js) and holds every page of
+   the book back to back; each one needs to start on its own printed
+   page.
+
+   Deliberately NOT display:none: that would make this a genuinely
+   hidden subtree (zero layout, zero paint) right up until printing
+   starts, and Chrome has a well-known reliability problem revealing a
+   large previously-hidden subtree inside the 'beforeprint' handler —
+   the print snapshot can be taken before that reveal's layout has
+   properly settled, so content silently comes out wrong (this is what
+   was causing the missing basket-photo connector lines: their position
+   depends on the photo's real rendered size, which was never reliably
+   available in time). Positioning off-screen instead keeps this content
+   continuously laid out and painted in the background at all times, so
+   printing only has to recompute for the print media query on already-
+   settled content — a routine operation, not a last-second reveal.
    ========================================================= */
-#book-print-root { display: none; }
+#book-print-root {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+}
 @media print {
   .book-pager, #book-page-root { display: none !important; }
-  #book-print-root { display: block; }
+  #book-print-root { position: static; left: auto; }
   #book-print-root .book-print-page {
     break-before: page;
     page-break-before: always;
