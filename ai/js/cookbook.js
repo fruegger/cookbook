@@ -406,9 +406,27 @@ if (typeof window !== 'undefined') {
   });
   // Print uses a different (mm-based) box for the photo (see cookbook.css),
   // so coordinates computed for screen layout don't carry over — recompute
-  // right before printing, and again after in case the user cancels.
+  // once print layout is actually active.
+  //
+  // beforeprint/afterprint alone aren't reliable for this: per spec,
+  // 'beforeprint' fires *before* the browser applies print-media styles,
+  // so a getBoundingClientRect() taken inside that handler can still
+  // reflect the screen layout (e.g. .basket-pair's screen column split,
+  // not print's) — the connectors then end up systematically skewed
+  // rather than either right or obviously wrong. matchMedia('print')
+  // reflects the media that's actually in effect, so its 'change' event
+  // firing with matches:true is a trustworthy signal that print layout
+  // has genuinely taken hold. Keep beforeprint/afterprint too, as a
+  // fallback for browsers without matchMedia support and to cover the
+  // 'afterprint' case (back to screen) — recomputing twice is harmless.
   window.addEventListener('beforeprint', () => layoutBasketConnectors(document));
   window.addEventListener('afterprint', () => layoutBasketConnectors(document));
+  if (window.matchMedia) {
+    const printMQL = window.matchMedia('print');
+    const onPrintChange = () => layoutBasketConnectors(document);
+    if (printMQL.addEventListener) printMQL.addEventListener('change', onPrintChange);
+    else if (printMQL.addListener) printMQL.addListener(onPrintChange); // older Safari
+  }
 }
 
 /* ---------- Site chrome (brand + nav) ----------
